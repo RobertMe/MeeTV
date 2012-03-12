@@ -1,0 +1,3 @@
+[submodule "QHtsp"]
+	path = QHtsp
+	url = git@github.com:RobertMe/QHtsp.git

@@ -33,7 +33,12 @@ QT       += network
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    meetv.cpp
+    meetv.cpp \
+    meetvepgquery.cpp \
+    meetvhtsp.cpp \
+    meetvchannel.cpp \
+    meetvevent.cpp \
+    meetvtag.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -41,7 +46,12 @@ qtcAddDeployment()
 
 include(QHtsp/QHtsp.pri)
 
-HEADERS += meetv.h
+HEADERS += meetv.h \
+    meetvepgquery.h \
+    meetvhtsp.h \
+    meetvchannel.h \
+    meetvevent.h \
+    meetvtag.h
 
 OTHER_FILES += \
     qtc_packaging/debian_harmattan/rules \

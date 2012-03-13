@@ -3,6 +3,12 @@
 #include <QtDeclarative>
 #include <QDeclarativeContext>
 
+#include "meetvhtsp.h"
+#include "meetvchannel.h"
+#include "meetvepgquery.h"
+#include "meetvevent.h"
+#include "meetvtag.h"
+
 MeeTv::MeeTv(QObject *parent) :
     QObject(parent)
 {
@@ -28,7 +34,7 @@ void MeeTv::run()
 
 void MeeTv::_initHtsp()
 {
-    m_htsp = new QHtsp();
+    m_htsp = MeeTvHtsp::instance();
     m_channelModel = new QHtspChannelModel(m_htsp->channels());
     m_tagModel = new QHtspTagModel(m_htsp->tags());
     m_eventModel = new QHtspEventModel(m_htsp->events());
@@ -50,9 +56,9 @@ void MeeTv::_initViewer()
 
 void MeeTv::_registerTypes()
 {
-    qmlRegisterType<QHtspTag>("Htsp", 1, 0, "Tag");
-    qmlRegisterType<QHtspChannel>("Htsp", 1, 0, "Channel");
-    qmlRegisterType<QHtspEvent>("Htsp", 1, 0, "Event");
+    qmlRegisterType<MeeTvTag>("Htsp", 1, 0, "Tag");
+    qmlRegisterType<MeeTvChannel>("Htsp", 1, 0, "Channel");
+    qmlRegisterType<MeeTvEvent>("Htsp", 1, 0, "Event");
     qmlRegisterType<QHtspEventModel>("Htsp", 1, 0, "EventModel");
     qmlRegisterType<QHtspChannelModel>("Htsp", 1, 0, "ChannelModel");
 }

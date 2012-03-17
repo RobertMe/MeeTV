@@ -10,11 +10,7 @@ class MeeTvChannel : public QHtspChannel
     Q_OBJECT
 public:
     explicit MeeTvChannel(QObject *parent = 0);
-    
-signals:
-    
-public slots:
-    
+    MeeTvChannel(const QHtspChannel& channel, QObject *parent = 0);
 };
 
 #endif // MEETVCHANNEL_H

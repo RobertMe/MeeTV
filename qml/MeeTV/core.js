@@ -23,3 +23,17 @@ function viewTag(tags, id) {
     var page = component.createObject(pageStack, {"channels": tag.channelsModel });
     pageStack.push(page);
 }
+
+function searchEvent(parent, queryString, channelIndex)
+{
+    var epgQuery = Qt.createQmlObject('import QtQuick 1.0; import Htsp 1.0; EpgQuery { }', parent);
+    epgQuery.query = queryString;
+    if(channelIndex > 0)
+        epgQuery.channel = channelDialog.model.getChannelByIndex(channelIndex);
+
+    epgQuery.run();
+
+    var component = Qt.createComponent("SearchEventResult.qml");
+    var page = component.createObject(pageStack, {"events": epgQuery.eventsModel });
+    pageStack.push(page);
+}

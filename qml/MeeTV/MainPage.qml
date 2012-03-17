@@ -27,6 +27,11 @@ Page {
             name: "View recordings"
             page: "ViewRecordings.qml"
         }
+
+        ListElement {
+            name: "Search event"
+            page: "SearchEvent.qml"
+        }
     }
 
     ListView {

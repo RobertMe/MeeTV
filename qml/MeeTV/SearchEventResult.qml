@@ -9,5 +9,7 @@ Page {
 
     EventList {
         id: events
+
+        showChannel: true
     }
 }

@@ -10,6 +10,7 @@ class MeeTvEpgQuery : public QHtspEpgQuery
     Q_OBJECT
 public:
     explicit MeeTvEpgQuery(QObject *parent = 0);
+    MeeTvEpgQuery(const QHtspEpgQuery& epgQuery, QObject *parent = 0);
     
 };
 

@@ -14,6 +14,14 @@ Page {
         model: channelModel
     }
 
+    SelectionDialog {
+        id: tagDialog
+
+        titleText: "Tag"
+
+        model: tagModel
+    }
+
     Column {
         TextField {
             id: query
@@ -27,8 +35,13 @@ Page {
         }
 
         Button {
+            text: "Tag"
+            onClicked: { tagDialog.open(); }
+        }
+
+        Button {
             text: "Search"
-            onClicked: { Core.searchEvent(parent, query.text, channelDialog.selectedIndex) }
+            onClicked: { Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex) }
         }
     }
 }

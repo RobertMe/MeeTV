@@ -4,6 +4,8 @@ import "core.js" as Core
 import Htsp 1.0
 
 ListView {
+    property bool showChannel: false
+
     id: events
     anchors.fill: parent
 
@@ -24,6 +26,15 @@ ListView {
                 text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
                 font: UiConstants.FieldLabelFont
                 anchors.top: titleTxt.bottom
+            }
+
+            Text {
+                id: channelTxt
+                text: channel
+                font: UiConstants.FieldLabelFont
+                anchors.top: startTxt.top
+                anchors.right: parent.right
+                visible: showChannel
             }
 
             MouseArea {

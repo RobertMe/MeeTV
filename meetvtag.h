@@ -10,9 +10,16 @@
 class MeeTvTag : public QHtspTag
 {
     Q_OBJECT
+    Q_PROPERTY(MeeTvChannelModel *channelsModel READ channelsModel)
+
 public:
     explicit MeeTvTag(QObject *parent = 0);
     MeeTvTag(const QHtspTag &tag, QObject *parent = 0);
+
+    MeeTvChannelModel *channelsModel();
+
+private:
+    MeeTvChannelModel *m_channelsModel;
 };
 
 #endif // MEETVTAG_H

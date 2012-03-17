@@ -6,9 +6,9 @@
 #include "qmlapplicationviewer.h"
 
 #include "./QHtsp/qhtsp.h"
-#include "./QHtsp/qhtspchannelmodel.h"
-#include "./QHtsp/qhtspeventmodel.h"
-#include "./QHtsp/qhtsptagmodel.h"
+#include "meetvchannelmodel.h"
+#include "meetveventmodel.h"
+#include "meetvtagmodel.h"
 
 class MeeTv : public QObject
 {
@@ -30,9 +30,9 @@ private:
     QmlApplicationViewer m_viewer;
 
     QHtsp *m_htsp;
-    QHtspChannelModel *m_channelModel;
-    QHtspEventModel *m_eventModel;
-    QHtspTagModel *m_tagModel;
+    MeeTvChannelModel *m_channelModel;
+    MeeTvEventModel *m_eventModel;
+    MeeTvTagModel *m_tagModel;
 
 };
 

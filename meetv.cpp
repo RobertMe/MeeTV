@@ -35,9 +35,9 @@ void MeeTv::run()
 void MeeTv::_initHtsp()
 {
     m_htsp = MeeTvHtsp::instance();
-    m_channelModel = new QHtspChannelModel(m_htsp->channels());
-    m_tagModel = new QHtspTagModel(m_htsp->tags());
-    m_eventModel = new QHtspEventModel(m_htsp->events());
+    m_channelModel = new MeeTvChannelModel(m_htsp->channels());
+    m_tagModel = new MeeTvTagModel(m_htsp->tags());
+    m_eventModel = new MeeTvEventModel(m_htsp->events());
 
     connect(m_htsp, SIGNAL(connected()), this, SLOT(authenticate()));
     m_htsp->connectToServer("MeeTV", "0.1", 1, "192.168.1.2");
@@ -59,6 +59,6 @@ void MeeTv::_registerTypes()
     qmlRegisterType<MeeTvTag>("Htsp", 1, 0, "Tag");
     qmlRegisterType<MeeTvChannel>("Htsp", 1, 0, "Channel");
     qmlRegisterType<MeeTvEvent>("Htsp", 1, 0, "Event");
-    qmlRegisterType<QHtspEventModel>("Htsp", 1, 0, "EventModel");
-    qmlRegisterType<QHtspChannelModel>("Htsp", 1, 0, "ChannelModel");
+    qmlRegisterType<MeeTvEventModel>("Htsp", 1, 0, "EventModel");
+    qmlRegisterType<MeeTvChannelModel>("Htsp", 1, 0, "ChannelModel");
 }

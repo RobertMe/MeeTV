@@ -18,6 +18,7 @@ ListView {
                 id: titleTxt
                 text: title
                 font: UiConstants.TitleFont
+                width: parent.width
                 clip: true
             }
 

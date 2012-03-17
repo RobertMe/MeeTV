@@ -8,7 +8,7 @@ MeeTvChannel::MeeTvChannel(QObject *parent) :
 }
 
 MeeTvChannel::MeeTvChannel(const QHtspChannel& channel, QObject *parent) :
-    QHtspChannel(channel, parent)
+    QHtspChannel(channel, parent), m_eventModel(0)
 {
 }
 

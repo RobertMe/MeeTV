@@ -15,6 +15,7 @@ public:
     explicit MeeTvTagModel(QHtspTagList *tags);
     
     Q_INVOKABLE MeeTvTag *getTagById(qint64 id);
+    Q_INVOKABLE MeeTvTag *getTagByIndex(int i);
     
 };
 

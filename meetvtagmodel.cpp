@@ -9,3 +9,8 @@ MeeTvTag *MeeTvTagModel::getTagById(qint64 id)
 {
     return new MeeTvTag(*QHtspTagModel::getTagById(id));
 }
+
+MeeTvTag *MeeTvTagModel::getTagByIndex(int i)
+{
+    return new MeeTvTag(*QHtspTagModel::getTagByIndex(i));
+}

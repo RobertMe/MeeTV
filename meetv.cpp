@@ -45,13 +45,15 @@ void MeeTv::_initHtsp()
 
 void MeeTv::_initViewer()
 {
-    m_viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
-    m_viewer.setMainQmlFile(QLatin1String("qml/MeeTV/main.qml"));
 
     QDeclarativeContext *context = m_viewer.rootContext();
-    context->setContextProperty("tagModel", m_tagModel);
     context->setContextProperty("channelModel", m_channelModel);
     context->setContextProperty("eventModel", m_eventModel);
+    context->setContextProperty("htsp", m_htsp);
+    context->setContextProperty("tagModel", m_tagModel);
+
+    m_viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    m_viewer.setMainQmlFile(QLatin1String("qml/MeeTV/main.qml"));
 }
 
 void MeeTv::_registerTypes()

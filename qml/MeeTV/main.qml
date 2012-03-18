@@ -34,4 +34,16 @@ PageStackWindow {
             MenuItem { text: qsTr("Sample menu item") }
         }
     }
+
+    BusyConnect {
+        id: busyConnect
+
+        text: "Connecting"
+    }
+
+    Connections {
+        target: htsp
+        onConnected: { busyConnect.text = "Syncing data" }
+        onSyncCompleted: { busyConnect.visible = false }
+    }
 }

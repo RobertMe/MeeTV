@@ -6,10 +6,6 @@ import Htsp 1.0
 Page {
     tools: commonTools
 
-    Channel{
-
-    }
-
     ListModel {
         id: mainOptions
 

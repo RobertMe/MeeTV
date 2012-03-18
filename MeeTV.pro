@@ -42,7 +42,8 @@ SOURCES += main.cpp \
     meetvtagmodel.cpp \
     meetvchannelmodel.cpp \
     meetveventmodel.cpp \
-    meetvdvrentry.cpp
+    meetvdvrentry.cpp \
+    meetvdvrentrymodel.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -59,7 +60,8 @@ HEADERS += meetv.h \
     meetvtagmodel.h \
     meetvchannelmodel.h \
     meetveventmodel.h \
-    meetvdvrentry.h
+    meetvdvrentry.h \
+    meetvdvrentrymodel.h
 
 OTHER_FILES += \
     qtc_packaging/debian_harmattan/rules \

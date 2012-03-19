@@ -1,10 +1,12 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.1
 
 PageStackWindow {
     id: appWindow
 
     initialPage: mainPage
+    showStatusBar: false
 
     MainPage {
         id: mainPage
@@ -41,9 +43,15 @@ PageStackWindow {
         text: "Connecting"
     }
 
+    InfoBanner {
+        id: dvrEntryAdded
+        iconSource: "image://theme/icon-m-toolbar-clock-white"
+    }
+
     Connections {
         target: htsp
         onConnected: { busyConnect.text = "Syncing data" }
+        onDvrEntryAdded: { dvrEntryAdded.text = "Added recording " + dvrEntry.title; dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }
     }
 }

@@ -62,6 +62,7 @@ void MeeTv::_registerTypes()
 {
     qmlRegisterType<MeeTvTag>("Htsp", 1, 0, "Tag");
     qmlRegisterType<MeeTvChannel>("Htsp", 1, 0, "Channel");
+    qmlRegisterType<MeeTvDvrEntry>("Htsp", 1, 0, "DvrEntry");
     qmlRegisterType<MeeTvEpgQuery>("Htsp", 1, 0, "EpgQuery");
     qmlRegisterType<MeeTvEvent>("Htsp", 1, 0, "Event");
     qmlRegisterType<MeeTvEventModel>("Htsp", 1, 0, "EventModel");

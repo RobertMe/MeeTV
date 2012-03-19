@@ -7,6 +7,7 @@
 
 #include "./QHtsp/qhtsp.h"
 #include "meetvchannelmodel.h"
+#include "meetvdvrentrymodel.h"
 #include "meetveventmodel.h"
 #include "meetvtagmodel.h"
 
@@ -31,6 +32,7 @@ private:
 
     QHtsp *m_htsp;
     MeeTvChannelModel *m_channelModel;
+    MeeTvDvrEntryModel *m_dvrEntriesModel;
     MeeTvEventModel *m_eventModel;
     MeeTvTagModel *m_tagModel;
 

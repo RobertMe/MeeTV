@@ -20,6 +20,12 @@ Page {
 
     Row {
         anchors.top: descriptionTxt.bottom
+        Button {
+            id: cancelButton
+            visible: dvrEntry.state == 2
+            text: "Cancel"
+            onClicked: { dvrEntry.cancel() }
+        }
 
         Button {
             id: deleteButton

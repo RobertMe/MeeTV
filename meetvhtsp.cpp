@@ -3,6 +3,7 @@
 MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     QHtsp(parent)
 {
+    connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()
@@ -18,6 +19,11 @@ MeeTvHtsp *MeeTvHtsp::instance()
     }
 
     return m_instance;
+}
+
+void MeeTvHtsp::emitDvrEntryAdded(QHtspDvrEntry *dvrEntry)
+{
+    emit dvrEntryAdded(new MeeTvDvrEntry(*dvrEntry));
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

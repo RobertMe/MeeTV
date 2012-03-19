@@ -10,6 +10,13 @@ function viewChannel(channels, id) {
     pageStack.push(page);
 }
 
+function viewDvrEntry(dvrEntries, id) {
+    var component = Qt.createComponent("ViewDvrEntry.qml");
+    var dvrEntry = dvrEntries.getDvrEntryById(id);
+    var page = component.createObject(pageStack, {"dvrEntry": dvrEntry });
+    pageStack.push(page);
+}
+
 function viewEvent(events, id) {
     var component = Qt.createComponent("ViewEvent.qml");
     var event = events.getEventById(id);

@@ -60,6 +60,11 @@ Page {
                 anchors.top: startTxt.top
                 anchors.right: parent.right
             }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { Core.viewDvrEntry(dvrEntriesModel, id) }
+            }
         }
     }
 }

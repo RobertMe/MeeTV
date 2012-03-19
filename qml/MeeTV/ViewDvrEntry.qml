@@ -17,4 +17,14 @@ Page {
         width: parent.width
         wrapMode: Text.Wrap
     }
+
+    Row {
+        anchors.top: descriptionTxt.bottom
+
+        Button {
+            id: deleteButton
+            text: "Delete"
+            onClicked: { dvrEntry.remove(); pageStack.pop() }
+        }
+    }
 }

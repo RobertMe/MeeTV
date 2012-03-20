@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=ControlPanelApplet
+Name=MeeTV
+X-logical-id=decl_exampl_1
+X-translation-catalog=duisettings
+Icon=
+
+X-Maemo-Service=com.nokia.DuiControlPanel
+X-Maemo-Method=com.nokia.DuiControlPanelIf.appletPage
+X-Maemo-Object-Path=/
+# this has to be the same as Name
+X-Maemo-Fixed-Args=MeeTV
+
+[DUI]
+X-DUIApplet-Applet=libdeclarative.so
+
+[DCP]
+Category=Applications
+Order=10
+Part=meetv_settings.xml

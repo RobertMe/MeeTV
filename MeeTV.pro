@@ -70,4 +70,14 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/copyright \
     qtc_packaging/debian_harmattan/control \
     qtc_packaging/debian_harmattan/compat \
-    qtc_packaging/debian_harmattan/changelog
+    qtc_packaging/debian_harmattan/changelog \
+    meetv_settings.desktop \
+    meetv_settings.xml
+
+settingsdesktop.path = /usr/share/duicontrolpanel/desktops
+settingsdesktop.files = meetv_settings.desktop
+
+settingsxml.path = /usr/share/duicontrolpanel/uidescriptions
+settingsxml.files = meetv_settings.xml
+
+INSTALLS += settingsdesktop settingsxml

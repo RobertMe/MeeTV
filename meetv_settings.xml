@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <group title="Connection">
+      <text key="/apps/ControlPanel/MeeTV/Hostname" title="Hostname"></text>
+      <text key="/apps/ControlPanel/MeeTV/Port" title="Port number"></text>
+      <text key="/apps/ControlPanel/MeeTV/Username" title="Username"></text>
+      <text key="/apps/ControlPanel/MeeTV/Password" title="Password"></text>
+  </group>
+</settings>

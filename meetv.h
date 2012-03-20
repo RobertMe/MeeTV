@@ -2,6 +2,7 @@
 #define MEETV_H
 
 #include <QObject>
+#include <QString>
 
 #include "qmlapplicationviewer.h"
 
@@ -30,6 +31,11 @@ private:
     void _registerTypes();
 
     QmlApplicationViewer m_viewer;
+
+    QString m_hostName;
+    QString m_password;
+    quint16 m_port;
+    QString m_username;
 
     QHtsp *m_htsp;
     MeeTvChannelModel *m_channelModel;

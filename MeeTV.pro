@@ -18,6 +18,9 @@ symbian:TARGET.UID3 = 0xE3FF4947
 # Allow network access on Symbian
 symbian:TARGET.CAPABILITY += NetworkServices
 
+CONFIG += link_pkgconfig
+PKGCONFIG += gq-gconf
+
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.
 CONFIG += mobility
@@ -81,3 +84,4 @@ settingsxml.path = /usr/share/duicontrolpanel/uidescriptions
 settingsxml.files = meetv_settings.xml
 
 INSTALLS += settingsdesktop settingsxml
+

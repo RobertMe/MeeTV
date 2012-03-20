@@ -1,5 +1,9 @@
 #include "meetv.h"
 
+#ifndef QT_SIMULATOR
+#include <gconfitem.h>
+#endif
+
 #include <QtDeclarative>
 #include <QDeclarativeContext>
 
@@ -12,11 +16,22 @@
 MeeTv::MeeTv(QObject *parent) :
     QObject(parent)
 {
+#ifndef QT_SIMULATOR
+    m_hostName = GConfItem("/apps/ControlPanel/MeeTV/Hostname").value().toString();;
+    m_password = GConfItem("/apps/ControlPanel/MeeTV/Password").value().toString();
+    m_port = GConfItem("/apps/ControlPanel/MeeTV/Port").value().toInt();
+    m_username = GConfItem("/apps/ControlPanel/MeeTV/Username").value().toString();
+#else
+    m_hostName = "192.168.1.2";
+    m_password = "hts";
+    m_port = 9982;
+    m_username = "hts";
+#endif
 }
 
 void MeeTv::authenticate()
 {
-    m_htsp->authenticate("hts", "hts");
+    m_htsp->authenticate(m_username, m_password);
     m_htsp->enableAsync();
 }
 
@@ -36,7 +51,7 @@ void MeeTv::run()
 void MeeTv::_connectHtsp()
 {
     connect(m_htsp, SIGNAL(connected()), this, SLOT(authenticate()));
-    m_htsp->connectToServer("MeeTV", "0.1", 1, "192.168.1.2");
+    m_htsp->connectToServer("MeeTV", "0.1", 1, m_hostName, m_port);
 }
 
 void MeeTv::_initHtsp()

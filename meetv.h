@@ -24,6 +24,7 @@ public slots:
     void authenticate();
 
 private:
+    void _connectHtsp();
     void _initHtsp();
     void _initViewer();
     void _registerTypes();

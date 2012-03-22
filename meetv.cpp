@@ -25,11 +25,18 @@ void MeeTv::init()
     _registerTypes();
     _initHtsp();
     _initViewer();
+    _connectHtsp();
 }
 
 void MeeTv::run()
 {
     m_viewer.showExpanded();
+}
+
+void MeeTv::_connectHtsp()
+{
+    connect(m_htsp, SIGNAL(connected()), this, SLOT(authenticate()));
+    m_htsp->connectToServer("MeeTV", "0.1", 1, "192.168.1.2");
 }
 
 void MeeTv::_initHtsp()
@@ -39,9 +46,6 @@ void MeeTv::_initHtsp()
     m_dvrEntriesModel = new MeeTvDvrEntryModel(m_htsp->dvrEntries());
     m_eventModel = new MeeTvEventModel(m_htsp->events());
     m_tagModel = new MeeTvTagModel(m_htsp->tags());
-
-    connect(m_htsp, SIGNAL(connected()), this, SLOT(authenticate()));
-    m_htsp->connectToServer("MeeTV", "0.1", 1, "192.168.1.2");
 }
 
 void MeeTv::_initViewer()

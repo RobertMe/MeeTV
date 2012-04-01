@@ -48,9 +48,14 @@ PageStackWindow {
         iconSource: "image://theme/icon-m-toolbar-clock-white"
     }
 
+    InfoBanner {
+        id: errorMessage
+    }
+
     Connections {
         target: htsp
         onConnected: { busyConnect.text = "Syncing data" }
+        onAccessDenied: { errorMessage.timerEnabled = false; errorMessage.text = "Access denied"; errorMessage.show(); }
         onDvrEntryAdded: { dvrEntryAdded.text = "Added recording " + dvrEntry.title; dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }
     }

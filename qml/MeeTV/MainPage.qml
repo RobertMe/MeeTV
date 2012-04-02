@@ -34,22 +34,22 @@ Page {
         id: mainMenu
         anchors.fill: parent
         model: mainOptions
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
 
-        delegate: Item {
-            id: menuItem
+        delegate: ListMenuItem {
+            leftMargin: mainMenu.anchors.leftMargin
+            rightMargin: mainMenu.anchors.rightMargin
+
             height: UiConstants.ListItemHeightDefault
-            width: parent.width
 
-            Text {
+            Label {
                 text: name
                 font: UiConstants.TitleFont
-                color: theme.inverted ? "white" : "black"
+                anchors.verticalCenter: parent.verticalCenter
             }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { Core.gotoPage(page); }
-            }
+            onClicked: { Core.gotoPage(page) }
         }
     }
 }

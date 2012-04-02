@@ -8,43 +8,42 @@ ListView {
 
     id: events
     anchors.fill: parent
+    anchors.margins: UiConstants.DefaultMargin
 
-    delegate: Column {
-        Item {
-            width: events.width
-            height: titleTxt.height + startTxt.height
+    delegate: ListMenuItem {
 
-            Text {
-                id: titleTxt
-                text: title
-                font: UiConstants.TitleFont
-                width: parent.width
-                clip: true
-                color: theme.inverted ? "white" : "black"
-            }
+        height: titleTxt.height + startTxt.height
 
-            Text {
-                id: startTxt
-                text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
-                font: UiConstants.FieldLabelFont
-                anchors.top: titleTxt.bottom
-                color: theme.inverted ? "white" : "black"
-            }
+        leftMargin: events.anchors.leftMargin
+        rightMargin: events.anchors.rightMargin
 
-            Text {
-                id: channelTxt
-                text: channel
-                font: UiConstants.FieldLabelFont
-                anchors.top: startTxt.top
-                anchors.right: parent.right
-                visible: showChannel
-                color: theme.inverted ? "white" : "black"
-            }
-
-            MouseArea {
-                onClicked: { Core.viewEvent(events.model, id); }
-                anchors.fill: parent
-            }
+        Text {
+            id: titleTxt
+            text: title
+            font: UiConstants.TitleFont
+            width: parent.width
+            clip: true
+            color: theme.inverted ? "white" : "black"
         }
+
+        Text {
+            id: startTxt
+            text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
+            font: UiConstants.FieldLabelFont
+            anchors.top: titleTxt.bottom
+            color: theme.inverted ? "white" : "black"
+        }
+
+        Text {
+            id: channelTxt
+            text: channel
+            font: UiConstants.FieldLabelFont
+            anchors.top: startTxt.top
+            anchors.right: parent.right
+            visible: showChannel
+            color: theme.inverted ? "white" : "black"
+        }
+
+        onClicked: { Core.viewEvent(events.model, id); }
     }
 }

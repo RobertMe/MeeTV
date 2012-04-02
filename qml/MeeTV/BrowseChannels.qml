@@ -9,13 +9,18 @@ Page {
 
     ListView {
         id: channels
+
         anchors.fill: parent
+        anchors.margins: UiConstants.DefaultMargin
+
         clip: true
 
         model: channelModel
-        delegate: Item {
+        delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
-            width: parent.width
+
+            leftMargin: channels.anchors.leftMargin
+            rightMargin: channels.anchors.rightMargin
 
             Row {
                 id: row
@@ -47,12 +52,10 @@ Page {
                 }
 
                 anchors.fill: parent
+                anchors.verticalCenter: parent.verticalCenter
             }
 
-            MouseArea {
-                anchors.fill: row
-                onClicked: { Core.viewChannel(channelModel, id) }
-            }
+            onClicked:  { Core.viewChannel(channelModel, id) }
         }
     }
 }

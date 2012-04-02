@@ -8,6 +8,8 @@ Page {
     ListView {
         id: recordings
         anchors.fill: parent
+        anchors.margins: UiConstants.DefaultMargin
+
         clip: true
 
         section.property: "state"
@@ -35,9 +37,11 @@ Page {
         }
 
         model: dvrEntriesModel
-        delegate: Item {
+        delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
-            width: parent.width
+
+            leftMargin: recordings.anchors.leftMargin
+            rightMargin: recordings.anchors.rightMargin
 
             Text {
                 id: titleTxt

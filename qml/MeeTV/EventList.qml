@@ -20,6 +20,7 @@ ListView {
                 font: UiConstants.TitleFont
                 width: parent.width
                 clip: true
+                color: theme.inverted ? "white" : "black"
             }
 
             Text {
@@ -27,6 +28,7 @@ ListView {
                 text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
                 font: UiConstants.FieldLabelFont
                 anchors.top: titleTxt.bottom
+                color: theme.inverted ? "white" : "black"
             }
 
             Text {
@@ -36,6 +38,7 @@ ListView {
                 anchors.top: startTxt.top
                 anchors.right: parent.right
                 visible: showChannel
+                color: theme.inverted ? "white" : "black"
             }
 
             MouseArea {

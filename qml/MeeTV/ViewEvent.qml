@@ -16,11 +16,13 @@ Page {
         font: UiConstants.BodyTextFont
         width: parent.width
         wrapMode: Text.Wrap
+        color: theme.inverted ? "white" : "black"
     }
 
     Text {
         text: "Record"
         anchors.top: descriptionTxt.bottom
+        color: theme.inverted ? "white" : "black"
 
         MouseArea {
             onClicked: { eventView.event.record(); }

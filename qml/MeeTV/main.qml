@@ -59,4 +59,6 @@ PageStackWindow {
         onDvrEntryAdded: { dvrEntryAdded.text = "Added recording " + dvrEntry.title; dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }
     }
+
+    Component.onCompleted: { theme.inverted = true }
 }

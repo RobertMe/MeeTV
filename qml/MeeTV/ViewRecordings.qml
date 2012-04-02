@@ -21,6 +21,7 @@ Page {
                 text: section == 0 ? "Completed" : (section == 1 ? "Invalid" : (section == 2 ? "Recording" : "Scheduled"))
                 font: UiConstants.GroupHeaderFont
                 anchors.right: parent.right
+                color: theme.inverted ? "white" : "black"
             }
 
             Rectangle {
@@ -44,6 +45,7 @@ Page {
                 font: UiConstants.TitleFont
                 width: parent.width
                 clip: true
+                color: theme.inverted ? "white" : "black"
             }
 
             Text {
@@ -51,6 +53,7 @@ Page {
                 text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
                 font: UiConstants.FieldLabelFont
                 anchors.top: titleTxt.bottom
+                color: theme.inverted ? "white" : "black"
             }
 
             Text {
@@ -59,6 +62,7 @@ Page {
                 font: UiConstants.FieldLabelFont
                 anchors.top: startTxt.top
                 anchors.right: parent.right
+                color: theme.inverted ? "white" : "black"
             }
 
             MouseArea {

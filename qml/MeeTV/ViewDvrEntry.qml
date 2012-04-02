@@ -16,6 +16,7 @@ Page {
         font: UiConstants.BodyTextFont
         width: parent.width
         wrapMode: Text.Wrap
+        color: theme.inverted ? "white" : "black"
     }
 
     Row {

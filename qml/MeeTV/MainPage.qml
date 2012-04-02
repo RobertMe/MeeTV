@@ -43,6 +43,7 @@ Page {
             Text {
                 text: name
                 font: UiConstants.TitleFont
+                color: theme.inverted ? "white" : "black"
             }
 
             MouseArea {

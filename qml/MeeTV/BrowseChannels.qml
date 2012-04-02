@@ -36,11 +36,13 @@ Page {
                     Text {
                         text: name
                         font: UiConstants.TitleFont
+                        color: theme.inverted ? "white" : "black"
                     }
 
                     Text {
                         text: event
                         font: UiConstants.BodyTextFont
+                        color: theme.inverted ? "white" : "black"
                     }
                 }
 

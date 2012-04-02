@@ -19,6 +19,7 @@ Rectangle {
             id: busyTxt
             anchors.horizontalCenter: parent.horizontalCenter
             font: UiConstants.BodyTextFont
+            color: theme.inverted ? "white" : "black"
         }
 
         BusyIndicator {

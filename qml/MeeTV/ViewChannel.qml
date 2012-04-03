@@ -12,22 +12,35 @@ Page {
     EventList {
         id: events
 
-        header: Column {
+        header: Item {
             width: events.width
-            Image {
-                id: logo
-                source: channel.iconUrl
-            }
+            height: channelInfo.height + 10
 
-            Label {
-                id: name
-                text: channel.name
+            Row {
+                id: channelInfo
+
+                spacing: 10
+
+                Image {
+                    id: logo
+                    source: channel.iconUrl
+                    width: 100
+                    height: width
+                }
+
+                Label {
+                    id: name
+                    text: channel.name
+                    font: UiConstants.HeaderFont
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             Rectangle {
                 height: 1
                 width: parent.width
-                color: "gray"
+                color: "lightgray"
+                anchors.bottom: parent.bottom
             }
         }
     }

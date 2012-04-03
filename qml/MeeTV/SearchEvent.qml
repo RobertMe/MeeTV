@@ -27,6 +27,16 @@ Page {
             id: query
 
             width: parent.width
+
+            platformSipAttributes: SipAttributes {
+                actionKeyEnabled: true
+                actionKeyHighlighted: true
+                actionKeyLabel: "Search"
+            }
+
+            Keys.onReturnPressed: {
+                Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex)
+            }
         }
 
         Button {

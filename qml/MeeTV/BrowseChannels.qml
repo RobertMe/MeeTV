@@ -23,6 +23,7 @@ Page {
             rightMargin: channels.anchors.rightMargin
 
             Row {
+                clip: true
                 id: row
                 spacing: 16
                 Image {

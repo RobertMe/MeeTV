@@ -5,7 +5,7 @@ Item {
     property int leftMargin
     property int rightMargin
 
-    width: parent.width
+    width: parent.width - drilldown.width - 10
 
     anchors.topMargin: 8
     anchors.bottomMargin: anchors.topMargin
@@ -17,14 +17,17 @@ Item {
         anchors.fill: parent
         // Fill page borders
         anchors.leftMargin: -parent.leftMargin
-        anchors.rightMargin: -parent.rightMargin
+        anchors.rightMargin: -(parent.rightMargin + drilldown.width + 10)
         visible: mouseArea.pressed
         source: "image://theme/meegotouch-list" + (theme.inverted ? "-inverted" : "") + "-background-pressed-center"
     }
 
     Image {
+        id: drilldown
+
         source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
-        anchors.right: parent.right;
+        anchors.right: parent.right
+        anchors.rightMargin: -width - 10
         anchors.verticalCenter: parent.verticalCenter
     }
 

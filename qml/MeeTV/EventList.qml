@@ -10,6 +10,29 @@ ListView {
     anchors.fill: parent
     anchors.margins: UiConstants.DefaultMargin
 
+    section.property: "startDate"
+    section.criteria: ViewSection.FullString
+    section.delegate: Item {
+        height: sectionTxt.height
+        width: events.width
+
+        Label {
+            id: sectionTxt
+            text: section
+            font: UiConstants.GroupHeaderFont
+            anchors.right: parent.right
+        }
+
+        Rectangle {
+            height: 1
+            color: "lightgrey"
+            anchors.bottom: parent.bottom
+            anchors.right: sectionTxt.left
+            anchors.left: parent.left
+            anchors.rightMargin: 20
+        }
+    }
+
     delegate: ListMenuItem {
 
         height: titleTxt.height + startTxt.height

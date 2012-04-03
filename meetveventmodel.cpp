@@ -10,7 +10,21 @@ MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
 {
 }
 
+MeeTvEvent *MeeTvEventModel::get(int index)
+{
+    return getEventByIndex(index);
+}
+
 MeeTvEvent *MeeTvEventModel::getEventById(int id)
 {
     return new MeeTvEvent(*QHtspEventModel::getEventById(id));
+}
+
+MeeTvEvent *MeeTvEventModel::getEventByIndex(int index)
+{
+    QHtspEvent *event = QHtspEventModel::getEventByIndex(index);
+    if(!event)
+        return new MeeTvEvent();
+
+    return new MeeTvEvent(*event);
 }

@@ -17,31 +17,28 @@ ListView {
         leftMargin: events.anchors.leftMargin
         rightMargin: events.anchors.rightMargin
 
-        Text {
+        Label {
             id: titleTxt
             text: title
             font: UiConstants.TitleFont
             width: parent.width
             clip: true
-            color: theme.inverted ? "white" : "black"
         }
 
-        Text {
+        Label {
             id: startTxt
             text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
             font: UiConstants.FieldLabelFont
             anchors.top: titleTxt.bottom
-            color: theme.inverted ? "white" : "black"
         }
 
-        Text {
+        Label {
             id: channelTxt
             text: channel
             font: UiConstants.FieldLabelFont
             anchors.top: startTxt.top
             anchors.right: parent.right
             visible: showChannel
-            color: theme.inverted ? "white" : "black"
         }
 
         onClicked: { Core.viewEvent(events.model, id); }

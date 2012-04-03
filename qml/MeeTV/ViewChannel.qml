@@ -19,10 +19,9 @@ Page {
                 source: channel.iconUrl
             }
 
-            Text {
+            Label {
                 id: name
                 text: channel.name
-                color: theme.inverted ? "white" : "black"
             }
 
             Rectangle {

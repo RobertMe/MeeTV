@@ -38,16 +38,14 @@ Page {
                 }
 
                 Column {
-                    Text {
+                    Label {
                         text: name
                         font: UiConstants.TitleFont
-                        color: theme.inverted ? "white" : "black"
                     }
 
-                    Text {
+                    Label {
                         text: event
                         font: UiConstants.BodyTextFont
-                        color: theme.inverted ? "white" : "black"
                     }
                 }
 

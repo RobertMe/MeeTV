@@ -35,10 +35,9 @@ Page {
 
                 }
 
-                Text {
+                Label {
                     text: name
                     font: UiConstants.TitleFont
-                    color: theme.inverted ? "white" : "black"
                 }
 
                 anchors.fill: parent

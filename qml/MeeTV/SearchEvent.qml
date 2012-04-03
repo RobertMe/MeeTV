@@ -12,6 +12,8 @@ Page {
         titleText: "Channel"
 
         model: channelModel
+
+        onAccepted: { channelName.text = channelDialog.model.getChannelByIndex(channelDialog.selectedIndex).name }
     }
 
     SelectionDialog {
@@ -20,38 +22,116 @@ Page {
         titleText: "Tag"
 
         model: tagModel
+
+        onAccepted: { tagName.text = tagDialog.model.getTagByIndex(tagDialog.selectedIndex).name }
     }
 
     Column {
-        TextField {
-            id: query
+        width: parent.width
+        spacing: 15
 
+        Item {
+            height: UiConstants.ListItemHeightDefault
             width: parent.width
 
-            platformSipAttributes: SipAttributes {
-                actionKeyEnabled: true
-                actionKeyHighlighted: true
-                actionKeyLabel: "Search"
+            Column {
+                anchors.fill: parent
+                spacing: 5
+
+                Label {
+                    text: "Query"
+                    font: UiConstants.TitleFont
+                }
+
+                TextField {
+                    id: query
+
+                    width: parent.width
+
+                    platformSipAttributes: SipAttributes {
+                        actionKeyEnabled: true
+                        actionKeyHighlighted: true
+                        actionKeyLabel: "Search"
+                    }
+
+                    Keys.onReturnPressed: {
+                        Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex)
+                    }
+                }
             }
 
-            Keys.onReturnPressed: {
-                Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex)
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { query.forceActiveFocus()  }
             }
         }
 
-        Button {
-            text: "Channel"
-            onClicked: { channelDialog.open(); }
+        Item {
+            height: UiConstants.ListItemHeightDefault
+            width: parent.width
+
+            Column {
+                anchors.fill: parent
+                spacing: 5
+
+                Label {
+                    text: "Channel"
+                    font: UiConstants.TitleFont
+                }
+
+                Label {
+                    id: channelName
+                    font.pixelSize: 18
+                }
+            }
+
+            Image {
+                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "")
+                anchors.right: parent.right;
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { channelDialog.open(); }
+            }
         }
 
-        Button {
-            text: "Tag"
-            onClicked: { tagDialog.open(); }
+        Item {
+            height: UiConstants.ListItemHeightDefault
+            width: parent.width
+
+            Column {
+                anchors.fill: parent
+                spacing: 5
+
+                Label {
+                    text: "Tag"
+                    font: UiConstants.TitleFont
+                }
+
+                Label {
+                    id: tagName
+                    font.pixelSize: 18
+                }
+            }
+
+            Image {
+                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "")
+                anchors.right: parent.right;
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { tagDialog.open(); }
+            }
         }
 
         Button {
             text: "Search"
             onClicked: { Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex) }
+            anchors.right: parent.right
         }
     }
 }

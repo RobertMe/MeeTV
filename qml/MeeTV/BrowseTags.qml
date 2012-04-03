@@ -47,4 +47,8 @@ Page {
             onClicked: { Core.viewTag(tags.model, id) }
         }
     }
+
+    ScrollDecorator {
+        flickableItem: tags
+    }
 }

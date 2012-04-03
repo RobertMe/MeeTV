@@ -43,4 +43,8 @@ ListView {
 
         onClicked: { Core.viewEvent(events.model, id); }
     }
+
+    ScrollDecorator {
+        flickableItem: events
+    }
 }

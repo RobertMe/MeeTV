@@ -68,4 +68,8 @@ Page {
             onClicked: { Core.viewDvrEntry(dvrEntriesModel, id) }
         }
     }
+
+    ScrollDecorator {
+        flickableItem: recordings
+    }
 }

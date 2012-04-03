@@ -56,4 +56,8 @@ Page {
             onClicked:  { Core.viewChannel(channelModel, id) }
         }
     }
+
+    ScrollDecorator {
+        flickableItem: channels
+    }
 }

@@ -52,4 +52,8 @@ Page {
             onClicked: { Core.gotoPage(page) }
         }
     }
+
+    ScrollDecorator {
+        flickableItem: mainMenu
+    }
 }

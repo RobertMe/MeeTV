@@ -3,11 +3,17 @@
 MeeTvEventModel::MeeTvEventModel() :
     QHtspEventModel(new QHtspEventList())
 {
+    connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(itemsChanged()));
 }
 
 MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
     QHtspEventModel(events)
 {
+    connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(itemsChanged()));
 }
 
 MeeTvEvent *MeeTvEventModel::get(int index)

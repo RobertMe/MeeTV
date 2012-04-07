@@ -70,4 +70,8 @@ ListView {
     ScrollDecorator {
         flickableItem: events
     }
+
+    SectionScroller {
+        listView: events
+    }
 }

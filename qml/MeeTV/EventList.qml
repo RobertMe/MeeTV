@@ -7,7 +7,7 @@ ListView {
     property bool showChannel: false
 
     id: events
-    anchors.fill: parent
+
     anchors.margins: UiConstants.DefaultMargin
 
     section.property: "startDate"

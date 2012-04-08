@@ -10,6 +10,7 @@ Page {
     EventList {
         id: events
 
+        anchors.fill: parent
         showChannel: true
     }
 }

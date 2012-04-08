@@ -10,23 +10,68 @@ Page {
 
     property Event event
 
-    Text {
-        id: descriptionTxt
-        text: event.description
-        font: UiConstants.BodyTextFont
+    Rectangle {
+        id: header
+
+        height: screen.currentOrientation === Screen.Portrait ? UiConstants.HeaderDefaultHeightPortrait : UiConstants.HeaderDefaultHeightLandscape
         width: parent.width
-        wrapMode: Text.Wrap
-        color: theme.inverted ? "white" : "black"
+        anchors.top: parent.top
+        color: "gray"
+
+        Label {
+            id: title
+            text: event.title
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.margins: UiConstants.DefaultMargin
+        }
+
+        Column {
+            anchors {
+                right: parent.right
+                verticalCenter: parent.verticalCenter
+                margins: UiConstants.DefaultMargin
+            }
+
+            Label {
+                id: start
+                text: Qt.formatTime(event.start)
+                font: UiConstants.FieldLabelFont
+            }
+
+            Label {
+                id: stop
+                text: Qt.formatTime(event.stop)
+                font: UiConstants.FieldLabelFont
+            }
+        }
     }
 
-    Text {
-        text: "Record"
-        anchors.top: descriptionTxt.bottom
-        color: theme.inverted ? "white" : "black"
+    Flickable {
+        anchors {
+            top: header.bottom
+            bottom: parent.bottom
+            margins: UiConstants.DefaultMargin
+        }
 
-        MouseArea {
+        width: parent.width
+        contentHeight: contentItem.childrenRect.height
+        clip: true
+
+        Text {
+            id: descriptionTxt
+            text: event.description
+            font: UiConstants.BodyTextFont
+            width: parent.width
+            wrapMode: Text.Wrap
+            color: theme.inverted ? "white" : "black"
+        }
+
+        Button {
+            text: "Record"
+            anchors.top: descriptionTxt.bottom
+
             onClicked: { eventView.event.record(); }
-            anchors.fill: parent
         }
     }
 }

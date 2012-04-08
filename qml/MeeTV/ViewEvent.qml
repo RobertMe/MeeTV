@@ -32,17 +32,22 @@ Page {
                 verticalCenter: parent.verticalCenter
                 margins: UiConstants.DefaultMargin
             }
+            width: 100
 
             Label {
                 id: start
                 text: Qt.formatTime(event.start)
                 font: UiConstants.FieldLabelFont
+                width: parent.width
+                horizontalAlignment: Text.AlignRight
             }
 
             Label {
                 id: stop
                 text: Qt.formatTime(event.stop)
                 font: UiConstants.FieldLabelFont
+                width: parent.width
+                horizontalAlignment: Text.AlignRight
             }
         }
     }

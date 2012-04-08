@@ -7,12 +7,18 @@ Page {
 
     ListView {
         id: tags
+
         anchors.fill: parent
+        anchors.margins: UiConstants.DefaultMargin
+        anchors.topMargin: 8
+        anchors.bottomMargin: anchors.topMargin
 
         model: tagModel
-        delegate: Item {
+        delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
-            width: parent.width
+
+            leftMargin: tags.anchors.leftMargin
+            rightMargin: tags.anchors.rightMargin
 
             Row {
                 id: row
@@ -29,20 +35,20 @@ Page {
 
                 }
 
-                Column {
-                    Text {
-                        text: name
-                        font: UiConstants.TitleFont
-                    }
+                Label {
+                    text: name
+                    font: UiConstants.TitleFont
                 }
 
                 anchors.fill: parent
+                anchors.verticalCenter: parent.verticalCenter
             }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { Core.viewTag(tags.model, id) }
-            }
+            onClicked: { Core.viewTag(tags.model, id) }
         }
+    }
+
+    ScrollDecorator {
+        flickableItem: tags
     }
 }

@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import Htsp 1.0
 
 Page {
     tools: commonTools
@@ -8,6 +9,8 @@ Page {
     ListView {
         id: recordings
         anchors.fill: parent
+        anchors.margins: UiConstants.DefaultMargin
+
         clip: true
 
         section.property: "state"
@@ -16,9 +19,9 @@ Page {
             height: sectionTxt.height
             width: recordings.width
 
-            Text {
+            Label {
                 id: sectionTxt
-                text: section == 0 ? "Completed" : (section == 1 ? "Invalid" : (section == 2 ? "Recording" : "Scheduled"))
+                text: section == DvrEntry.Completed ? "Completed" : (section == DvrEntry.Invalid ? "Invalid" : (section == DvrEntry.Missed ? "Missed" : (section == DvrEntry.Recording ? "Recording" : "Scheduled")))
                 font: UiConstants.GroupHeaderFont
                 anchors.right: parent.right
             }
@@ -34,11 +37,13 @@ Page {
         }
 
         model: dvrEntriesModel
-        delegate: Item {
+        delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
-            width: parent.width
 
-            Text {
+            leftMargin: recordings.anchors.leftMargin
+            rightMargin: recordings.anchors.rightMargin
+
+            Label {
                 id: titleTxt
                 text: title
                 font: UiConstants.TitleFont
@@ -46,14 +51,14 @@ Page {
                 clip: true
             }
 
-            Text {
+            Label {
                 id: startTxt
                 text: Qt.formatTime(start) + " - " + Qt.formatTime(stop)
                 font: UiConstants.FieldLabelFont
                 anchors.top: titleTxt.bottom
             }
 
-            Text {
+            Label {
                 id: channelTxt
                 text: channel
                 font: UiConstants.FieldLabelFont
@@ -61,10 +66,11 @@ Page {
                 anchors.right: parent.right
             }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { Core.viewDvrEntry(dvrEntriesModel, id) }
-            }
+            onClicked: { Core.viewDvrEntry(dvrEntriesModel, id) }
         }
+    }
+
+    ScrollDecorator {
+        flickableItem: recordings
     }
 }

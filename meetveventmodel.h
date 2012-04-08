@@ -14,8 +14,13 @@ public:
     MeeTvEventModel();
     explicit MeeTvEventModel(QHtspEventList *events);
     
+    Q_INVOKABLE MeeTvEvent *get(int index);
     Q_INVOKABLE MeeTvEvent *getEventById(int id);
-    
+    Q_INVOKABLE MeeTvEvent *getEventByIndex(int index);
+
+signals:
+    void countChanged();
+    void itemsChanged();
 };
 
 #endif // MEETVEVENTMODEL_H

@@ -15,7 +15,7 @@ Rectangle {
         anchors.centerIn: parent
         spacing: 10
 
-        Text {
+        Label {
             id: busyTxt
             anchors.horizontalCenter: parent.horizontalCenter
             font: UiConstants.BodyTextFont

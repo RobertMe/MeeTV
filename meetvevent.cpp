@@ -9,3 +9,8 @@ MeeTvEvent::MeeTvEvent(const QHtspEvent& event, QObject *parent) :
     QHtspEvent(event, parent)
 {
 }
+
+QString MeeTvEvent::startDate()
+{
+    return start().date().toString();
+}

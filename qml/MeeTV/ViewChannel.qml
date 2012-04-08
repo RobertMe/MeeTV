@@ -9,26 +9,41 @@ Page {
     property Channel channel
     property alias events: events.model
 
+    Rectangle {
+        id: header
+
+        height: 100
+        width: parent.width
+        anchors.top: parent.top
+        color: "gray"
+
+        Image {
+            id: channelIcon
+            height: parent.height - 20
+            width: height
+            source: channel.iconUrl
+            anchors.left: parent.left;
+            anchors.leftMargin: 16
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        Label {
+            id: channelName
+            text: channel.name
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: channelIcon.right
+            anchors.margins: UiConstants.DefaultMargin
+        }
+    }
+
     EventList {
         id: events
 
-        header: Column {
-            width: events.width
-            Image {
-                id: logo
-                source: channel.iconUrl
-            }
-
-            Text {
-                id: name
-                text: channel.name
-            }
-
-            Rectangle {
-                height: 1
-                width: parent.width
-                color: "gray"
-            }
+        anchors {
+            top: header.bottom
+            bottom: parent.bottom
+            margins: UiConstants.DefaultMargin
         }
+        width: parent.width
     }
 }

@@ -10,6 +10,7 @@
 #include "meetvchannelmodel.h"
 #include "meetvdvrentrymodel.h"
 #include "meetveventmodel.h"
+#include "meetvsettings.h"
 #include "meetvtagmodel.h"
 
 class MeeTv : public QObject
@@ -31,11 +32,7 @@ private:
     void _registerTypes();
 
     QmlApplicationViewer m_viewer;
-
-    QString m_hostName;
-    QString m_password;
-    quint16 m_port;
-    QString m_username;
+    MeeTvSettings *m_settings;
 
     QHtsp *m_htsp;
     MeeTvChannelModel *m_channelModel;

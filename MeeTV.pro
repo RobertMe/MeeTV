@@ -46,7 +46,8 @@ SOURCES += main.cpp \
     meetvchannelmodel.cpp \
     meetveventmodel.cpp \
     meetvdvrentry.cpp \
-    meetvdvrentrymodel.cpp
+    meetvdvrentrymodel.cpp \
+    meetvsettings.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -64,7 +65,8 @@ HEADERS += meetv.h \
     meetvchannelmodel.h \
     meetveventmodel.h \
     meetvdvrentry.h \
-    meetvdvrentrymodel.h
+    meetvdvrentrymodel.h \
+    meetvsettings.h
 
 OTHER_FILES += \
     qtc_packaging/debian_harmattan/rules \
@@ -76,6 +78,14 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     meetv_settings.desktop \
     meetv_settings.xml
+
+contains(MEEGO_EDITION,harmattan) {
+    SOURCES += meetvsettingsgconf.cpp
+    HEADERS += meetvsettingsgconf.h
+} else {
+    SOURCES += meetvsettingshard.cpp
+    HEADERS += meetvsettingshard.h
+}
 
 settingsdesktop.path = /usr/share/duicontrolpanel/desktops
 settingsdesktop.files = meetv_settings.desktop

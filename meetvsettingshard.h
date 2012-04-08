@@ -16,6 +16,11 @@ public:
     QString password();
     quint16 port();
     QString username();
+
+    bool hasHostname();
+    bool hasPassword();
+    bool hasPort();
+    bool hasUsername();
 };
 
 #endif // MEETVSETTINGSHARD_H

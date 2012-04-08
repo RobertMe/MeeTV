@@ -24,3 +24,23 @@ QString MeeTvSettingsHard::username()
 {
     return "hts";
 }
+
+bool MeeTvSettingsHard::hasHostname()
+{
+    return true;
+}
+
+bool MeeTvSettingsHard::hasPassword()
+{
+    return true;
+}
+
+bool MeeTvSettingsHard::hasPort()
+{
+    return true;
+}
+
+bool MeeTvSettingsHard::hasUsername()
+{
+    return true;
+}

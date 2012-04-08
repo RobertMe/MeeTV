@@ -18,6 +18,13 @@ public:
     quint16 port();
     QString username();
 
+    bool hasHostname();
+    bool hasPassword();
+    bool hasPort();
+    bool hasUsername();
+
+    void open();
+
 private:
     GConfItem m_hostName;
     GConfItem m_password;

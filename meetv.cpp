@@ -40,7 +40,10 @@ void MeeTv::init()
     _registerTypes();
     _initHtsp();
     _initViewer();
-    _connectHtsp();
+    if(m_settings->hasHostname() && m_settings->hasPort())
+        _connectHtsp();
+    else
+        m_settings->open();
 }
 
 void MeeTv::run()

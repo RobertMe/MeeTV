@@ -32,7 +32,7 @@ CONFIG += qdeclarative-boostable
 # Add dependency to Symbian components
 # CONFIG += qt-components
 
-QT       += network
+QT       += network dbus
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \

@@ -13,6 +13,13 @@ public:
     virtual QString password() = 0;
     virtual quint16 port() = 0;
     virtual QString username() = 0;
+
+    virtual bool hasHostname() = 0;
+    virtual bool hasPassword() = 0;
+    virtual bool hasPort() = 0;
+    virtual bool hasUsername() = 0;
+
+    virtual void open() { }
 };
 
 #endif // MEETVSETTINGS_H

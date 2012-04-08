@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import Htsp 1.0
 
 Page {
     tools: commonTools
@@ -20,7 +21,7 @@ Page {
 
             Label {
                 id: sectionTxt
-                text: section == 0 ? "Completed" : (section == 1 ? "Invalid" : (section == 2 ? "Recording" : "Scheduled"))
+                text: section == DvrEntry.Completed ? "Completed" : (section == DvrEntry.Invalid ? "Invalid" : (section == DvrEntry.Missed ? "Missed" : (section == DvrEntry.Recording ? "Recording" : "Scheduled")))
                 font: UiConstants.GroupHeaderFont
                 anchors.right: parent.right
             }

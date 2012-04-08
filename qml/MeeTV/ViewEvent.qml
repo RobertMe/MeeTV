@@ -58,20 +58,30 @@ Page {
         contentHeight: contentItem.childrenRect.height
         clip: true
 
-        Text {
-            id: descriptionTxt
-            text: event.description
-            font: UiConstants.BodyTextFont
+        Column {
             width: parent.width
-            wrapMode: Text.Wrap
-            color: theme.inverted ? "white" : "black"
-        }
+            spacing: 10
 
-        Button {
-            text: "Record"
-            anchors.top: descriptionTxt.bottom
+            Text {
+                text: event.description
+                font: UiConstants.BodyTextFont
+                width: parent.width
+                wrapMode: Text.Wrap
+                color: theme.inverted ? "white" : "black"
+            }
 
-            onClicked: { eventView.event.record(); }
+            Text {
+                text: event.longDescription
+                font: UiConstants.BodyTextFont
+                width: parent.width
+                wrapMode: Text.Wrap
+                color: theme.inverted ? "white" : "black"
+            }
+
+            Button {
+                text: "Record"
+                onClicked: { eventView.event.record(); }
+            }
         }
     }
 }

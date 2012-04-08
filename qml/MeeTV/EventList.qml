@@ -9,6 +9,7 @@ ListView {
     id: events
 
     anchors.margins: UiConstants.DefaultMargin
+    clip: true
 
     section.property: "startDate"
     section.criteria: ViewSection.FullString

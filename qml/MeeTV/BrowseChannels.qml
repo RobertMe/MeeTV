@@ -60,7 +60,6 @@ Page {
             margins: UiConstants.DefaultMargin
         }
         width: parent.width
-
         clip: true
 
         model: channelModel

@@ -40,6 +40,8 @@ private:
     MeeTvEventModel *m_eventModel;
     MeeTvTagModel *m_tagModel;
 
+private slots:
+    void _connected();
 };
 
 #endif // MEETV_H

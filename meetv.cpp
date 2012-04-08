@@ -31,8 +31,13 @@ MeeTv::MeeTv(QObject *parent) :
 
 void MeeTv::authenticate()
 {
+    if(!m_settings->hasUsername() || !m_settings->hasPassword())
+    {
+        m_settings->open();
+        return;
+    }
+
     m_htsp->authenticate(m_settings->username(), m_settings->password());
-    m_htsp->enableAsync();
 }
 
 void MeeTv::init()
@@ -51,9 +56,16 @@ void MeeTv::run()
     m_viewer.showExpanded();
 }
 
+void MeeTv::_connected()
+{
+    if(m_settings->hasUsername() && m_settings->hasPassword())
+        authenticate();
+    m_htsp->enableAsync();
+}
+
 void MeeTv::_connectHtsp()
 {
-    connect(m_htsp, SIGNAL(connected()), this, SLOT(authenticate()));
+    connect(m_htsp, SIGNAL(connected()), this, SLOT(_connected()));
     m_htsp->connectToServer("MeeTV", "0.1", 1, m_settings->hostname(), m_settings->port());
 }
 

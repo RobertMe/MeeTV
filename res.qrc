@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="tr.en">i18n/tr.en.qm</file>
+        <file alias="tr.nl">i18n/tr.nl.qm</file>
+    </qresource>
+</RCC>

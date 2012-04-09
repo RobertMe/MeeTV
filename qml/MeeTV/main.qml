@@ -40,7 +40,7 @@ PageStackWindow {
     BusyConnect {
         id: busyConnect
 
-        text: "Connecting"
+        text: qsTr("Connecting")
     }
 
     InfoBanner {
@@ -62,9 +62,9 @@ PageStackWindow {
 
     Connections {
         target: htsp
-        onConnected: { busyConnect.text = "Syncing data" }
-        onAccessDenied: { errorMessage.timerEnabled = false; errorMessage.text = "Access denied"; errorMessage.show(); }
-        onDvrEntryAdded: { dvrEntryAdded.text = "Added recording " + dvrEntry.title; dvrEntryAdded.show(); }
+        onConnected: { busyConnect.text = qsTr("Syncing data") }
+        onAccessDenied: { errorMessage.timerEnabled = false; errorMessage.text = qsTr("Access denied"); errorMessage.show(); }
+        onDvrEntryAdded: { dvrEntryAdded.text = qsTr("Added recording %1").arg(dvrEntry.title); dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }
     }
 

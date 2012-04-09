@@ -95,3 +95,6 @@ settingsxml.files = meetv_settings.xml
 
 INSTALLS += settingsdesktop settingsxml
 
+RESOURCES += \
+    res.qrc
+

@@ -50,6 +50,14 @@ PageStackWindow {
 
     InfoBanner {
         id: errorMessage
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                parent.hide();
+                settings.open();
+            }
+        }
     }
 
     Connections {

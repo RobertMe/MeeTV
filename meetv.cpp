@@ -86,6 +86,7 @@ void MeeTv::_initViewer()
     context->setContextProperty("dvrEntriesModel", m_dvrEntriesModel);
     context->setContextProperty("eventModel", m_eventModel);
     context->setContextProperty("htsp", m_htsp);
+    context->setContextProperty("settings", m_settings);
     context->setContextProperty("tagModel", m_tagModel);
 
     m_viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);

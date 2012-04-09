@@ -19,7 +19,7 @@ public:
     virtual bool hasPort() = 0;
     virtual bool hasUsername() = 0;
 
-    virtual void open() { }
+    Q_INVOKABLE virtual void open() { }
 };
 
 #endif // MEETVSETTINGS_H

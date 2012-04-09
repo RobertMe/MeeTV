@@ -21,7 +21,7 @@ Page {
 
             Label {
                 id: sectionTxt
-                text: dvrEntry.state == DvrEntry.Completed ? qsTr("Completed") : (dvrEntry.state == DvrEntry.Invalid ? qsTr("Invalid") : (dvrEntry.state == DvrEntry.Missed ? qsTr("Missed") : (dvrEntry.state == DvrEntry.Recording ? qsTr("Recording") : qsTr("Scheduled"))))
+                text: section == DvrEntry.Completed ? qsTr("Completed") : (section == DvrEntry.Invalid ? qsTr("Invalid") : (section == DvrEntry.Missed ? qsTr("Missed") : (section == DvrEntry.Recording ? qsTr("Recording") : qsTr("Scheduled"))))
                 font: UiConstants.GroupHeaderFont
                 anchors.right: parent.right
             }

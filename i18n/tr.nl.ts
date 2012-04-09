@@ -89,6 +89,29 @@
     </message>
 </context>
 <context>
+    <name>ViewRecordings</name>
+    <message>
+        <source>Completed</source>
+        <translation>Klaar</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Ongeldig</translation>
+    </message>
+    <message>
+        <source>Missed</source>
+        <translation>Gemist</translation>
+    </message>
+    <message>
+        <source>Recording</source>
+        <translation>Bezig</translation>
+    </message>
+    <message>
+        <source>Scheduled</source>
+        <translation>Gepland</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Sample menu item</source>

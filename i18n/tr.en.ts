@@ -110,6 +110,34 @@
     </message>
 </context>
 <context>
+    <name>ViewRecordings</name>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="24"/>
+        <source>Completed</source>
+        <translation>Completed</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="24"/>
+        <source>Invalid</source>
+        <translation>Invalid</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="24"/>
+        <source>Missed</source>
+        <translation>Missed</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="24"/>
+        <source>Recording</source>
+        <translation>Recording</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="24"/>
+        <source>Scheduled</source>
+        <translation>Scheduled</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="36"/>

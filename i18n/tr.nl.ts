@@ -16,42 +16,61 @@
     <name>MainPage</name>
     <message>
         <source>Browse tags</source>
-        <translation type="unfinished">Bekijk tags</translation>
+        <translation>Bekijk tags</translation>
     </message>
     <message>
         <source>Browse channels</source>
-        <translation type="unfinished">Bekijk kanalen</translation>
+        <translation>Bekijk kanalen</translation>
     </message>
     <message>
         <source>View recordings</source>
-        <translation type="unfinished">Bekijk opnames</translation>
+        <translation>Bekijk opnames</translation>
     </message>
     <message>
         <source>Search event</source>
-        <translation type="unfinished">Zoek programma</translation>
+        <translation>Zoek programma</translation>
+    </message>
+</context>
+<context>
+    <name>SearchEvent</name>
+    <message>
+        <source>Channel</source>
+        <translation>Kanaal</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Tag</translation>
+    </message>
+    <message>
+        <source>Query</source>
+        <translation>Term</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Zoek</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Sample menu item</source>
-        <translation type="unfinished">Voorbeeld menu item</translation>
+        <translation>Voorbeeld menu item</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished">Verbinden</translation>
+        <translation>Verbinden</translation>
     </message>
     <message>
         <source>Syncing data</source>
-        <translation type="unfinished">Synchroniseren</translation>
+        <translation>Synchroniseren</translation>
     </message>
     <message>
         <source>Access denied</source>
-        <translation type="unfinished">Toegang geweigerd</translation>
+        <translation>Toegang geweigerd</translation>
     </message>
     <message>
         <source>Added recording %1</source>
-        <translation type="unfinished">Opname toegevoegd %1</translation>
+        <translation>Opname toegevoegd %1</translation>
     </message>
 </context>
 </TS>

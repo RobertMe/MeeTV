@@ -9,7 +9,7 @@ Page {
     SelectionDialog {
         id: channelDialog
 
-        titleText: "Channel"
+        titleText: qsTr("Channel")
 
         model: channelModel
 
@@ -19,7 +19,7 @@ Page {
     SelectionDialog {
         id: tagDialog
 
-        titleText: "Tag"
+        titleText: qsTr("Tag")
 
         model: tagModel
 
@@ -39,7 +39,7 @@ Page {
                 spacing: 5
 
                 Label {
-                    text: "Query"
+                    text: qsTr("Query")
                     font: UiConstants.TitleFont
                 }
 
@@ -51,7 +51,7 @@ Page {
                     platformSipAttributes: SipAttributes {
                         actionKeyEnabled: true
                         actionKeyHighlighted: true
-                        actionKeyLabel: "Search"
+                        actionKeyLabel: qsTr("Search")
                     }
 
                     Keys.onReturnPressed: {
@@ -75,7 +75,7 @@ Page {
                 spacing: 5
 
                 Label {
-                    text: "Channel"
+                    text: qsTr("Channel")
                     font: UiConstants.TitleFont
                 }
 
@@ -106,7 +106,7 @@ Page {
                 spacing: 5
 
                 Label {
-                    text: "Tag"
+                    text: qsTr("Tag")
                     font: UiConstants.TitleFont
                 }
 
@@ -129,7 +129,7 @@ Page {
         }
 
         Button {
-            text: "Search"
+            text: qsTr("Search")
             onClicked: { Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex) }
             anchors.right: parent.right
         }

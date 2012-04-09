@@ -64,6 +64,44 @@
     </message>
 </context>
 <context>
+    <name>ViewDvrEntry</name>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="55"/>
+        <source>Completed</source>
+        <translation>Completed</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="55"/>
+        <source>Invalid</source>
+        <translation>Invalid</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="55"/>
+        <source>Missed</source>
+        <translation>Missed</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="55"/>
+        <source>Recording</source>
+        <translation>Recording</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="55"/>
+        <source>Scheduled</source>
+        <translation>Scheduled</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="90"/>
+        <source>Cancel</source>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="96"/>
+        <source>Delete</source>
+        <translation>Delete</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="36"/>

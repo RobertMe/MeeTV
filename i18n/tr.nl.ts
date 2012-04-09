@@ -51,6 +51,37 @@
     </message>
 </context>
 <context>
+    <name>ViewDvrEntry</name>
+    <message>
+        <source>Completed</source>
+        <translation>Klaar</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Ongeldig</translation>
+    </message>
+    <message>
+        <source>Missed</source>
+        <translation>Gemist</translation>
+    </message>
+    <message>
+        <source>Recording</source>
+        <translation>Bezig</translation>
+    </message>
+    <message>
+        <source>Scheduled</source>
+        <translation>Gepland</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleer</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Verwijder</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Sample menu item</source>

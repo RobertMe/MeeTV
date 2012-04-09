@@ -52,7 +52,7 @@ Page {
         }
 
         Label {
-            text: dvrEntry.state == DvrEntry.Completed ? "Completed" : (dvrEntry.state == DvrEntry.Invalid ? "Invalid" : (dvrEntry.state == DvrEntry.Missed ? "Missed" : (dvrEntry.state == DvrEntry.Recording ? "Recording" : "Scheduled")))
+            text: dvrEntry.state == DvrEntry.Completed ? qsTr("Completed") : (dvrEntry.state == DvrEntry.Invalid ? qsTr("Invalid") : (dvrEntry.state == DvrEntry.Missed ? qsTr("Missed") : (dvrEntry.state == DvrEntry.Recording ? qsTr("Recording") : qsTr("Scheduled"))))
             font: UiConstants.FieldLabelFont
             horizontalAlignment: Text.AlignRight
             anchors {
@@ -87,13 +87,13 @@ Page {
             Button {
                 id: cancelButton
                 visible: dvrEntry.state == DvrEntry.Recording
-                text: "Cancel"
+                text: qsTr("Cancel")
                 onClicked: { dvrEntry.cancel() }
             }
 
             Button {
                 id: deleteButton
-                text: "Delete"
+                text: qsTr("Delete")
                 onClicked: { dvrEntry.remove(); pageStack.pop() }
             }
         }

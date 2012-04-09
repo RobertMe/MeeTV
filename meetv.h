@@ -16,21 +16,31 @@
 class MeeTv : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
+
 public:
     explicit MeeTv(QObject *parent = 0);
 
+    bool active();
+
+    void setActive(bool active);
+
     void init();
     void run();
+
+signals:
+    void activeChanged();
     
 public slots:
     void authenticate();
 
 private:
-    void _connectHtsp();
     void _initHtsp();
     void _initViewer();
     void _registerTypes();
 
+    bool m_active;
+    bool m_connectionSettingsChanged;
     QmlApplicationViewer m_viewer;
     MeeTvSettings *m_settings;
 
@@ -42,6 +52,8 @@ private:
 
 private slots:
     void _connected();
+    void _connectHtsp();
+    void _connectionSettingsChanged();
 };
 
 #endif // MEETV_H

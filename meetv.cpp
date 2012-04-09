@@ -27,6 +27,24 @@ MeeTv::MeeTv(QObject *parent) :
 #else
     m_settings = new MeeTvSettingsHard(this);
 #endif
+    m_connectionSettingsChanged = false;
+    connect(m_settings, SIGNAL(hostnameChanged()), this, SLOT(_connectionSettingsChanged()));
+    connect(m_settings, SIGNAL(portChanged()), this, SLOT(_connectionSettingsChanged()));
+    connect(this, SIGNAL(activeChanged()), this, SLOT(_connectHtsp()));
+}
+
+bool MeeTv::active()
+{
+    return m_active;
+}
+
+void MeeTv::setActive(bool active)
+{
+    if(m_active == active)
+        return;
+
+    m_active = active;
+    emit activeChanged();
 }
 
 void MeeTv::authenticate()
@@ -45,10 +63,6 @@ void MeeTv::init()
     _registerTypes();
     _initHtsp();
     _initViewer();
-    if(m_settings->hasHostname() && m_settings->hasPort())
-        _connectHtsp();
-    else
-        m_settings->open();
 }
 
 void MeeTv::run()
@@ -58,6 +72,10 @@ void MeeTv::run()
 
 void MeeTv::_connected()
 {
+    disconnect(m_htsp, SIGNAL(connected()), this, SLOT(_connected()));
+    disconnect(this, SIGNAL(activeChanged()), this, SLOT(_connectHtsp()));
+    disconnect(m_settings, SIGNAL(hostnameChanged()), this, SLOT(_connectionSettingsChanged()));
+    disconnect(m_settings, SIGNAL(portChanged()), this, SLOT(_connectionSettingsChanged()));
     if(m_settings->hasUsername() && m_settings->hasPassword())
         authenticate();
     m_htsp->enableAsync();
@@ -65,8 +83,23 @@ void MeeTv::_connected()
 
 void MeeTv::_connectHtsp()
 {
+    if(!active())
+        return;
+
+    if(!m_settings->hasHostname() || !m_settings->hasPort())
+    {
+        m_settings->open();
+        return;
+    }
+
     connect(m_htsp, SIGNAL(connected()), this, SLOT(_connected()));
     m_htsp->connectToServer("MeeTV", "0.1", 1, m_settings->hostname(), m_settings->port());
+    m_connectionSettingsChanged = false;
+}
+
+void MeeTv::_connectionSettingsChanged()
+{
+    m_connectionSettingsChanged = true;
 }
 
 void MeeTv::_initHtsp()
@@ -86,6 +119,7 @@ void MeeTv::_initViewer()
     context->setContextProperty("dvrEntriesModel", m_dvrEntriesModel);
     context->setContextProperty("eventModel", m_eventModel);
     context->setContextProperty("htsp", m_htsp);
+    context->setContextProperty("meetv", this);
     context->setContextProperty("settings", m_settings);
     context->setContextProperty("tagModel", m_tagModel);
 

@@ -20,6 +20,10 @@ public:
     virtual bool hasUsername() = 0;
 
     Q_INVOKABLE virtual void open() { }
+
+signals:
+    void hostnameChanged();
+    void portChanged();
 };
 
 #endif // MEETVSETTINGS_H

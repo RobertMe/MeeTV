@@ -8,6 +8,8 @@ MeeTvSettingsGConf::MeeTvSettingsGConf(QObject *parent)
     : MeeTvSettings(parent), m_hostName("/apps/ControlPanel/MeeTV/Hostname"), m_password("/apps/ControlPanel/MeeTV/Password"),
       m_port("/apps/ControlPanel/MeeTV/Port"), m_username("/apps/ControlPanel/MeeTV/Username")
 {
+    connect(&m_hostName, SIGNAL(valueChanged()), this, SIGNAL(hostnameChanged()));
+    connect(&m_port, SIGNAL(valueChanged()), this, SIGNAL(portChanged()));
 }
 
 QString MeeTvSettingsGConf::hostname()

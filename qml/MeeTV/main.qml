@@ -69,4 +69,10 @@ PageStackWindow {
     }
 
     Component.onCompleted: { theme.inverted = true }
+
+    Connections {
+        target: platformWindow
+
+        onActiveChanged: meetv.active = platformWindow.active
+    }
 }

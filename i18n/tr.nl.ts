@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="nl_NL">
 <context>
+    <name>About</name>
+    <message>
+        <source>Close</source>
+        <translation>Sluiten</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>Server</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Naam</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versie</translation>
+    </message>
+    <message>
+        <source>Protocol version</source>
+        <translation>Protocol versie</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation>Verbinding</translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation>Hostname</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Poort</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Gebruikersnaam</translation>
+    </message>
+</context>
+<context>
     <name>BrowseChannels</name>
     <message>
         <source>Select tag</source>
@@ -10,6 +49,13 @@
     <message>
         <source>All</source>
         <translation>Alle</translation>
+    </message>
+</context>
+<context>
+    <name>CommonMenu</name>
+    <message>
+        <source>About MeeTV</source>
+        <translation>Over MeeTV</translation>
     </message>
 </context>
 <context>
@@ -74,18 +120,18 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleer</translation>
+        <translation type="obsolete">Annuleer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Verwijder</translation>
+        <translation type="obsolete">Verwijder</translation>
     </message>
 </context>
 <context>
     <name>ViewEvent</name>
     <message>
         <source>Record</source>
-        <translation>Opnemen</translation>
+        <translation type="obsolete">Opnemen</translation>
     </message>
 </context>
 <context>
@@ -115,7 +161,7 @@
     <name>main</name>
     <message>
         <source>Sample menu item</source>
-        <translation>Voorbeeld menu item</translation>
+        <translation type="obsolete">Voorbeeld menu item</translation>
     </message>
     <message>
         <source>Connecting</source>

@@ -18,6 +18,10 @@ PageStackWindow {
         text: qsTr("Connecting")
     }
 
+    About {
+        id: about
+    }
+
     InfoBanner {
         id: dvrEntryAdded
         iconSource: "image://theme/icon-m-toolbar-clock-white"

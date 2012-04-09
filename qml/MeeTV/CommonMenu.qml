@@ -4,6 +4,9 @@ import com.nokia.meego 1.0
 Menu {
     visualParent: pageStack
     MenuLayout {
-        MenuItem { text: qsTr("Sample menu item") }
+        MenuItem {
+            text: qsTr("About MeeTV")
+            onClicked: about.open();
+        }
     }
 }

@@ -9,6 +9,20 @@ Page {
     property DvrEntry dvrEntry
 
     tools: CommonToolbar {
+        ToolIcon {
+            id: cancelIcon
+            iconId: "toolbar-cancle"
+            visible: dvrEntry.state == DvrEntry.Recording
+            onClicked: dvrEntry.cancel()
+            anchors.right: deleteIcon.left
+        }
+
+        ToolIcon {
+            id: deleteIcon
+            iconId: "toolbar-delete"
+            onClicked: { dvrEntry.remove(); pageStack.pop() }
+            anchors.right: parent.menuIcon.left
+        }
     }
 
     Rectangle {
@@ -81,22 +95,6 @@ Page {
             width: parent.width
             wrapMode: Text.Wrap
             color: theme.inverted ? "white" : "black"
-        }
-
-        ButtonRow {
-            anchors.top: descriptionTxt.bottom
-            Button {
-                id: cancelButton
-                visible: dvrEntry.state == DvrEntry.Recording
-                text: qsTr("Cancel")
-                onClicked: { dvrEntry.cancel() }
-            }
-
-            Button {
-                id: deleteButton
-                text: qsTr("Delete")
-                onClicked: { dvrEntry.remove(); pageStack.pop() }
-            }
         }
     }
 }

@@ -6,6 +6,10 @@
 class MeeTvSettings : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString hostname READ hostname NOTIFY hostnameChanged)
+    Q_PROPERTY(quint16 port READ port NOTIFY portChanged)
+    Q_PROPERTY(QString username READ username NOTIFY usernameChanged)
+
 public:
     explicit MeeTvSettings(QObject *parent = 0);
     

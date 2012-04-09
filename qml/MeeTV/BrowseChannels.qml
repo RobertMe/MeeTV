@@ -11,7 +11,7 @@ Page {
     SelectionDialog {
         id: tagSelection
 
-        titleText: "Select tag"
+        titleText: qsTr("Select tag")
         model: tagModel
         onAccepted: {
             var tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex);
@@ -32,7 +32,7 @@ Page {
 
         Label {
             id: selectedTag
-            text: "All"
+            text: qsTr("All")
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.margins: UiConstants.DefaultMargin

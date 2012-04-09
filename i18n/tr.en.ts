@@ -2,11 +2,34 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
+    <name>MainPage</name>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="13"/>
+        <source>Browse tags</source>
+        <translation>Browse tags</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="18"/>
+        <source>Browse channels</source>
+        <translation>Browse channels</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="23"/>
+        <source>View recordings</source>
+        <translation>View recordings</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="28"/>
+        <source>Search event</source>
+        <translation>Search event</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="36"/>
         <source>Sample menu item</source>
-        <translation>aaaa</translation>
+        <translation>Sample menu item</translation>
     </message>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="43"/>

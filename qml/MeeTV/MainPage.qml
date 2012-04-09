@@ -10,22 +10,22 @@ Page {
         id: mainOptions
 
         ListElement {
-            name: "Browse tags"
+            name: QT_TR_NOOP("Browse tags")
             page: "BrowseTags.qml"
         }
 
         ListElement {
-            name: "Browse channels"
+            name: QT_TR_NOOP("Browse channels")
             page: "BrowseChannels.qml"
         }
 
         ListElement {
-            name: "View recordings"
+            name: QT_TR_NOOP("View recordings")
             page: "ViewRecordings.qml"
         }
 
         ListElement {
-            name: "Search event"
+            name: QT_TR_NOOP("Search event")
             page: "SearchEvent.qml"
         }
     }
@@ -44,7 +44,7 @@ Page {
             height: UiConstants.ListItemHeightDefault
 
             Label {
-                text: name
+                text: qsTr(name)
                 font: UiConstants.TitleFont
                 anchors.verticalCenter: parent.verticalCenter
             }

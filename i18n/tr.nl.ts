@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="nl_NL">
 <context>
+    <name>MainPage</name>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="13"/>
+        <source>Browse tags</source>
+        <translation>Bekijk tags</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="18"/>
+        <source>Browse channels</source>
+        <translation>Bekijk kanalen</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="23"/>
+        <source>View recordings</source>
+        <translation>Bekijk opnames</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/MainPage.qml" line="28"/>
+        <source>Search event</source>
+        <translation>Zoek programma</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="36"/>

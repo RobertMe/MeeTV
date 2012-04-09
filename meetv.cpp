@@ -63,6 +63,8 @@ void MeeTv::authenticate()
     }
 
     m_htsp->authenticate(m_settings->username(), m_settings->password());
+    if(!m_htsp->isSyncCompleted())
+        m_htsp->enableAsync();
 }
 
 void MeeTv::init()

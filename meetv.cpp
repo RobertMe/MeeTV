@@ -72,6 +72,9 @@ void MeeTv::init()
     _registerTypes();
     _initHtsp();
     _initViewer();
+#ifdef QT_SIMULATOR
+    setActive(true);
+#endif
 }
 
 void MeeTv::run()

@@ -4,8 +4,10 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
-    tools: commonTools
     property alias events: events.model
+
+    tools: CommonToolbar {
+    }
 
     EventList {
         id: events

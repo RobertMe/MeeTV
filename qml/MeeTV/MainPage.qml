@@ -4,7 +4,9 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
-    tools: commonTools
+    tools: CommonToolbar {
+        canGoBack: false
+    }
 
     ListModel {
         id: mainOptions

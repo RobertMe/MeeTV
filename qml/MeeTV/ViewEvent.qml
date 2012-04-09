@@ -4,11 +4,12 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
-    tools: commonTools
-
     id: eventView
 
     property Event event
+
+    tools: CommonToolbar {
+    }
 
     Rectangle {
         id: header

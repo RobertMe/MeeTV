@@ -12,31 +12,6 @@ PageStackWindow {
         id: mainPage
     }
 
-    ToolBarLayout {
-        id: commonTools
-        visible: true
-
-        ToolIcon {
-            id: toolbarBack
-            platformIconId: "toolbar-back";
-            onClicked:{ pageStack.pop() }
-        }
-
-        ToolIcon {
-            platformIconId: "toolbar-view-menu"
-            anchors.right: (parent === undefined) ? undefined : parent.right
-            onClicked: (myMenu.status === DialogStatus.Closed) ? myMenu.open() : myMenu.close()
-        }
-    }
-
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem { text: qsTr("Sample menu item") }
-        }
-    }
-
     BusyConnect {
         id: busyConnect
 

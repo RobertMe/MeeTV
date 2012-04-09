@@ -3,7 +3,9 @@ import com.nokia.meego 1.0
 import "core.js" as Core
 
 Page {
-    tools: commonTools
+    tools: CommonToolbar {
+    }
+
     anchors.fill: parent
 
     property alias channels: channels.model

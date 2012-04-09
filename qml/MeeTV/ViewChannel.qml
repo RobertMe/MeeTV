@@ -4,10 +4,11 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
-    tools: commonTools
-
     property Channel channel
     property alias events: events.model
+
+    tools: CommonToolbar {
+    }
 
     Rectangle {
         id: header

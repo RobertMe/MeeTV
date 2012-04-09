@@ -27,10 +27,15 @@ MeeTv::MeeTv(QObject *parent) :
 #else
     m_settings = new MeeTvSettingsHard(this);
 #endif
+    m_authenticationSettingsChanged = false;
     m_connectionSettingsChanged = false;
+
     connect(m_settings, SIGNAL(hostnameChanged()), this, SLOT(_connectionSettingsChanged()));
     connect(m_settings, SIGNAL(portChanged()), this, SLOT(_connectionSettingsChanged()));
     connect(this, SIGNAL(activeChanged()), this, SLOT(_connectHtsp()));
+
+    connect(m_settings, SIGNAL(passwordChanged()), this, SLOT(_authenticationSettingsChanged()));
+    connect(m_settings, SIGNAL(usernameChanged()), this, SLOT(_authenticationSettingsChanged()));
 }
 
 bool MeeTv::active()
@@ -49,6 +54,8 @@ void MeeTv::setActive(bool active)
 
 void MeeTv::authenticate()
 {
+    m_authenticationSettingsChanged = false;
+    disconnect(this, SIGNAL(activeChanged()), this, SLOT(authenticate()));
     if(!m_settings->hasUsername() || !m_settings->hasPassword())
     {
         m_settings->open();
@@ -68,6 +75,14 @@ void MeeTv::init()
 void MeeTv::run()
 {
     m_viewer.showExpanded();
+}
+
+void MeeTv::_authenticationSettingsChanged()
+{
+    if(m_authenticationSettingsChanged)
+        return;
+
+    connect(this, SIGNAL(activeChanged()), this, SLOT(authenticate()));
 }
 
 void MeeTv::_connected()

@@ -40,6 +40,7 @@ private:
     void _registerTypes();
 
     bool m_active;
+    bool m_authenticationSettingsChanged;
     bool m_connectionSettingsChanged;
     QmlApplicationViewer m_viewer;
     MeeTvSettings *m_settings;
@@ -54,6 +55,7 @@ private slots:
     void _connected();
     void _connectHtsp();
     void _connectionSettingsChanged();
+    void _authenticationSettingsChanged();
 };
 
 #endif // MEETV_H

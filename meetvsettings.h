@@ -23,7 +23,9 @@ public:
 
 signals:
     void hostnameChanged();
+    void passwordChanged();
     void portChanged();
+    void usernameChanged();
 };
 
 #endif // MEETVSETTINGS_H

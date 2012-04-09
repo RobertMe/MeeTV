@@ -9,6 +9,12 @@ Page {
     property Event event
 
     tools: CommonToolbar {
+        ToolIcon {
+            id: recordIcon
+            iconId: "toolbar-clock"
+            onClicked: eventView.event.record()
+            anchors.right: parent.menuIcon.left
+        }
     }
 
     Rectangle {
@@ -82,11 +88,6 @@ Page {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: theme.inverted ? "white" : "black"
-            }
-
-            Button {
-                text: qsTr("Record")
-                onClicked: { eventView.event.record(); }
             }
         }
     }

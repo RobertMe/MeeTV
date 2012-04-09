@@ -84,7 +84,7 @@ Page {
             }
 
             Button {
-                text: "Record"
+                text: qsTr("Record")
                 onClicked: { eventView.event.record(); }
             }
         }

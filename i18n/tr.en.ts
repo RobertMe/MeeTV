@@ -102,6 +102,14 @@
     </message>
 </context>
 <context>
+    <name>ViewEvent</name>
+    <message>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="87"/>
+        <source>Record</source>
+        <translation>Record</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="36"/>

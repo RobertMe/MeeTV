@@ -82,6 +82,13 @@
     </message>
 </context>
 <context>
+    <name>ViewEvent</name>
+    <message>
+        <source>Record</source>
+        <translation>Opnemen</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Sample menu item</source>

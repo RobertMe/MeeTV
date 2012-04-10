@@ -10,6 +10,11 @@ MeeTvChannelModel::MeeTvChannelModel(QHtspChannelList *channels) :
 {
 }
 
+MeeTvChannel *MeeTvChannelModel::get(int index)
+{
+    return getChannelByIndex(index);
+}
+
 MeeTvChannel *MeeTvChannelModel::getChannelById(int id)
 {
     return new MeeTvChannel(*QHtspChannelModel::getChannelById(id));

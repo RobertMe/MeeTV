@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import Htsp 1.0
 
 Page {
     tools: CommonToolbar {
@@ -8,7 +9,9 @@ Page {
 
     anchors.fill: parent
 
-    property alias channels: channels.model
+    property ChannelModel channels: channelModel
+
+    onChannelsChanged: { channelsView.model = channels.helper() }
 
     SelectionDialog {
         id: tagSelection
@@ -17,7 +20,7 @@ Page {
         model: tagModel
         onAccepted: {
             var tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex);
-            channels.model = tag.channelsModel
+            channels = tag.channelsModel
             header.text = tag.name
         }
     }
@@ -54,7 +57,7 @@ Page {
     }
 
     ListView {
-        id: channels
+        id: channelsView
 
         anchors {
             top: header.bottom
@@ -64,12 +67,12 @@ Page {
         width: parent.width
         clip: true
 
-        model: channelModel
+        model: helper
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
-            leftMargin: channels.anchors.leftMargin
-            rightMargin: channels.anchors.rightMargin
+            leftMargin: channelsView.anchors.leftMargin
+            rightMargin: channelsView.anchors.rightMargin
 
             Row {
                 clip: true
@@ -105,9 +108,10 @@ Page {
 
             onClicked:  { Core.viewChannel(channelModel, id) }
         }
+        onModelChanged: channelsView.model.sort(2)
     }
 
     ScrollDecorator {
-        flickableItem: channels
+        flickableItem: channelsView
     }
 }

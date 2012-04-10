@@ -5,12 +5,17 @@ MeeTvTagModel::MeeTvTagModel(QHtspTagList *tags) :
 {
 }
 
+MeeTvTag *MeeTvTagModel::get(int index)
+{
+    return getTagByIndex(index);
+}
+
 MeeTvTag *MeeTvTagModel::getTagById(qint64 id)
 {
     return new MeeTvTag(*QHtspTagModel::getTagById(id));
 }
 
-MeeTvTag *MeeTvTagModel::getTagByIndex(int i)
+MeeTvTag *MeeTvTagModel::getTagByIndex(int index)
 {
-    return new MeeTvTag(*QHtspTagModel::getTagByIndex(i));
+    return new MeeTvTag(*QHtspTagModel::getTagByIndex(index));
 }

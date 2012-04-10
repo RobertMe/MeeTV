@@ -1,7 +1,7 @@
 #include "meetveventmodel.h"
 
 MeeTvEventModel::MeeTvEventModel() :
-    QHtspEventModel(new QHtspEventList())
+    QHtspEventModel(new QHtspEventList()), m_helper(0)
 {
     connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
     connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
@@ -9,7 +9,7 @@ MeeTvEventModel::MeeTvEventModel() :
 }
 
 MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
-    QHtspEventModel(events)
+    QHtspEventModel(events), m_helper(0)
 {
     connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
     connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
@@ -33,4 +33,12 @@ MeeTvEvent *MeeTvEventModel::getEventByIndex(int index)
         return new MeeTvEvent();
 
     return new MeeTvEvent(*event);
+}
+
+MeeTvModelHelper *MeeTvEventModel::helper()
+{
+    if(!m_helper)
+        m_helper = new MeeTvModelHelper(this);
+
+    return m_helper;
 }

@@ -11,6 +11,7 @@
 #include "meetvchannel.h"
 #include "meetvepgquery.h"
 #include "meetvevent.h"
+#include "meetvmodelhelper.h"
 #include "meetvtag.h"
 
 #ifndef QT_SIMULATOR
@@ -133,7 +134,6 @@ void MeeTv::_initHtsp()
 
 void MeeTv::_initViewer()
 {
-
     QDeclarativeContext *context = m_viewer.rootContext();
     context->setContextProperty("channelModel", m_channelModel);
     context->setContextProperty("dvrEntriesModel", m_dvrEntriesModel);
@@ -156,4 +156,5 @@ void MeeTv::_registerTypes()
     qmlRegisterType<MeeTvEvent>("Htsp", 1, 0, "Event");
     qmlRegisterType<MeeTvEventModel>("Htsp", 1, 0, "EventModel");
     qmlRegisterType<MeeTvChannelModel>("Htsp", 1, 0, "ChannelModel");
+    qmlRegisterType<MeeTvModelHelper>("Htsp", 1, 0, "ModelHelper");
 }

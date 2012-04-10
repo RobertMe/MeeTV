@@ -4,10 +4,11 @@
 #include <QObject>
 
 #include "meetvevent.h"
+#include "meetvmodel.h"
 #include "QHtsp/qhtspeventlist.h"
 #include "QHtsp/qhtspeventmodel.h"
 
-class MeeTvEventModel : public QHtspEventModel
+class MeeTvEventModel : public QHtspEventModel, public MeeTvModel
 {
     Q_OBJECT
 public:

@@ -66,7 +66,8 @@ HEADERS += meetv.h \
     meetveventmodel.h \
     meetvdvrentry.h \
     meetvdvrentrymodel.h \
-    meetvsettings.h
+    meetvsettings.h \
+    meetvmodel.h
 
 OTHER_FILES += \
     qtc_packaging/debian_harmattan/rules \

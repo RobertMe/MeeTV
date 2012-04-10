@@ -18,6 +18,7 @@ public:
     void setModel(MeeTvModel *model);
 
     Q_INVOKABLE QObject *get(int index);
+    Q_INVOKABLE void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
 private:
     MeeTvModel *m_model;

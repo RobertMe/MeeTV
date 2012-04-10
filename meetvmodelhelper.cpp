@@ -27,3 +27,8 @@ QObject *MeeTvModelHelper::get(int index)
 
     return model()->get(mapToSource(createIndex(index, 0)).row());
 }
+
+void MeeTvModelHelper::sort(int column, Qt::SortOrder order)
+{
+    QSortFilterProxyModel::sort(column, order);
+}

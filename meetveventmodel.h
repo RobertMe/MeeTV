@@ -21,9 +21,6 @@ public:
     Q_INVOKABLE MeeTvEvent *getEventByIndex(int index);
     Q_INVOKABLE MeeTvModelHelper *helper();
 
-signals:
-    void countChanged();
-    void itemsChanged();
 private:
     MeeTvModelHelper *m_helper;
 };

@@ -4,6 +4,9 @@ MeeTvModelHelper::MeeTvModelHelper(MeeTvModel *model) :
     QSortFilterProxyModel(dynamic_cast<QObject*>(model))
 {
     setModel(model);
+    connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(itemsChanged()));
 }
 
 MeeTvModel *MeeTvModelHelper::model()

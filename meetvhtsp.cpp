@@ -13,9 +13,17 @@ MeeTvHtsp::MeeTvHtsp(QObject *parent) :
 
 void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port)
 {
+    m_clientName = clientName;
+    m_clientVersion = clientVersion;
+    m_preferredHtspVersion = preferredHtspVersion;
+    m_hostName = hostName;
+    m_port = port;
+
     m_session->open();
-    if(m_session->waitForOpened())
-        QHtsp::connectToServer(clientName, clientVersion, preferredHtspVersion, hostName, port);
+    if(m_session->isOpen())
+        _internalConnect();
+    else
+        connect(m_session, SIGNAL(stateChanged(QNetworkSession::State)), this, SLOT(_internalConnect()));
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()
@@ -36,6 +44,15 @@ MeeTvHtsp *MeeTvHtsp::instance()
 void MeeTvHtsp::emitDvrEntryAdded(QHtspDvrEntry *dvrEntry)
 {
     emit dvrEntryAdded(new MeeTvDvrEntry(*dvrEntry));
+}
+
+void MeeTvHtsp::_internalConnect()
+{
+    if(m_session->state() != QNetworkSession::Connected)
+        return;
+
+    disconnect(m_session, SIGNAL(stateChanged(QNetworkSession::State)), this, SLOT(_internalConnect()));
+    QHtsp::connectToServer(m_clientName, m_clientVersion, m_preferredHtspVersion, m_hostName, m_port);
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

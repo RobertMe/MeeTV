@@ -26,11 +26,18 @@ private:
 
     QNetworkSession *m_session;
 
+    QString m_clientName;
+    QString m_clientVersion;
+    QString m_hostName;
+    quint16 m_port;
+    uint m_preferredHtspVersion;
+
     static MeeTvHtsp *m_instance;
     static QMutex m_mutex;
 
 private slots:
     void emitDvrEntryAdded(QHtspDvrEntry *dvrEntry);
+    void _internalConnect();
 };
 
 #endif // MEETVHTSP_H

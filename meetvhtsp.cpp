@@ -1,9 +1,21 @@
 #include "meetvhtsp.h"
 
+#include <QNetworkConfigurationManager>
+
 MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     QHtsp(parent)
 {
     connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
+    QNetworkConfigurationManager manager;
+    QNetworkConfiguration configuration = manager.defaultConfiguration();
+    m_session = new QNetworkSession(configuration, this);
+}
+
+void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port)
+{
+    m_session->open();
+    if(m_session->waitForOpened())
+        QHtsp::connectToServer(clientName, clientVersion, preferredHtspVersion, hostName, port);
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()

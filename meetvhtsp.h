@@ -38,6 +38,7 @@ private:
 private slots:
     void emitDvrEntryAdded(QHtspDvrEntry *dvrEntry);
     void _internalConnect();
+    void _sessionLost();
 };
 
 #endif // MEETVHTSP_H

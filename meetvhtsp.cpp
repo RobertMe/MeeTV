@@ -19,6 +19,7 @@ void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint 
     m_hostName = hostName;
     m_port = port;
 
+    connect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
     m_session->open();
     if(m_session->isOpen())
         _internalConnect();
@@ -53,6 +54,11 @@ void MeeTvHtsp::_internalConnect()
 
     disconnect(m_session, SIGNAL(stateChanged(QNetworkSession::State)), this, SLOT(_internalConnect()));
     QHtsp::connectToServer(m_clientName, m_clientVersion, m_preferredHtspVersion, m_hostName, m_port);
+}
+
+void MeeTvHtsp::_sessionLost()
+{
+    disconnectFromServer(false);
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

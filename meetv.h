@@ -41,6 +41,7 @@ private:
 
     bool m_active;
     bool m_authenticationSettingsChanged;
+    bool m_connecting;
     bool m_connectionSettingsChanged;
     QmlApplicationViewer m_viewer;
     MeeTvSettings *m_settings;

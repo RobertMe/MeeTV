@@ -59,6 +59,8 @@ void MeeTvHtsp::_internalConnect()
 void MeeTvHtsp::_sessionLost()
 {
     disconnectFromServer(false);
+    m_session->deleteLater();
+    m_session = 0;
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

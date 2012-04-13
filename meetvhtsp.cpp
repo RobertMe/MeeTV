@@ -5,6 +5,16 @@ MeeTvHtsp::MeeTvHtsp(QObject *parent) :
 {
     connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
     m_configurationManager  = new QNetworkConfigurationManager(this);
+    m_authenticated = false;
+}
+
+void MeeTvHtsp::authenticate(QString username, QString password)
+{
+    m_username = username;
+    m_password = password;
+
+    QHtsp::authenticate(m_username, m_password);
+    m_authenticated = true;
 }
 
 void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port)
@@ -47,6 +57,14 @@ void MeeTvHtsp::_internalConnect()
     QHtsp::connectToServer(m_clientName, m_clientVersion, m_preferredHtspVersion, m_hostName, m_port);
 }
 
+void MeeTvHtsp::_reconnect()
+{
+    if(m_authenticated)
+        QHtsp::authenticate(m_username, m_password);
+
+    disconnect(this, SIGNAL(connected()), this, SLOT(_reconnect()));
+}
+
 void MeeTvHtsp::_sessionConnect()
 {
     QNetworkConfiguration configuration = m_configurationManager->defaultConfiguration();
@@ -66,12 +84,18 @@ void MeeTvHtsp::_sessionLost()
     m_session->deleteLater();
     if(m_configurationManager->isOnline())
     {
-        _sessionConnect();
+        _sessionReconnect();
     }
     else
     {
         m_session = 0;
     }
+}
+
+void MeeTvHtsp::_sessionReconnect()
+{
+    connect(this, SIGNAL(connected()), this, SLOT(_reconnect()));
+    _sessionConnect();
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

@@ -117,7 +117,7 @@ void MeeTvHtsp::_sessionConnect()
 
 void MeeTvHtsp::_sessionLost()
 {
-    disconnectFromServer(false);
+    disconnectFromServer(!m_asyncEnabled);
     m_session->deleteLater();
     if(m_configurationManager->isOnline())
     {

@@ -28,6 +28,7 @@ MeeTv::MeeTv(QObject *parent) :
     m_settings = new MeeTvSettingsHard(this);
 #endif
     m_authenticationSettingsChanged = false;
+    m_connecting = false;
     m_connectionSettingsChanged = false;
 
     connect(m_settings, SIGNAL(hostnameChanged()), this, SLOT(_connectionSettingsChanged()));
@@ -112,8 +113,12 @@ void MeeTv::_connectHtsp()
         return;
     }
 
+    if(m_connecting)
+        return;
+
     connect(m_htsp, SIGNAL(connected()), this, SLOT(_connected()));
     m_htsp->connectToServer("MeeTV", "0.1", 1, m_settings->hostname(), m_settings->port());
+    m_connecting = true;
     m_connectionSettingsChanged = false;
 }
 

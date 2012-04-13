@@ -2,6 +2,7 @@
 #define MEETVHTSP_H
 
 #include <QMutex>
+#include <QNetworkConfigurationManager>
 #include <QNetworkSession>
 #include <QObject>
 
@@ -24,6 +25,7 @@ private:
     MeeTvHtsp(QObject *parent = 0);
     MeeTvHtsp& operator=(const MeeTvHtsp &);
 
+    QNetworkConfigurationManager *m_configurationManager;
     QNetworkSession *m_session;
 
     QString m_clientName;
@@ -38,6 +40,7 @@ private:
 private slots:
     void emitDvrEntryAdded(QHtspDvrEntry *dvrEntry);
     void _internalConnect();
+    void _sessionConnect();
     void _sessionLost();
 };
 

@@ -1,14 +1,10 @@
 #include "meetvhtsp.h"
 
-#include <QNetworkConfigurationManager>
-
 MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     QHtsp(parent)
 {
     connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
-    QNetworkConfigurationManager manager;
-    QNetworkConfiguration configuration = manager.defaultConfiguration();
-    m_session = new QNetworkSession(configuration, this);
+    m_configurationManager  = new QNetworkConfigurationManager(this);
 }
 
 void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port)
@@ -19,12 +15,7 @@ void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint 
     m_hostName = hostName;
     m_port = port;
 
-    connect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
-    m_session->open();
-    if(m_session->isOpen())
-        _internalConnect();
-    else
-        connect(m_session, SIGNAL(stateChanged(QNetworkSession::State)), this, SLOT(_internalConnect()));
+    _sessionConnect();
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()
@@ -56,11 +47,31 @@ void MeeTvHtsp::_internalConnect()
     QHtsp::connectToServer(m_clientName, m_clientVersion, m_preferredHtspVersion, m_hostName, m_port);
 }
 
+void MeeTvHtsp::_sessionConnect()
+{
+    QNetworkConfiguration configuration = m_configurationManager->defaultConfiguration();
+    m_session = new QNetworkSession(configuration, this);
+
+    connect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
+    m_session->open();
+    if(m_session->isOpen())
+        _internalConnect();
+    else
+        connect(m_session, SIGNAL(stateChanged(QNetworkSession::State)), this, SLOT(_internalConnect()));
+}
+
 void MeeTvHtsp::_sessionLost()
 {
     disconnectFromServer(false);
     m_session->deleteLater();
-    m_session = 0;
+    if(m_configurationManager->isOnline())
+    {
+        _sessionConnect();
+    }
+    else
+    {
+        m_session = 0;
+    }
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

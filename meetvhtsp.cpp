@@ -5,6 +5,7 @@ MeeTvHtsp::MeeTvHtsp(QObject *parent) :
 {
     connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
     m_configurationManager  = new QNetworkConfigurationManager(this);
+    m_asyncEnabled = false;
     m_authenticated = false;
 }
 
@@ -26,6 +27,12 @@ void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint 
     m_port = port;
 
     _sessionConnect();
+}
+
+void MeeTvHtsp::enableAsync()
+{
+    QHtsp::enableAsync();
+    m_asyncEnabled = true;
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()
@@ -57,10 +64,40 @@ void MeeTvHtsp::_internalConnect()
     QHtsp::connectToServer(m_clientName, m_clientVersion, m_preferredHtspVersion, m_hostName, m_port);
 }
 
+void MeeTvHtsp::_monitorSync(QString method, QHtspMessage &message)
+{
+    if(method == "channelAdd")
+    {
+        m_monitorChannels->append(message.getInt64("channelId"));
+    }
+    else if(method == "dvrEntryAdd")
+    {
+        m_monitorDvrEntries->append(message.getInt64("id"));
+    }
+    else if(method == "tagAdd")
+    {
+        m_monitorTags->append(message.getInt64("tagId"));
+    }
+    else if(method == "initialSyncCompleted")
+    {
+        _updateLists();
+        disconnect(m_connection, SIGNAL(invoke(QString,QHtspMessage&)), this, SLOT(_monitorSync(QString, QHtspMessage&)));
+    }
+}
+
 void MeeTvHtsp::_reconnect()
 {
     if(m_authenticated)
         QHtsp::authenticate(m_username, m_password);
+
+    if(m_asyncEnabled)
+    {
+        m_monitorChannels = new QList<int>();
+        m_monitorDvrEntries = new QList<int>();
+        m_monitorTags = new QList<int>();
+        connect(m_connection, SIGNAL(invoke(QString,QHtspMessage&)), this, SLOT(_monitorSync(QString, QHtspMessage&)));
+        QHtsp::enableAsync();
+    }
 
     disconnect(this, SIGNAL(connected()), this, SLOT(_reconnect()));
 }
@@ -96,6 +133,47 @@ void MeeTvHtsp::_sessionReconnect()
 {
     connect(this, SIGNAL(connected()), this, SLOT(_reconnect()));
     _sessionConnect();
+}
+
+void MeeTvHtsp::_updateLists()
+{
+    int i;
+    for(i = 0; i < channels()->count(); i++)
+    {
+        QHtspChannel *channel = channels()->at(i);
+        if(!m_monitorChannels->contains(channel->id()))
+        {
+            channels()->remove(channel);
+            delete channel;
+        }
+    }
+
+    for(i = 0; i < dvrEntries()->count(); i++)
+    {
+        QHtspDvrEntry *dvrEntry = dvrEntries()->at(i);
+        if(!m_monitorDvrEntries->contains(dvrEntry->id()))
+        {
+            dvrEntries()->remove(dvrEntry);
+            delete dvrEntry;
+        }
+    }
+
+    for(i = 0; i < tags()->count(); i++)
+    {
+        QHtspTag *tag = tags()->at(i);
+        if(!m_monitorTags->contains(tag->id()))
+        {
+            tags()->remove(tag);
+            delete tag;
+        }
+    }
+
+    delete m_monitorChannels;
+    delete m_monitorDvrEntries;
+    delete m_monitorTags;
+    m_monitorChannels = 0;
+    m_monitorDvrEntries = 0;
+    m_monitorTags = 0;
 }
 
 MeeTvHtsp* MeeTvHtsp::m_instance = 0;

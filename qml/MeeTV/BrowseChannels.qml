@@ -1,14 +1,22 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import Htsp 1.0
 
 Page {
+    id: root
+
     tools: CommonToolbar {
     }
 
     anchors.fill: parent
 
-    property alias channels: channels.model
+    property Tag tag
+
+    onTagChanged: {
+        channels.model = tag.channelsModel
+        header.text = tag.name
+    }
 
     SelectionDialog {
         id: tagSelection
@@ -16,9 +24,7 @@ Page {
         titleText: qsTr("Select tag")
         model: tagModel
         onAccepted: {
-            var tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex);
-            channels.model = tag.channelsModel
-            header.text = tag.name
+            root.tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex)
         }
     }
 

@@ -27,7 +27,7 @@ function viewEvent(events, id) {
 function viewTag(tags, id) {
     var component = Qt.createComponent("BrowseChannels.qml");
     var tag = tags.getTagById(id);
-    var page = component.createObject(pageStack, {"channels": tag.channelsModel });
+    var page = component.createObject(pageStack, {"tag": tag });
     pageStack.push(page);
 }
 

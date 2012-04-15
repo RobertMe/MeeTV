@@ -145,27 +145,37 @@
         <translation>Are you sure you want to delete %1?</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="78"/>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="39"/>
+        <source>Cancel recording</source>
+        <translation>Cancel recording</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="40"/>
+        <source>Are you sure you want to cancel %1?</source>
+        <translation>Are you sure you want to cancel %1?</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="86"/>
         <source>Completed</source>
         <translation>Completed</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="78"/>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="86"/>
         <source>Invalid</source>
         <translation>Invalid</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="78"/>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="86"/>
         <source>Missed</source>
         <translation>Missed</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="78"/>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="86"/>
         <source>Recording</source>
         <translation>Recording</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="78"/>
+        <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="86"/>
         <source>Scheduled</source>
         <translation>Scheduled</translation>
     </message>

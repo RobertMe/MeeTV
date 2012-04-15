@@ -13,7 +13,7 @@ Page {
             id: cancelIcon
             iconId: "toolbar-cancle"
             visible: dvrEntry.state == DvrEntry.Recording
-            onClicked: dvrEntry.cancel()
+            onClicked: cancelConfirmation.open()
             anchors.right: deleteIcon.left
         }
 
@@ -31,6 +31,14 @@ Page {
         titleText: qsTr("Delete recording")
         description: qsTr("Are you sure you want to delete %1?").arg(dvrEntry.title)
         onAccepted: { dvrEntry.remove(); pageStack.pop() }
+    }
+
+    ConfirmationDialog {
+        id: cancelConfirmation
+
+        titleText: qsTr("Cancel recording")
+        description: qsTr("Are you sure you want to cancel %1?").arg(dvrEntry.title)
+        onAccepted: { dvrEntry.cancel() }
     }
 
     Rectangle {

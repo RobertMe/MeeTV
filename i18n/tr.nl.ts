@@ -145,6 +145,14 @@
         <source>Are you sure you want to delete %1?</source>
         <translation>Weet u zeker dat u opname %1 wilt verwijderen?</translation>
     </message>
+    <message>
+        <source>Cancel recording</source>
+        <translation>Annuleer opname</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to cancel %1?</source>
+        <translation>Weet u zeker dat u %1 wilt annuleren?</translation>
+    </message>
 </context>
 <context>
     <name>ViewEvent</name>

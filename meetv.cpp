@@ -137,7 +137,6 @@ void MeeTv::_initViewer()
     QDeclarativeContext *context = m_viewer.rootContext();
     context->setContextProperty("channelModel", m_channelModel);
     context->setContextProperty("dvrEntriesModel", m_dvrEntriesModel);
-    context->setContextProperty("eventModel", m_eventModel);
     context->setContextProperty("htsp", m_htsp);
     context->setContextProperty("meetv", this);
     context->setContextProperty("settings", m_settings);

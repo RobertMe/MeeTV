@@ -7,7 +7,6 @@
 #include <QtDeclarative>
 #include <QDeclarativeContext>
 
-#include "meetvhtsp.h"
 #include "meetvchannel.h"
 #include "meetvepgquery.h"
 #include "meetvevent.h"
@@ -50,6 +49,7 @@ void MeeTv::setActive(bool active)
         return;
 
     m_active = active;
+    m_htsp->setActive(active);
     emit activeChanged();
 }
 

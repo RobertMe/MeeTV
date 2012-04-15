@@ -6,7 +6,7 @@
 
 #include "qmlapplicationviewer.h"
 
-#include "./QHtsp/qhtsp.h"
+#include "meetvhtsp.h"
 #include "meetvchannelmodel.h"
 #include "meetvdvrentrymodel.h"
 #include "meetveventmodel.h"
@@ -46,7 +46,7 @@ private:
     QmlApplicationViewer m_viewer;
     MeeTvSettings *m_settings;
 
-    QHtsp *m_htsp;
+    MeeTvHtsp *m_htsp;
     MeeTvChannelModel *m_channelModel;
     MeeTvDvrEntryModel *m_dvrEntriesModel;
     MeeTvEventModel *m_eventModel;

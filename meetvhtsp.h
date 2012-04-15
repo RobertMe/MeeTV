@@ -5,9 +5,12 @@
 #include <QNetworkConfigurationManager>
 #include <QNetworkSession>
 #include <QObject>
+#include <QtSystemInfo/QSystemAlignedTimer>
 
 #include "meetvdvrentry.h"
 #include "QHtsp/qhtsp.h"
+
+QTM_USE_NAMESPACE
 
 class MeeTvHtsp : public QHtsp
 {
@@ -22,6 +25,10 @@ public:
 
 signals:
     void dvrEntryAdded(MeeTvDvrEntry *dvrEntry);
+
+public slots:
+    void setActive(bool active);
+    void disconnectIdle();
 
 private:
     MeeTvHtsp(QObject *parent = 0);
@@ -43,6 +50,9 @@ private:
     QList<int> *m_monitorChannels;
     QList<int> *m_monitorDvrEntries;
     QList<int> *m_monitorTags;
+
+    bool m_idleDisconnected;
+    QSystemAlignedTimer m_idleTimer;
 
     static MeeTvHtsp *m_instance;
     static QMutex m_mutex;

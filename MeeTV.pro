@@ -24,7 +24,7 @@ PKGCONFIG += gq-gconf
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.
 CONFIG += mobility
-MOBILITY +=
+MOBILITY += systeminfo
 
 # Speed up launching on MeeGo/Harmattan when using applauncherd daemon
 CONFIG += qdeclarative-boostable

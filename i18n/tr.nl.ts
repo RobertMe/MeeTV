@@ -59,6 +59,17 @@
     </message>
 </context>
 <context>
+    <name>ConfirmationDialog</name>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nee</translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Browse tags</source>
@@ -125,6 +136,14 @@
     <message>
         <source>Delete</source>
         <translation type="obsolete">Verwijder</translation>
+    </message>
+    <message>
+        <source>Delete recording</source>
+        <translation>Verwijder opname</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete %1?</source>
+        <translation>Weet u zeker dat u opname %1 wilt verwijderen?</translation>
     </message>
 </context>
 <context>

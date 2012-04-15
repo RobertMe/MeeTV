@@ -20,9 +20,17 @@ Page {
         ToolIcon {
             id: deleteIcon
             iconId: "toolbar-delete"
-            onClicked: { dvrEntry.remove(); pageStack.pop() }
+            onClicked: deleteConfirmation.open();
             anchors.right: parent.menuIcon.left
         }
+    }
+
+    ConfirmationDialog {
+        id: deleteConfirmation
+
+        titleText: qsTr("Delete recording")
+        description: qsTr("Are you sure you want to delete %1?").arg(dvrEntry.title)
+        onAccepted: { dvrEntry.remove(); pageStack.pop() }
     }
 
     Rectangle {

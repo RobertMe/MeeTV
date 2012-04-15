@@ -26,6 +26,7 @@ MeeTv::MeeTv(QObject *parent) :
 #else
     m_settings = new MeeTvSettingsHard(this);
 #endif
+    m_active = false;
     m_authenticationSettingsChanged = false;
     m_connecting = false;
     m_connectionSettingsChanged = false;

@@ -7,11 +7,6 @@ MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     m_configurationManager  = new QNetworkConfigurationManager(this);
     m_asyncEnabled = false;
     m_authenticated = false;
-    m_idleDisconnected = false;
-    m_idleTimer.setSingleShot(true);
-    m_idleTimer.setMinimumInterval(60);
-    m_idleTimer.setMaximumInterval(90);
-    connect(&m_idleTimer, SIGNAL(timeout()), this, SLOT(disconnectIdle()));
 }
 
 void MeeTvHtsp::authenticate(QString username, QString password)
@@ -21,6 +16,11 @@ void MeeTvHtsp::authenticate(QString username, QString password)
 
     QHtsp::authenticate(m_username, m_password);
     m_authenticated = true;
+}
+
+void MeeTvHtsp::connectFromIdle()
+{
+    _sessionReconnect();
 }
 
 void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port)
@@ -39,7 +39,6 @@ void MeeTvHtsp::disconnectIdle()
     disconnectFromServer(!m_asyncEnabled);
     disconnect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
     m_session->close();
-    m_idleDisconnected = true;
 }
 
 void MeeTvHtsp::enableAsync()
@@ -61,22 +60,6 @@ MeeTvHtsp *MeeTvHtsp::instance()
     }
 
     return m_instance;
-}
-
-void MeeTvHtsp::setActive(bool active)
-{
-    if(active)
-    {
-        if(m_idleDisconnected)
-        {
-            m_idleTimer.stop();
-            _sessionReconnect();
-        }
-    }
-    else
-    {
-        m_idleTimer.start();
-    }
 }
 
 void MeeTvHtsp::emitDvrEntryAdded(QHtspDvrEntry *dvrEntry)

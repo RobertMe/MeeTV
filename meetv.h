@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QString>
+#include <QtSystemInfo/QSystemAlignedTimer>
+
+QTM_USE_NAMESPACE
 
 #include "qmlapplicationviewer.h"
 
@@ -46,6 +49,8 @@ private:
     QmlApplicationViewer m_viewer;
     MeeTvSettings *m_settings;
 
+    QSystemAlignedTimer m_idleTimer;
+
     MeeTvHtsp *m_htsp;
     MeeTvChannelModel *m_channelModel;
     MeeTvDvrEntryModel *m_dvrEntriesModel;
@@ -53,10 +58,11 @@ private:
     MeeTvTagModel *m_tagModel;
 
 private slots:
+    void _authenticationSettingsChanged();
     void _connected();
     void _connectHtsp();
     void _connectionSettingsChanged();
-    void _authenticationSettingsChanged();
+    void _idleHandler();
 };
 
 #endif // MEETV_H

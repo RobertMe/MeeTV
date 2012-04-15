@@ -36,6 +36,10 @@ MeeTv::MeeTv(QObject *parent) :
 
     connect(m_settings, SIGNAL(passwordChanged()), this, SLOT(_authenticationSettingsChanged()));
     connect(m_settings, SIGNAL(usernameChanged()), this, SLOT(_authenticationSettingsChanged()));
+
+    m_idleTimer.setSingleShot(true);
+    m_idleTimer.setMinimumInterval(60);
+    m_idleTimer.setMaximumInterval(90);
 }
 
 bool MeeTv::active()
@@ -49,7 +53,6 @@ void MeeTv::setActive(bool active)
         return;
 
     m_active = active;
-    m_htsp->setActive(active);
     emit activeChanged();
 }
 
@@ -97,6 +100,9 @@ void MeeTv::_connected()
     disconnect(this, SIGNAL(activeChanged()), this, SLOT(_connectHtsp()));
     disconnect(m_settings, SIGNAL(hostnameChanged()), this, SLOT(_connectionSettingsChanged()));
     disconnect(m_settings, SIGNAL(portChanged()), this, SLOT(_connectionSettingsChanged()));
+
+    connect(this, SIGNAL(activeChanged()), this, SLOT(_idleHandler()));
+
     if(m_settings->hasUsername() && m_settings->hasPassword())
         authenticate();
     m_htsp->enableAsync();
@@ -127,6 +133,19 @@ void MeeTv::_connectionSettingsChanged()
     m_connectionSettingsChanged = true;
 }
 
+void MeeTv::_idleHandler()
+{
+    if(active())
+    {
+        m_idleTimer.stop();
+        m_htsp->connectFromIdle();
+    }
+    else
+    {
+        m_idleTimer.start();
+    }
+}
+
 void MeeTv::_initHtsp()
 {
     m_htsp = MeeTvHtsp::instance();
@@ -134,6 +153,8 @@ void MeeTv::_initHtsp()
     m_dvrEntriesModel = new MeeTvDvrEntryModel(m_htsp->dvrEntries());
     m_eventModel = new MeeTvEventModel(m_htsp->events());
     m_tagModel = new MeeTvTagModel(m_htsp->tags());
+
+    connect(&m_idleTimer, SIGNAL(timeout()), m_htsp, SLOT(disconnectIdle()));
 }
 
 void MeeTv::_initViewer()

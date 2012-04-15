@@ -14,7 +14,7 @@ Page {
         anchors.topMargin: 8
         anchors.bottomMargin: anchors.topMargin
 
-        model: tagModel
+        model: tagModel.helper()
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
@@ -47,6 +47,8 @@ Page {
 
             onClicked: { Core.viewTag(tags.model.get(index)) }
         }
+
+        onModelChanged: model.sort(1)
     }
 
     ScrollDecorator {

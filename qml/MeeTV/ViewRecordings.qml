@@ -67,7 +67,7 @@ Page {
                 anchors.right: parent.right
             }
 
-            onClicked: { Core.viewDvrEntry(dvrEntriesModel, id) }
+            onClicked: { Core.viewDvrEntry(recordings.model.get(index)) }
         }
     }
 

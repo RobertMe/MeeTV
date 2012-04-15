@@ -106,7 +106,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            onClicked:  { Core.viewChannel(channelModel, id) }
+            onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
         }
         onModelChanged: channelsView.model.sort(2)
     }

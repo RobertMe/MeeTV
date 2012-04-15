@@ -45,7 +45,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            onClicked: { Core.viewTag(tags.model, id) }
+            onClicked: { Core.viewTag(tags.model.get(index)) }
         }
     }
 

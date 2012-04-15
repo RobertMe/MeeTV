@@ -71,7 +71,7 @@ Item {
                 visible: root.showChannel
             }
 
-            onClicked: { Core.viewEvent(events.model, id); }
+            onClicked: { Core.viewEvent(events.model.get(index)); }
         }
     }
 

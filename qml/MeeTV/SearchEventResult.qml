@@ -4,13 +4,15 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
-    property alias events: events.model
+    property EventModel events
+
+    onEventsChanged: eventsView.model = events.helper()
 
     tools: CommonToolbar {
     }
 
     EventList {
-        id: events
+        id: eventsView
 
         anchors.fill: parent
         showChannel: true

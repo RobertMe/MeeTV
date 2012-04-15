@@ -5,7 +5,7 @@ import Htsp 1.0
 
 Page {
     property Channel channel
-    property alias events: events.model
+    property alias events: eventsView.model
 
     tools: CommonToolbar {
     }
@@ -38,7 +38,7 @@ Page {
     }
 
     EventList {
-        id: events
+        id: eventsView
 
         anchors {
             top: header.bottom

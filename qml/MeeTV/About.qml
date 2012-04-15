@@ -5,7 +5,7 @@ import Htsp 1.0
 Sheet {
     id: root
 
-    acceptButtonText: qsTr("Close")
+    rejectButtonText: qsTr("Close")
 
     content: Flickable {
         anchors.fill: parent

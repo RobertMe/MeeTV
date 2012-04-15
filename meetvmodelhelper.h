@@ -2,6 +2,7 @@
 #define MEETVMODELHELPER_H
 
 #include <QSortFilterProxyModel>
+#include <QTimer>
 
 #include "meetvmodel.h"
 
@@ -26,7 +27,12 @@ signals:
     void itemsChanged();
 
 private:
+    QTimer m_dirtyTimer;
     MeeTvModel *m_model;
+
+private slots:
+    void _dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+    void _resort();
 };
 
 #endif // MEETVMODELHELPER_H

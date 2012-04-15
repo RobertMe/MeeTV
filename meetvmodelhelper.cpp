@@ -4,9 +4,16 @@ MeeTvModelHelper::MeeTvModelHelper(MeeTvModel *model) :
     QSortFilterProxyModel(dynamic_cast<QObject*>(model))
 {
     setModel(model);
+
     connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
     connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), this, SIGNAL(countChanged()));
     connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SIGNAL(itemsChanged()));
+    connect(this, SIGNAL(rowsInserted(const QModelIndex&, int, int)), &m_dirtyTimer, SLOT(start()));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex&, int, int)), &m_dirtyTimer, SLOT(start()));
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(_dataChanged(QModelIndex,QModelIndex)));
+
+    m_dirtyTimer.setSingleShot(true);
+    connect(&m_dirtyTimer, SIGNAL(timeout()), this, SLOT(_resort()));
 }
 
 MeeTvModel *MeeTvModelHelper::model()
@@ -34,4 +41,17 @@ QObject *MeeTvModelHelper::get(int index)
 void MeeTvModelHelper::sort(int column, Qt::SortOrder order)
 {
     QSortFilterProxyModel::sort(column, order);
+}
+
+void MeeTvModelHelper::_dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
+{
+    if(topLeft.column() < sortColumn() && bottomRight.column() > sortColumn())
+        return;
+
+    m_dirtyTimer.start();
+}
+
+void MeeTvModelHelper::_resort()
+{
+    QSortFilterProxyModel::sort(sortColumn(), sortOrder());
 }

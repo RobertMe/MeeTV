@@ -11,10 +11,11 @@ Page {
 
     anchors.fill: parent
 
+    property alias channels: channelsView.model
     property Tag tag
 
     onTagChanged: {
-        channels.model = tag.channelsModel
+        channels = tag.channelsModel.helper()
         header.text = tag.name
     }
 
@@ -22,9 +23,9 @@ Page {
         id: tagSelection
 
         titleText: qsTr("Select tag")
-        model: tagModel
+        model: tagModel.helper()
         onAccepted: {
-            root.tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex)
+            root.tag = tagSelection.model.get(tagSelection.selectedIndex)
         }
     }
 
@@ -60,7 +61,7 @@ Page {
     }
 
     ListView {
-        id: channels
+        id: channelsView
 
         anchors {
             top: header.bottom
@@ -70,12 +71,12 @@ Page {
         width: parent.width
         clip: true
 
-        model: channelModel
+        model: channelModel.helper()
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
-            leftMargin: channels.anchors.leftMargin
-            rightMargin: channels.anchors.rightMargin
+            leftMargin: channelsView.anchors.leftMargin
+            rightMargin: channelsView.anchors.rightMargin
 
             Row {
                 clip: true
@@ -109,11 +110,11 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            onClicked:  { Core.viewChannel(channelModel, id) }
+            onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
         }
     }
 
     ScrollDecorator {
-        flickableItem: channels
+        flickableItem: channelsView
     }
 }

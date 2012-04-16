@@ -14,7 +14,7 @@ Page {
         anchors.topMargin: 8
         anchors.bottomMargin: anchors.topMargin
 
-        model: tagModel
+        model: tagModel.helper()
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
@@ -45,7 +45,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            onClicked: { Core.viewTag(tags.model, id) }
+            onClicked: { Core.viewTag(tags.model.get(index)) }
         }
     }
 

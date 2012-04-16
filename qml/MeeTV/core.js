@@ -3,30 +3,26 @@ function gotoPage(file) {
     return pageStack.push(page);
 }
 
-function viewChannel(channels, id) {
+function viewChannel(channel) {
     var component = Qt.createComponent("ViewChannel.qml");
-    var channel = channels.getChannelById(id);
     var page = component.createObject(pageStack, {"channel": channel, "events": channel.eventsModel});
     pageStack.push(page);
 }
 
-function viewDvrEntry(dvrEntries, id) {
+function viewDvrEntry(dvrEntry) {
     var component = Qt.createComponent("ViewDvrEntry.qml");
-    var dvrEntry = dvrEntries.getDvrEntryById(id);
     var page = component.createObject(pageStack, {"dvrEntry": dvrEntry });
     pageStack.push(page);
 }
 
-function viewEvent(events, id) {
+function viewEvent(event) {
     var component = Qt.createComponent("ViewEvent.qml");
-    var event = events.getEventById(id);
     var page = component.createObject(pageStack, {"event": event });
     pageStack.push(page);
 }
 
-function viewTag(tags, id) {
+function viewTag(tag) {
     var component = Qt.createComponent("BrowseChannels.qml");
-    var tag = tags.getTagById(id);
     var page = component.createObject(pageStack, {"tag": tag });
     pageStack.push(page);
 }
@@ -36,10 +32,10 @@ function searchEvent(parent, queryString, channelIndex, tagIndex)
     var epgQuery = Qt.createQmlObject('import QtQuick 1.0; import Htsp 1.0; EpgQuery { }', parent);
     epgQuery.query = queryString;
     if(channelIndex > 0)
-        epgQuery.channel = channelDialog.model.getChannelByIndex(channelIndex);
+        epgQuery.channel = channelDialog.model.get(channelIndex);
 
     if(tagIndex > 0)
-        epgQuery.tag = tagDialog.model.getTagByIndex(tagIndex);
+        epgQuery.tag = tagDialog.model.get(tagIndex);
 
     epgQuery.run();
 

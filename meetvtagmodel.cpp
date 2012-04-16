@@ -1,8 +1,13 @@
 #include "meetvtagmodel.h"
 
 MeeTvTagModel::MeeTvTagModel(QHtspTagList *tags) :
-    QHtspTagModel(tags)
+    QHtspTagModel(tags), m_helper(0)
 {
+}
+
+MeeTvTag *MeeTvTagModel::get(int index)
+{
+    return getTagByIndex(index);
 }
 
 MeeTvTag *MeeTvTagModel::getTagById(qint64 id)
@@ -10,7 +15,18 @@ MeeTvTag *MeeTvTagModel::getTagById(qint64 id)
     return new MeeTvTag(*QHtspTagModel::getTagById(id));
 }
 
-MeeTvTag *MeeTvTagModel::getTagByIndex(int i)
+MeeTvTag *MeeTvTagModel::getTagByIndex(int index)
 {
-    return new MeeTvTag(*QHtspTagModel::getTagByIndex(i));
+    return new MeeTvTag(*QHtspTagModel::getTagByIndex(index));
+}
+
+MeeTvModelHelper *MeeTvTagModel::helper()
+{
+    if(!m_helper)
+    {
+        m_helper = new MeeTvModelHelper(this);
+        m_helper->sort(1);
+    }
+
+    return m_helper;
 }

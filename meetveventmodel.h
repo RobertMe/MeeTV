@@ -4,10 +4,12 @@
 #include <QObject>
 
 #include "meetvevent.h"
+#include "meetvmodel.h"
+#include "meetvmodelhelper.h"
 #include "QHtsp/qhtspeventlist.h"
 #include "QHtsp/qhtspeventmodel.h"
 
-class MeeTvEventModel : public QHtspEventModel
+class MeeTvEventModel : public QHtspEventModel, public MeeTvModel
 {
     Q_OBJECT
 public:
@@ -17,10 +19,10 @@ public:
     Q_INVOKABLE MeeTvEvent *get(int index);
     Q_INVOKABLE MeeTvEvent *getEventById(int id);
     Q_INVOKABLE MeeTvEvent *getEventByIndex(int index);
+    Q_INVOKABLE MeeTvModelHelper *helper();
 
-signals:
-    void countChanged();
-    void itemsChanged();
+private:
+    MeeTvModelHelper *m_helper;
 };
 
 #endif // MEETVEVENTMODEL_H

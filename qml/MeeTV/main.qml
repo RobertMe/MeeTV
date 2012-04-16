@@ -1,6 +1,8 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import com.nokia.extras 1.1
+import "core.js" as Core
+import Htsp 1.0
 
 PageStackWindow {
     id: appWindow
@@ -24,7 +26,19 @@ PageStackWindow {
 
     InfoBanner {
         id: dvrEntryAdded
+
+        property DvrEntry dvrEntry
+
+        text: qsTr("Added recording %1").arg(dvrEntry.title)
         iconSource: "image://theme/icon-m-toolbar-clock-white"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                parent.hide();
+                Core.viewDvrEntry(parent.dvrEntry);
+            }
+        }
     }
 
     InfoBanner {
@@ -43,7 +57,7 @@ PageStackWindow {
         target: htsp
         onConnected: { busyConnect.text = qsTr("Syncing data") }
         onAccessDenied: { errorMessage.timerEnabled = false; errorMessage.text = qsTr("Access denied"); errorMessage.show(); }
-        onDvrEntryAdded: { dvrEntryAdded.text = qsTr("Added recording %1").arg(dvrEntry.title); dvrEntryAdded.show(); }
+        onDvrEntryAdded: { dvrEntryAdded.dvrEntry = dvrEntry; dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }
     }
 

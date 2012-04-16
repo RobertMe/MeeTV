@@ -5,7 +5,7 @@ function gotoPage(file) {
 
 function viewChannel(channel) {
     var component = Qt.createComponent("ViewChannel.qml");
-    var page = component.createObject(pageStack, {"channel": channel, "events": channel.eventsModel});
+    var page = component.createObject(pageStack, {"channel": channel, "events": channel.eventsModel.helper()});
     pageStack.push(page);
 }
 
@@ -32,10 +32,10 @@ function searchEvent(parent, queryString, channelIndex, tagIndex)
     var epgQuery = Qt.createQmlObject('import QtQuick 1.0; import Htsp 1.0; EpgQuery { }', parent);
     epgQuery.query = queryString;
     if(channelIndex > 0)
-        epgQuery.channel = channelDialog.model.getChannelByIndex(channelIndex);
+        epgQuery.channel = channelDialog.model.get(channelIndex);
 
     if(tagIndex > 0)
-        epgQuery.tag = tagDialog.model.getTagByIndex(tagIndex);
+        epgQuery.tag = tagDialog.model.get(tagIndex);
 
     epgQuery.run();
 

@@ -9,18 +9,16 @@ Page {
 
     anchors.fill: parent
 
-    property ChannelModel channels: channelModel
-
-    onChannelsChanged: { channelsView.model = channels.helper() }
+    property alias channels: channelsView.model
 
     SelectionDialog {
         id: tagSelection
 
         titleText: qsTr("Select tag")
-        model: tagModel
+        model: tagModel.helper()
         onAccepted: {
-            var tag = tagSelection.model.getTagByIndex(tagSelection.selectedIndex);
-            channels = tag.channelsModel
+            var tag = tagSelection.model.get(tagSelection.selectedIndex);
+            channels = tag.channelsModel.helper()
             header.text = tag.name
         }
     }
@@ -67,7 +65,7 @@ Page {
         width: parent.width
         clip: true
 
-        model: helper
+        model: channelModel.helper()
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 

@@ -12,9 +12,9 @@ Page {
 
         titleText: qsTr("Channel")
 
-        model: channelModel
+        model: channelModel.helper()
 
-        onAccepted: { channelName.text = channelDialog.model.getChannelByIndex(channelDialog.selectedIndex).name }
+        onAccepted: { channelName.text = channelDialog.model.get(channelDialog.selectedIndex).name }
     }
 
     SelectionDialog {
@@ -22,9 +22,9 @@ Page {
 
         titleText: qsTr("Tag")
 
-        model: tagModel
+        model: tagModel.helper()
 
-        onAccepted: { tagName.text = tagDialog.model.getTagByIndex(tagDialog.selectedIndex).name }
+        onAccepted: { tagName.text = tagDialog.model.get(tagDialog.selectedIndex).name }
     }
 
     Column {

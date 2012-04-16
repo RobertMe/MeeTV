@@ -37,7 +37,8 @@ Page {
             }
         }
 
-        model: dvrEntriesModel
+        model: dvrEntriesModel.helper()
+        onModelChanged: model.sort(2)
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 

@@ -23,7 +23,10 @@ MeeTvTag *MeeTvTagModel::getTagByIndex(int index)
 MeeTvModelHelper *MeeTvTagModel::helper()
 {
     if(!m_helper)
+    {
         m_helper = new MeeTvModelHelper(this);
+        m_helper->sort(1);
+    }
 
     return m_helper;
 }

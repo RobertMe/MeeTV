@@ -47,8 +47,6 @@ Page {
 
             onClicked: { Core.viewTag(tags.model.get(index)) }
         }
-
-        onModelChanged: model.sort(1)
     }
 
     ScrollDecorator {

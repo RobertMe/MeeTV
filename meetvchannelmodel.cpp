@@ -28,7 +28,10 @@ MeeTvChannel *MeeTvChannelModel::getChannelByIndex(int i)
 MeeTvModelHelper *MeeTvChannelModel::helper()
 {
     if(!m_helper)
+    {
         m_helper = new MeeTvModelHelper(this);
+        m_helper->sort(2);
+    }
 
     return m_helper;
 }

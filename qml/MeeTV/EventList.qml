@@ -73,8 +73,6 @@ Item {
 
             onClicked: { Core.viewEvent(events.model.get(index)); }
         }
-
-        onModelChanged: { if(events.model.sort) events.model.sort(2) }
     }
 
     ScrollDecorator {

@@ -108,7 +108,6 @@ Page {
 
             onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
         }
-        onModelChanged: channelsView.model.sort(2)
     }
 
     ScrollDecorator {

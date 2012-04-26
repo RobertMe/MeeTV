@@ -17,11 +17,6 @@ Page {
         }
 
         ListElement {
-            name: QT_TR_NOOP("Browse channels")
-            page: "BrowseChannels.qml"
-        }
-
-        ListElement {
             name: QT_TR_NOOP("View recordings")
             page: "ViewRecordings.qml"
         }

@@ -52,7 +52,6 @@ private:
     QSystemAlignedTimer m_idleTimer;
 
     MeeTvHtsp *m_htsp;
-    MeeTvChannelModel *m_channelModel;
     MeeTvDvrEntryModel *m_dvrEntriesModel;
     MeeTvEventModel *m_eventModel;
     MeeTvTagModel *m_tagModel;

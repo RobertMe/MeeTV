@@ -91,17 +91,16 @@
         <translation>Browse tags</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/MainPage.qml" line="20"/>
         <source>Browse channels</source>
-        <translation>Browse channels</translation>
+        <translation type="obsolete">Browse channels</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/MainPage.qml" line="25"/>
+        <location filename="../qml/MeeTV/MainPage.qml" line="20"/>
         <source>View recordings</source>
         <translation>View recordings</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/MainPage.qml" line="30"/>
+        <location filename="../qml/MeeTV/MainPage.qml" line="25"/>
         <source>Search event</source>
         <translation>Search event</translation>
     </message>
@@ -109,30 +108,30 @@
 <context>
     <name>SearchEvent</name>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="19"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="116"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="24"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="119"/>
         <source>Channel</source>
         <translation>Channel</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="29"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="85"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="32"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="88"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="49"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="52"/>
         <source>Query</source>
         <translation>Query</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="61"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="143"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="64"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="146"/>
         <source>Search</source>
         <translation>Search</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="124"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="127"/>
         <source>Select a tag first</source>
         <translation>Select a tag first</translation>
     </message>

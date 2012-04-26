@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Browse channels</source>
-        <translation>Bekijk kanalen</translation>
+        <translation type="obsolete">Bekijk kanalen</translation>
     </message>
     <message>
         <source>View recordings</source>

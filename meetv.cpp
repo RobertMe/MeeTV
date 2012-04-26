@@ -151,7 +151,6 @@ void MeeTv::_idleHandler()
 void MeeTv::_initHtsp()
 {
     m_htsp = MeeTvHtsp::instance();
-    m_channelModel = new MeeTvChannelModel(m_htsp->channels());
     m_dvrEntriesModel = new MeeTvDvrEntryModel(m_htsp->dvrEntries());
     m_eventModel = new MeeTvEventModel(m_htsp->events());
     m_tagModel = new MeeTvTagModel(m_htsp->tags());
@@ -162,7 +161,6 @@ void MeeTv::_initHtsp()
 void MeeTv::_initViewer()
 {
     QDeclarativeContext *context = m_viewer.rootContext();
-    context->setContextProperty("channelModel", m_channelModel);
     context->setContextProperty("dvrEntriesModel", m_dvrEntriesModel);
     context->setContextProperty("htsp", m_htsp);
     context->setContextProperty("meetv", this);

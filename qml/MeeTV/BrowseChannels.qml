@@ -71,7 +71,6 @@ Page {
         width: parent.width
         clip: true
 
-        model: channelModel.helper()
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 

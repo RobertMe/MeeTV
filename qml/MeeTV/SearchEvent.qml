@@ -10,15 +10,18 @@ Page {
     property Channel channel
     property Tag tag
 
-    onChannelChanged: channelName.text = channel.name
-    onTagChanged: tagName.text = tag.name
+    onChannelChanged: channelName.text = channel ? channel.name : ""
+    onTagChanged: {
+        tagName.text = tag.name
+        channelDialog.model = tag.channelsModel.helper()
+        channelDialog.selectedIndex = -1
+        channel = null
+    }
 
     SelectionDialog {
         id: channelDialog
 
         titleText: qsTr("Channel")
-
-        model: channelModel.helper()
 
         onAccepted: { channel = channelDialog.model.get(channelDialog.selectedIndex) }
     }
@@ -115,16 +118,19 @@ Page {
                 Label {
                     text: qsTr("Channel")
                     font: UiConstants.TitleFont
+                    color: !tag ? "Gray" : platformStyle.textColor
                 }
 
                 Label {
                     id: channelName
                     font.pixelSize: 18
+                    text: !tag ? qsTr("Select a tag first") : ""
+                    color: !tag ? "Gray" : platformStyle.textColor
                 }
             }
 
             Image {
-                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "")
+                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "") + (!tag ? "-disabled" : "")
                 anchors.right: parent.right;
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -132,6 +138,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: { channelDialog.open(); }
+                enabled: !!tag
             }
         }
 

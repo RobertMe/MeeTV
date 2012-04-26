@@ -106,6 +106,10 @@
         <source>Search</source>
         <translation>Zoek</translation>
     </message>
+    <message>
+        <source>Select a tag first</source>
+        <translation>Selecteer eerst een tag</translation>
+    </message>
 </context>
 <context>
     <name>ViewDvrEntry</name>

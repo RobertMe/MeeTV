@@ -27,16 +27,12 @@ function viewTag(tag) {
     pageStack.push(page);
 }
 
-function searchEvent(parent, queryString, channelIndex, tagIndex)
+function searchEvent(parent, queryString, channel, tag)
 {
     var epgQuery = Qt.createQmlObject('import QtQuick 1.0; import Htsp 1.0; EpgQuery { }', parent);
     epgQuery.query = queryString;
-    if(channelIndex >= 0)
-        epgQuery.channel = channelDialog.model.get(channelIndex);
-
-    if(tagIndex >= 0)
-        epgQuery.tag = tagDialog.model.get(tagIndex);
-
+    epgQuery.channel = channel;
+    epgQuery.tag = tag;
     epgQuery.run();
 
     var component = Qt.createComponent("SearchEventResult.qml");

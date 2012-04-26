@@ -7,6 +7,12 @@ Page {
     tools: CommonToolbar {
     }
 
+    property Channel channel
+    property Tag tag
+
+    onChannelChanged: channelName.text = channel.name
+    onTagChanged: tagName.text = tag.name
+
     SelectionDialog {
         id: channelDialog
 
@@ -14,7 +20,7 @@ Page {
 
         model: channelModel.helper()
 
-        onAccepted: { channelName.text = channelDialog.model.get(channelDialog.selectedIndex).name }
+        onAccepted: { channel = channelDialog.model.get(channelDialog.selectedIndex) }
     }
 
     SelectionDialog {
@@ -24,7 +30,7 @@ Page {
 
         model: tagModel.helper()
 
-        onAccepted: { tagName.text = tagDialog.model.get(tagDialog.selectedIndex).name }
+        onAccepted: { tag = tagDialog.model.get(tagDialog.selectedIndex) }
     }
 
     Column {
@@ -56,7 +62,7 @@ Page {
                     }
 
                     Keys.onReturnPressed: {
-                        Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex)
+                        Core.searchEvent(parent, query.text, channel, tag)
                     }
                 }
             }
@@ -131,7 +137,7 @@ Page {
 
         Button {
             text: qsTr("Search")
-            onClicked: { Core.searchEvent(parent, query.text, channelDialog.selectedIndex, tagDialog.selectedIndex) }
+            onClicked: Core.searchEvent(parent, query.text, channel, tag)
             anchors.right: parent.right
         }
     }

@@ -57,28 +57,28 @@ Page {
             anchors.margins: UiConstants.DefaultMargin
         }
 
-        Column {
+        Grid {
             id: times
+            columns: screen.currentOrientation === Screen.Landscape ? 2 : 1
 
             anchors {
                 right: parent.right
                 verticalCenter: parent.verticalCenter
                 margins: UiConstants.DefaultMargin
             }
-            width: 100
 
             Label {
                 text: Qt.formatTime(dvrEntry.start)
                 font: UiConstants.FieldLabelFont
-                width: parent.width
-                horizontalAlignment: Text.AlignRight
+                width: 80
+                horizontalAlignment: screen.currentOrientation === Screen.Landscape ? Text.AlignLeft : Text.AlignRight
             }
 
             Label {
-                text: Qt.formatTime(dvrEntry.stop)
+                text: (screen.currentOrientation === Screen.Landscape ? "- " : "") + Qt.formatTime(dvrEntry.stop)
                 font: UiConstants.FieldLabelFont
-                width: parent.width
-                horizontalAlignment: Text.AlignRight
+                width: screen.currentOrientation === Screen.Landscape ? 100 : 80
+                horizontalAlignment: screen.currentOrientation === Screen.Landscape ? Text.AlignLeft : Text.AlignRight
             }
         }
 
@@ -89,6 +89,7 @@ Page {
             anchors {
                 top: times.top
                 right: times.left
+                rightMargin: UiConstants.DefaultMargin
             }
         }
     }

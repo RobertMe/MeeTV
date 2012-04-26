@@ -4,6 +4,7 @@ import com.nokia.meego 1.0
 Item {
     property int leftMargin
     property int rightMargin
+    property bool canNavigateNext: true
 
     width: parent.width - drilldown.width - 10
 
@@ -25,7 +26,7 @@ Item {
     Image {
         id: drilldown
 
-        source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
+        source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "") + (!canNavigateNext ? "-disabled" : "")
         anchors.right: parent.right
         anchors.rightMargin: -width - 10
         anchors.verticalCenter: parent.verticalCenter
@@ -35,5 +36,6 @@ Item {
         id: mouseArea
         anchors.fill: background
         onClicked: parent.clicked()
+        enabled: canNavigateNext
     }
 }

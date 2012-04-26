@@ -109,6 +109,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
+            canNavigateNext: event !== ""
             onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
         }
     }

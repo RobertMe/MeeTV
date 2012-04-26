@@ -13,7 +13,7 @@ Page {
     Rectangle {
         id: header
 
-        height: 100
+        height: screen.currentOrientation === Screen.Portrait ? UiConstants.HeaderDefaultHeightPortrait : UiConstants.HeaderDefaultHeightLandscape
         width: parent.width
         anchors.top: parent.top
         color: "gray"

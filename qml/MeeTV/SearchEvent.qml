@@ -82,37 +82,6 @@ Page {
                 spacing: 5
 
                 Label {
-                    text: qsTr("Channel")
-                    font: UiConstants.TitleFont
-                }
-
-                Label {
-                    id: channelName
-                    font.pixelSize: 18
-                }
-            }
-
-            Image {
-                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "")
-                anchors.right: parent.right;
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { channelDialog.open(); }
-            }
-        }
-
-        Item {
-            height: UiConstants.ListItemHeightDefault
-            width: parent.width
-
-            Column {
-                anchors.fill: parent
-                spacing: 5
-
-                Label {
                     text: qsTr("Tag")
                     font: UiConstants.TitleFont
                 }
@@ -132,6 +101,37 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: { tagDialog.open(); }
+            }
+        }
+
+        Item {
+            height: UiConstants.ListItemHeightDefault
+            width: parent.width
+
+            Column {
+                anchors.fill: parent
+                spacing: 5
+
+                Label {
+                    text: qsTr("Channel")
+                    font: UiConstants.TitleFont
+                }
+
+                Label {
+                    id: channelName
+                    font.pixelSize: 18
+                }
+            }
+
+            Image {
+                source: "image://theme/meegotouch-combobox-indicator" + (theme.inverted ? "-inverted" : "")
+                anchors.right: parent.right;
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { channelDialog.open(); }
             }
         }
 

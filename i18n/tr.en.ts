@@ -245,6 +245,11 @@
     </message>
     <message>
         <location filename="../qml/MeeTV/main.qml" line="59"/>
+        <source>Unable to connect to server</source>
+        <translation>Unable to connect to server</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/main.qml" line="60"/>
         <source>Access denied</source>
         <translation>Access denied</translation>
     </message>

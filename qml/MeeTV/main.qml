@@ -56,6 +56,7 @@ PageStackWindow {
     Connections {
         target: htsp
         onConnected: { busyConnect.text = qsTr("Syncing data") }
+        onConnectError: { errorMessage.timerEnabled = false; errorMessage.text = qsTr("Unable to connect to server"); errorMessage.show(); }
         onAccessDenied: { errorMessage.timerEnabled = false; errorMessage.text = qsTr("Access denied"); errorMessage.show(); }
         onDvrEntryAdded: { dvrEntryAdded.dvrEntry = dvrEntry; dvrEntryAdded.show(); }
         onSyncCompleted: { busyConnect.visible = false }

@@ -210,5 +210,9 @@
         <source>Added recording %1</source>
         <translation>Opname toegevoegd %1</translation>
     </message>
+    <message>
+        <source>Unable to connect to server</source>
+        <translation>Kan geen verbinding maken met de server</translation>
+    </message>
 </context>
 </TS>

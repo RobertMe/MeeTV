@@ -110,6 +110,11 @@ void MeeTv::_connected()
     m_htsp->enableAsync();
 }
 
+void MeeTv::_connectError()
+{
+    m_connecting = false;
+}
+
 void MeeTv::_connectHtsp()
 {
     if(!active())
@@ -156,6 +161,7 @@ void MeeTv::_initHtsp()
     m_tagModel = new MeeTvTagModel(m_htsp->tags());
 
     connect(&m_idleTimer, SIGNAL(timeout()), m_htsp, SLOT(disconnectIdle()));
+    connect(m_htsp, SIGNAL(connectError()), this, SLOT(_connectError()));
 }
 
 void MeeTv::_initViewer()

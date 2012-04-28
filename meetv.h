@@ -59,6 +59,7 @@ private:
 private slots:
     void _authenticationSettingsChanged();
     void _connected();
+    void _connectError();
     void _connectHtsp();
     void _connectionSettingsChanged();
     void _idleHandler();

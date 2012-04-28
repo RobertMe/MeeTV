@@ -1,7 +1,7 @@
 #include "meetvhtsp.h"
 
 MeeTvHtsp::MeeTvHtsp(QObject *parent) :
-    QHtsp(parent)
+    QHtsp(parent), m_session(0)
 {
     connect(this, SIGNAL(dvrEntryAdded(QHtspDvrEntry*)), this, SLOT(emitDvrEntryAdded(QHtspDvrEntry*)));
     m_configurationManager  = new QNetworkConfigurationManager(this);
@@ -116,10 +116,14 @@ void MeeTvHtsp::_reconnect()
 
 void MeeTvHtsp::_sessionConnect()
 {
-    QNetworkConfiguration configuration = m_configurationManager->defaultConfiguration();
-    m_session = new QNetworkSession(configuration, this);
+    if(!m_session)
+    {
+        QNetworkConfiguration configuration = m_configurationManager->defaultConfiguration();
+        m_session = new QNetworkSession(configuration, this);
 
-    connect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
+        connect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
+    }
+
     m_session->open();
     if(m_session->isOpen())
         _internalConnect();

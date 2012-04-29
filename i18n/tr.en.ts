@@ -239,17 +239,22 @@
         <translation>Connecting</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/main.qml" line="58"/>
+        <location filename="../qml/MeeTV/main.qml" line="59"/>
+        <source>Connection lost</source>
+        <translation>Connection lost</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/main.qml" line="71"/>
         <source>Syncing data</source>
         <translation>Syncing data</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/main.qml" line="59"/>
+        <location filename="../qml/MeeTV/main.qml" line="72"/>
         <source>Unable to connect to server</source>
         <translation>Unable to connect to server</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/main.qml" line="60"/>
+        <location filename="../qml/MeeTV/main.qml" line="74"/>
         <source>Access denied</source>
         <translation>Access denied</translation>
     </message>

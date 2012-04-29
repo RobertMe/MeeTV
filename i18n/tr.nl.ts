@@ -214,5 +214,9 @@
         <source>Unable to connect to server</source>
         <translation>Kan geen verbinding maken met de server</translation>
     </message>
+    <message>
+        <source>Connection lost</source>
+        <translation>Verbinding verbroken</translation>
+    </message>
 </context>
 </TS>

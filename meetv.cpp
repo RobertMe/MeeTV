@@ -145,7 +145,8 @@ void MeeTv::_idleHandler()
     if(active())
     {
         m_idleTimer.stop();
-        m_htsp->connectFromIdle();
+        if(m_htsp->isIdle())
+            m_htsp->connectFromIdle();
     }
     else
     {

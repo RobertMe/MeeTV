@@ -14,6 +14,8 @@ class MeeTvHtsp : public QHtsp
     Q_OBJECT
 
 public:
+    bool isIdle();
+
     void authenticate(QString username, QString password);
     void connectToServer(QString clientName, QString clientVersion, uint preferredHtspVersion, QString hostName, quint16 port = 9982);
     void enableAsync();
@@ -32,6 +34,7 @@ private:
     MeeTvHtsp& operator=(const MeeTvHtsp &);
 
     QNetworkConfigurationManager *m_configurationManager;
+    bool m_isIdle;
     QNetworkSession *m_session;
 
     bool m_asyncEnabled;

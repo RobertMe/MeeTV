@@ -7,6 +7,12 @@ MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     m_configurationManager  = new QNetworkConfigurationManager(this);
     m_asyncEnabled = false;
     m_authenticated = false;
+    m_isIdle = false;
+}
+
+bool MeeTvHtsp::isIdle()
+{
+    return m_isIdle;
 }
 
 void MeeTvHtsp::authenticate(QString username, QString password)
@@ -36,6 +42,7 @@ void MeeTvHtsp::connectToServer(QString clientName, QString clientVersion, uint 
 
 void MeeTvHtsp::disconnectIdle()
 {
+    m_isIdle = true;
     disconnectFromServer(!m_asyncEnabled);
     disconnect(m_session, SIGNAL(closed()), this, SLOT(_sessionLost()));
     m_session->close();
@@ -99,6 +106,7 @@ void MeeTvHtsp::_monitorSync(QString method, QHtspMessage &message)
 
 void MeeTvHtsp::_reconnect()
 {
+    m_isIdle = false;
     if(m_authenticated)
         QHtsp::authenticate(m_username, m_password);
 

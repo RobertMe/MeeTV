@@ -6,7 +6,7 @@
 #include "meetvchannel.h"
 #include "meetveventmodel.h"
 #include "meetvtag.h"
-#include "QHtsp/qhtspepgquery.h"
+#include "../QHtsp/qhtspepgquery.h"
 
 class MeeTvEpgQuery : public QHtspEpgQuery
 {

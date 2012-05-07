@@ -4,7 +4,7 @@
 #include <QObject>
 
 #include "meetvhtsp.h"
-#include "QHtsp/qhtspevent.h"
+#include "../QHtsp/qhtspevent.h"
 
 class MeeTvEvent : public QHtspEvent
 {

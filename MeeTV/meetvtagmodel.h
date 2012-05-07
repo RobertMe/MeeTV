@@ -5,8 +5,8 @@
 
 #include "meetvtag.h"
 #include "meetvmodel.h"
-#include "QHtsp/qhtsptaglist.h"
-#include "QHtsp/qhtsptagmodel.h"
+#include "../QHtsp/qhtsptaglist.h"
+#include "../QHtsp/qhtsptagmodel.h"
 
 class MeeTvTagModel : public QHtspTagModel, public MeeTvModel
 {

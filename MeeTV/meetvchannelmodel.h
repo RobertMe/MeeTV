@@ -6,8 +6,8 @@
 #include "meetvchannel.h"
 #include "meetvmodel.h"
 #include "meetvmodelhelper.h"
-#include "QHtsp/qhtspchannellist.h"
-#include "QHtsp/qhtspchannelmodel.h"
+#include "../QHtsp/qhtspchannellist.h"
+#include "../QHtsp/qhtspchannelmodel.h"
 
 class MeeTvChannelModel : public QHtspChannelModel, public MeeTvModel
 {

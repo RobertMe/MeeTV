@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "QHtsp/qhtspdvrentry.h"
+#include "../QHtsp/qhtspdvrentry.h"
 
 class MeeTvDvrEntry : public QHtspDvrEntry
 {

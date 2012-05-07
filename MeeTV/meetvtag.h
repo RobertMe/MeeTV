@@ -5,7 +5,7 @@
 
 #include "meetvchannelmodel.h"
 #include "meetvhtsp.h"
-#include "QHtsp/qhtsptag.h"
+#include "../QHtsp/qhtsptag.h"
 
 class MeeTvTag : public QHtspTag
 {

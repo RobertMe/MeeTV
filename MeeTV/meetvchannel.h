@@ -4,7 +4,7 @@
 #include <QObject>
 
 #include "meetveventmodel.h"
-#include "QHtsp/qhtspchannel.h"
+#include "../QHtsp/qhtspchannel.h"
 
 class MeeTvChannel : public QHtspChannel
 {

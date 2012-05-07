@@ -7,7 +7,7 @@
 #include <QObject>
 
 #include "meetvdvrentry.h"
-#include "QHtsp/qhtsp.h"
+#include "../QHtsp/qhtsp.h"
 
 class MeeTvHtsp : public QHtsp
 {

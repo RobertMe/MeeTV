@@ -6,8 +6,8 @@
 #include "meetvevent.h"
 #include "meetvmodel.h"
 #include "meetvmodelhelper.h"
-#include "QHtsp/qhtspeventlist.h"
-#include "QHtsp/qhtspeventmodel.h"
+#include "../QHtsp/qhtspeventlist.h"
+#include "../QHtsp/qhtspeventmodel.h"
 
 class MeeTvEventModel : public QHtspEventModel, public MeeTvModel
 {

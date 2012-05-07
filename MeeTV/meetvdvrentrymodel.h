@@ -6,8 +6,8 @@
 #include "meetvdvrentry.h"
 #include "meetvmodel.h"
 #include "meetvmodelhelper.h"
-#include "QHtsp/qhtspdvrentrylist.h"
-#include "QHtsp/qhtspdvrentrymodel.h"
+#include "../QHtsp/qhtspdvrentrylist.h"
+#include "../QHtsp/qhtspdvrentrymodel.h"
 
 class MeeTvDvrEntryModel : public QHtspDvrEntryModel, public MeeTvModel
 {

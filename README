@@ -1,0 +1,78 @@
+                   MeeTV a TVHeadend application for MeeGo
+                   =======================================
+
+                        (c) 2012 - Robert Meijers
+
+
+Introduction
+============
+MeeTV is an application for MeeGo, the Nokia N9 especially, to control some of
+the functionalities of TVHeadend, a TV streaming server for Linux. The
+currently supported features are the following:
+* Browsing tags
+* Browsing channels within their tag group
+* View events (TV shows) within their channel
+* Viewing event details
+* Adding an event to be recorded
+* Searching the EPG, filtering on tag and channel possible
+
+Getting the code
+================
+The code is hosted on Github and may be downloaded from there. To get the code
+you first need to install git package provided by your distribution. Afterwards
+you need to run the following commands:
+
+  $ git clone git://github.com/RobertMe/MeeTV.git
+  $ cd MeeTV
+  $ git submodule init
+  $ git submodule add
+
+Installing the prerequisites
+============================
+To compile the code you need a build environment for MeeGo. The easiest way to
+install this is using the Qt SDK, which can be downloaded from
+http://qt.nokia.com/products/qt-sdk. During the installation make sure to
+install the Harmattan Target and Qt Quick Components (Development Tools ->
+Harmattan). Another prerequisite is enabling developer mode on the device,
+This can be done by toggling Settings -> Security -> Developer Mode to on.
+
+Setting up Qt Creator
+=====================
+The application will be build and deployed using Qt Creator. Qt Creator is also
+included in the Qt SDK and installed by default. First you'll need to add your
+MeeGo device to the list of devices. This may be done by starting Qt Creator,
+and navigating through Tools -> Options -> Linux Devices. Click Add, select
+'Device with MADDE support' and Start Wizard. Fill in the required information,
+which may be found by opening the SDK Connectivity app on the device. Finish
+the wizard and Apply the changed settings.
+
+Compiling the application
+=========================
+Open the MeeTV.pro file in the root of the project with QtCreator. When prompted
+to select the targets untick Desktop and tick at least Harmattan, you may also
+tick Qt Simulator if you want to run the app in the simulator. Afterwards make
+sure the run configuration has the remove device set as current device by
+navigation to Projects in the left toolbar, and selecting Run on the Harmattan
+tab. Then make sure the Device configuration is set to MeeGo Device (or the name
+you entered in the device add wizard). Then make sure the Harmattan target is
+still the current configuration by checking the bottom of the main toolbar. When
+you click on the phone button the Harmattan target should be blue (active). Next
+in the main menu select Build -> Build All, after the build process completes,
+select Build -> Deploy All. This installs the application to your device.
+
+Running the application
+=======================
+After you've installed the app on your device you should be able to run it.
+There should be a MeeTV application on the application homescreen which starts
+the application. On the first run it will automaticly open the settings screen
+where you'll need to provide the hostname, portnumber and possibly username and
+password to connect to your TVHeadend server. You could just close the settings
+screen and the app will automaticly try to (re)connect.
+
+Changing settings after first run
+=================================
+To change one of the settings you can use the devices Settings application. The
+MeeTV app can be found in the Application menu. If you change the username or
+password they will automaticly be resend when the app gets active. If you change
+the hostname or portnumber these will be used on the next connect attempt. This
+most probably means you'll need to restart the app if it was already running.

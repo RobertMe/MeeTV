@@ -6,19 +6,28 @@
 #include "meetveventmodel.h"
 #include "../QHtsp/qhtspchannel.h"
 
+class MeeTvService;
 class MeeTvChannel : public QHtspChannel
 {
     Q_OBJECT
     Q_PROPERTY(MeeTvEventModel *eventsModel READ eventsModel)
+    Q_PROPERTY(MeeTvService *service READ service WRITE setService NOTIFY serviceChanged)
 
 public:
     explicit MeeTvChannel(QObject *parent = 0);
     MeeTvChannel(const QHtspChannel& channel, QObject *parent = 0);
 
     MeeTvEventModel *eventsModel();
+    MeeTvService *service();
+
+    void setService(MeeTvService *service);
+
+signals:
+    void serviceChanged();
 
 private:
     MeeTvEventModel *m_eventModel;
+    MeeTvService *m_meetvService;
 
 };
 

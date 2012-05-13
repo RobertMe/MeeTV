@@ -48,7 +48,8 @@ SOURCES += main.cpp \
     meetvdvrentry.cpp \
     meetvdvrentrymodel.cpp \
     meetvsettings.cpp \
-    meetvmodelhelper.cpp
+    meetvmodelhelper.cpp \
+    meetvservice.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -69,7 +70,8 @@ HEADERS += meetv.h \
     meetvdvrentrymodel.h \
     meetvsettings.h \
     meetvmodelhelper.h \
-    meetvmodel.h
+    meetvmodel.h \
+    meetvservice.h
 
 contains(MEEGO_EDITION,harmattan) {
     SOURCES += meetvsettingsgconf.cpp

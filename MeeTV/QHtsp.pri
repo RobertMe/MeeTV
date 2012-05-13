@@ -15,7 +15,8 @@ HEADERS += \
     ../QHtsp/qhtspepgquery.h \
     ../QHtsp/qhtspdvrentry.h \
     ../QHtsp/qhtspdvrentrylist.h \
-    ../QHtsp/qhtspdvrentrymodel.h
+    ../QHtsp/qhtspdvrentrymodel.h \
+    ../QHtsp/qhtspservice.h
 
 SOURCES += \
     ../QHtsp/qhtspeventlist.cpp \
@@ -38,4 +39,6 @@ SOURCES += \
     ../QHtsp/qhtspeventdata.cpp \
     ../QHtsp/qhtspepgquerydata.cpp \
     ../QHtsp/qhtsptagdata.cpp \
-    ../QHtsp/qhtspdvrentrydata.cpp
+    ../QHtsp/qhtspdvrentrydata.cpp \
+    ../QHtsp/qhtspservice.cpp \
+    ../QHtsp/qhtspservicedata.cpp

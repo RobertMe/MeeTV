@@ -30,7 +30,7 @@ MeeTvService *MeeTvChannel::service()
     }
     else
     {
-        if(QHtspChannel::service()->name() != m_meetvService->name())
+        if(m_meetvService && QHtspChannel::service()->name() != m_meetvService->name())
         {
             delete m_meetvService;
             m_meetvService = 0;

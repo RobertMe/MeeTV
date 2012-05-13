@@ -61,6 +61,11 @@
         <source>All</source>
         <translation>All</translation>
     </message>
+    <message>
+        <location filename="../qml/MeeTV/BrowseChannels.qml" line="130"/>
+        <source>Play</source>
+        <translation type="unfinished">Play</translation>
+    </message>
 </context>
 <context>
     <name>CommonMenu</name>

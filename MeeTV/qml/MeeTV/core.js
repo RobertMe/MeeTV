@@ -3,6 +3,13 @@ function gotoPage(file) {
     return pageStack.push(page);
 }
 
+function playChannel(channel)
+{
+    var component = Qt.createComponent(channel.service.type == Service.RadioType ? "AudioPlayer.qml" : "VideoPlayer.qml");
+    var page = component.createObject(pageStack, {"channel": channel});
+    pageStack.push(page);
+}
+
 function viewChannel(channel) {
     var component = Qt.createComponent("ViewChannel.qml");
     var page = component.createObject(pageStack, {"channel": channel, "events": channel.eventsModel});

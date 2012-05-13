@@ -111,10 +111,25 @@ Page {
 
             canNavigateNext: event !== ""
             onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
+            mouseArea.onPressAndHold: { channelMenu.channel = channelsView.model.get(index); channelMenu.open(); }
         }
     }
 
     ScrollDecorator {
         flickableItem: channelsView
+    }
+
+    Menu {
+        id: channelMenu
+
+        property Channel channel
+
+        visualParent: pageStack
+        MenuLayout {
+            MenuItem {
+                text: qsTr("Play")
+                onClicked: channelMenu.channel && Core.playChannel(channelMenu.channel)
+            }
+        }
     }
 }

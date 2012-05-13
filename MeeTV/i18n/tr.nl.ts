@@ -50,6 +50,10 @@
         <source>All</source>
         <translation>Alle</translation>
     </message>
+    <message>
+        <source>Play</source>
+        <translation type="unfinished">Afspelen</translation>
+    </message>
 </context>
 <context>
     <name>CommonMenu</name>

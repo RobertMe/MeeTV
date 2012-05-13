@@ -8,6 +8,12 @@ Page {
     property alias events: eventsView.model
 
     tools: CommonToolbar {
+        ToolIcon {
+            id: playIcon
+            iconId: "toolbar-mediacontrol-play"
+            onClicked: Core.playChannel(channel);
+            anchors.right: parent.menuIcon.left
+        }
     }
 
     Rectangle {

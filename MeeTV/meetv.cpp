@@ -1,5 +1,7 @@
 #include "meetv.h"
 
+#include "meetvservice.h"
+
 #ifndef QT_SIMULATOR
 
 #endif
@@ -188,4 +190,5 @@ void MeeTv::_registerTypes()
     qmlRegisterType<MeeTvEventModel>("Htsp", 1, 0, "EventModel");
     qmlRegisterType<MeeTvChannelModel>("Htsp", 1, 0, "ChannelModel");
     qmlRegisterType<MeeTvModelHelper>("Htsp", 1, 0, "ModelHelper");
+    qmlRegisterUncreatableType<MeeTvService>("Htsp", 1, 0, "Service", "Service can only be obtained from the channel");
 }

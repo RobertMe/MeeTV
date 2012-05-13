@@ -1,5 +1,7 @@
 #include "meetvhtsp.h"
 
+#include "meetvchannel.h"
+
 MeeTvHtsp::MeeTvHtsp(QObject *parent) :
     QHtsp(parent), m_session(0)
 {
@@ -52,6 +54,12 @@ void MeeTvHtsp::enableAsync()
 {
     QHtsp::enableAsync();
     m_asyncEnabled = true;
+}
+
+QString MeeTvHtsp::getStreamUrl(MeeTvChannel *channel)
+{
+    return QString("http://%1:%2@%3:%4/stream/channelid/%5")
+            .arg(m_username, m_password, m_hostName, QString::number(9981), QString::number(channel->id()));
 }
 
 MeeTvHtsp *MeeTvHtsp::instance()

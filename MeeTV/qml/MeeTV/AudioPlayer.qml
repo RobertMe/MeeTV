@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import QtMultimediaKit 1.1
+import "player.js" as Player
 import Htsp 1.0
 
 Page {
@@ -10,7 +11,7 @@ Page {
         ToolIcon {
             id: stopIcon
             iconId: "toolbar-mediacontrol-stop"
-            onClicked: { player.stop(); pageStack.pop(); }
+            onClicked: { Player.stopPlayer(); }
             anchors.left: parent.backIcon.right
         }
     }

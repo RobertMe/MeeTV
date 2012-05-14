@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import "player.js" as Player
 import Htsp 1.0
 
 Page {
@@ -11,7 +12,7 @@ Page {
         ToolIcon {
             id: playIcon
             iconId: "toolbar-mediacontrol-play"
-            onClicked: Core.playChannel(channel);
+            onClicked: Player.playChannel(channel);
             anchors.right: parent.menuIcon.left
         }
     }

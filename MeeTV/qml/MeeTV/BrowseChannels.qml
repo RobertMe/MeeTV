@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import "player.js" as Player
 import Htsp 1.0
 
 Page {
@@ -128,7 +129,7 @@ Page {
         MenuLayout {
             MenuItem {
                 text: qsTr("Play")
-                onClicked: channelMenu.channel && Core.playChannel(channelMenu.channel)
+                onClicked: channelMenu.channel && Player.playChannel(channelMenu.channel)
             }
         }
     }

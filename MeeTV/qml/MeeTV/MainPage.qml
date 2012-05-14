@@ -1,9 +1,16 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import "core.js" as Core
+import "player.js" as Player
 import Htsp 1.0
 
 Page {
+    id: mainPage
+    QtObject {
+        id: appProperties
+        property Item currentPlayer
+    }
+
     tools: CommonToolbar {
         canGoBack: false
     }
@@ -24,6 +31,12 @@ Page {
         ListElement {
             name: QT_TR_NOOP("Search event")
             page: "SearchEvent.qml"
+        }
+
+        ListElement {
+            name: QT_TR_NOOP("Show player")
+            run: 'Player.reopenPlayer();'
+            hide: true
         }
     }
 
@@ -46,7 +59,15 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
 
-            onClicked: { Core.gotoPage(page) }
+            onClicked:
+            {
+                if(run)
+                    eval(run);
+                if(page)
+                    Core.gotoPage(page)
+            }
+
+            visible: !hide
         }
     }
 

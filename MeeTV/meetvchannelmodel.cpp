@@ -5,8 +5,8 @@ MeeTvChannelModel::MeeTvChannelModel() :
 {
 }
 
-MeeTvChannelModel::MeeTvChannelModel(QHtspChannelList *channels) :
-    QHtspChannelModel(channels)
+MeeTvChannelModel::MeeTvChannelModel(QHtspChannelList *channels, QObject *parent) :
+    QHtspChannelModel(channels, parent)
 {
 }
 

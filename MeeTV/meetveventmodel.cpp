@@ -5,8 +5,8 @@ MeeTvEventModel::MeeTvEventModel() :
 {
 }
 
-MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
-    QHtspEventModel(events)
+MeeTvEventModel::MeeTvEventModel(QHtspEventList *events, QObject *parent) :
+    QHtspEventModel(events, parent)
 {
 }
 

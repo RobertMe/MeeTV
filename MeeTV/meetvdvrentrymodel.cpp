@@ -1,7 +1,7 @@
 #include "meetvdvrentrymodel.h"
 
-MeeTvDvrEntryModel::MeeTvDvrEntryModel(QHtspDvrEntryList *dvrEntries) :
-    QHtspDvrEntryModel(dvrEntries)
+MeeTvDvrEntryModel::MeeTvDvrEntryModel(QHtspDvrEntryList *dvrEntries, QObject *parent) :
+    QHtspDvrEntryModel(dvrEntries, parent)
 {
 }
 

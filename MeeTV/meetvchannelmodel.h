@@ -14,7 +14,7 @@ class MeeTvChannelModel : public QHtspChannelModel, public MeeTvModel
     Q_OBJECT
 public:
     MeeTvChannelModel();
-    MeeTvChannelModel(QHtspChannelList *channels);
+    MeeTvChannelModel(QHtspChannelList *channels, QObject *parent = 0);
     
     Q_INVOKABLE MeeTvChannel *get(int index);
     Q_INVOKABLE MeeTvChannel *getChannelById(int id);

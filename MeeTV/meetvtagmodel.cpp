@@ -1,7 +1,7 @@
 #include "meetvtagmodel.h"
 
-MeeTvTagModel::MeeTvTagModel(QHtspTagList *tags) :
-    QHtspTagModel(tags)
+MeeTvTagModel::MeeTvTagModel(QHtspTagList *tags, QObject *parent) :
+    QHtspTagModel(tags, parent)
 {
 }
 

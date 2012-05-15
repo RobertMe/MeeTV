@@ -4,6 +4,8 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
+    id: root
+
     tools: CommonToolbar {
     }
 
@@ -13,7 +15,7 @@ Page {
     onChannelChanged: channelName.text = channel ? channel.name : ""
     onTagChanged: {
         tagName.text = tag.name
-        channelDialog.model = tag.channelsModel.helper()
+        channelDialog.model = tag.channelsModel.helper(root)
         channelDialog.selectedIndex = -1
         channel = null
     }
@@ -31,7 +33,7 @@ Page {
 
         titleText: qsTr("Tag")
 
-        model: tagModel.helper()
+        model: tagModel.helper(root)
 
         onAccepted: { tag = tagDialog.model.get(tagDialog.selectedIndex) }
     }

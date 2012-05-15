@@ -13,7 +13,7 @@ MeeTvTag::MeeTvTag(const QHtspTag &tag, QObject *parent) :
 MeeTvChannelModel *MeeTvTag::channelsModel()
 {
     if(!m_channelsModel)
-        m_channelsModel = new MeeTvChannelModel(channels());
+        m_channelsModel = new MeeTvChannelModel(channels(), this);
 
     return m_channelsModel;
 }

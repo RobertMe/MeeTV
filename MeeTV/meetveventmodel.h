@@ -14,15 +14,12 @@ class MeeTvEventModel : public QHtspEventModel, public MeeTvModel
     Q_OBJECT
 public:
     MeeTvEventModel();
-    explicit MeeTvEventModel(QHtspEventList *events);
+    explicit MeeTvEventModel(QHtspEventList *events, QObject *parent = 0);
     
     Q_INVOKABLE MeeTvEvent *get(int index);
     Q_INVOKABLE MeeTvEvent *getEventById(int id);
     Q_INVOKABLE MeeTvEvent *getEventByIndex(int index);
-    Q_INVOKABLE MeeTvModelHelper *helper();
-
-private:
-    MeeTvModelHelper *m_helper;
+    Q_INVOKABLE MeeTvModelHelper *helper(QObject *parent = 0);
 };
 
 #endif // MEETVEVENTMODEL_H

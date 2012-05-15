@@ -3,20 +3,24 @@ function gotoPage(file) {
 }
 
 function viewChannel(channel) {
-    pageStack.push(Qt.resolvedUrl("ViewChannel.qml"),
+    var item = pageStack.push(Qt.resolvedUrl("ViewChannel.qml"),
                    {"channel": channel, "events": channel.eventsModel});
+    channel.parent = item;
 }
 
 function viewDvrEntry(dvrEntry) {
-    pageStack.push(Qt.resolvedUrl("ViewDvrEntr.qml"), {"dvrEntry": dvrEntry });
+    var item = pageStack.push(Qt.resolvedUrl("ViewDvrEntr.qml"), {"dvrEntry": dvrEntry });
+    dvrEntry.parent = item;
 }
 
 function viewEvent(event) {
-    pageStack.push(Qt.resolvedUrl("ViewEvent.qml"), {"event": event});
+    var item = pageStack.push(Qt.resolvedUrl("ViewEvent.qml"), {"event": event});
+    event.parent = item;
 }
 
 function viewTag(tag) {
-    pageStack.push(Qt.resolvedUrl("BrowseChannels.qml"), {"tag": tag });
+    var item = pageStack.push(Qt.resolvedUrl("BrowseChannels.qml"), {"tag": tag });
+    tag.parent = item;
 }
 
 function searchEvent(parent, queryString, channel, tag)
@@ -27,5 +31,6 @@ function searchEvent(parent, queryString, channel, tag)
     epgQuery.tag = tag;
     epgQuery.run();
 
-    pageStack.push(Qt.resolvedUrl("SearchEventResult.qml"), {"events": epgQuery.eventsModel });
+    var item = pageStack.push(Qt.resolvedUrl("SearchEventResult.qml"), {"events": epgQuery.eventsModel });
+    epgQuery.parent = item;
 }

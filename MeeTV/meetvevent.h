@@ -10,6 +10,8 @@ class MeeTvEvent : public QHtspEvent
 {
     Q_OBJECT
     Q_PROPERTY(QString startDate READ startDate)
+    Q_PROPERTY(QObject *parent READ parent WRITE setParent)
+
 public:
     explicit MeeTvEvent(QObject *parent = 0);
     MeeTvEvent(const QHtspEvent& event, QObject *parent = 0);

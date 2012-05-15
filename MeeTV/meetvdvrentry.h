@@ -8,6 +8,8 @@
 class MeeTvDvrEntry : public QHtspDvrEntry
 {
     Q_OBJECT
+    Q_PROPERTY(QObject *parent READ parent WRITE setParent)
+
 public:
     explicit MeeTvDvrEntry(QObject *parent = 0);
     MeeTvDvrEntry(const QHtspDvrEntry &dvrEntry, QObject *parent = 0);

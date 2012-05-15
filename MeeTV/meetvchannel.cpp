@@ -16,7 +16,7 @@ MeeTvChannel::MeeTvChannel(const QHtspChannel& channel, QObject *parent) :
 MeeTvEventModel *MeeTvChannel::eventsModel()
 {
     if(!m_eventModel)
-        m_eventModel = new MeeTvEventModel(events());
+        m_eventModel = new MeeTvEventModel(events(), this);
 
     return m_eventModel;
 }

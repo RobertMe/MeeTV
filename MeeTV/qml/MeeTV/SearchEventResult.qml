@@ -4,9 +4,11 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
+    id: root
+
     property EventModel events
 
-    onEventsChanged: eventsView.model = events.helper()
+    onEventsChanged: eventsView.model = events.helper(root)
 
     tools: CommonToolbar {
     }

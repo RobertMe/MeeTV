@@ -1,7 +1,7 @@
 #include "meetvmodelhelper.h"
 
-MeeTvModelHelper::MeeTvModelHelper(MeeTvModel *model) :
-    QSortFilterProxyModel(dynamic_cast<QObject*>(model))
+MeeTvModelHelper::MeeTvModelHelper(MeeTvModel *model, QObject *parent) :
+    QSortFilterProxyModel(parent ? parent : dynamic_cast<QObject*>(model))
 {
     setModel(model);
 

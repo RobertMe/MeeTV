@@ -3,6 +3,8 @@ import com.nokia.meego 1.0
 import "core.js" as Core
 
 Page {
+    id: root
+
     tools: CommonToolbar {
     }
 
@@ -14,7 +16,7 @@ Page {
         anchors.topMargin: 8
         anchors.bottomMargin: anchors.topMargin
 
-        model: tagModel.helper()
+        model: tagModel.helper(root)
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 

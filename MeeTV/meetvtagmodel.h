@@ -18,10 +18,7 @@ public:
     Q_INVOKABLE MeeTvTag *get(int index);
     Q_INVOKABLE MeeTvTag *getTagById(qint64 id);
     Q_INVOKABLE MeeTvTag *getTagByIndex(int index);
-    Q_INVOKABLE MeeTvModelHelper *helper();
-
-private:
-    MeeTvModelHelper *m_helper;
+    Q_INVOKABLE MeeTvModelHelper *helper(QObject *parent = 0);
     
 };
 

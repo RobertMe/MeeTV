@@ -1,7 +1,7 @@
 #include "meetvdvrentrymodel.h"
 
 MeeTvDvrEntryModel::MeeTvDvrEntryModel(QHtspDvrEntryList *dvrEntries) :
-    QHtspDvrEntryModel(dvrEntries), m_helper(0)
+    QHtspDvrEntryModel(dvrEntries)
 {
 }
 
@@ -20,13 +20,10 @@ MeeTvDvrEntry *MeeTvDvrEntryModel::getDvrEntryByIndex(int index)
     return new MeeTvDvrEntry(*QHtspDvrEntryModel::getDvrEntryByIndex(index));
 }
 
-MeeTvModelHelper *MeeTvDvrEntryModel::helper()
+MeeTvModelHelper *MeeTvDvrEntryModel::helper(QObject *parent)
 {
-    if(!m_helper)
-    {
-        m_helper = new MeeTvModelHelper(this);
-        m_helper->sort(2);
-    }
+    MeeTvModelHelper *helper = new MeeTvModelHelper(this, parent);
+    helper->sort(2);
 
-    return m_helper;
+    return helper;
 }

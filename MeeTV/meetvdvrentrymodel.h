@@ -18,10 +18,7 @@ public:
     Q_INVOKABLE MeeTvDvrEntry *get(int index);
     Q_INVOKABLE MeeTvDvrEntry *getDvrEntryById(int id);
     Q_INVOKABLE MeeTvDvrEntry *getDvrEntryByIndex(int index);
-    Q_INVOKABLE MeeTvModelHelper *helper();
-
-private:
-    MeeTvModelHelper *m_helper;
+    Q_INVOKABLE MeeTvModelHelper *helper(QObject *parent = 0);
 };
 
 #endif // MEETVDVRENTRYMODEL_H

@@ -4,6 +4,8 @@ import "core.js" as Core
 import Htsp 1.0
 
 Page {
+    id: root
+
     tools: CommonToolbar {
     }
 
@@ -37,7 +39,7 @@ Page {
             }
         }
 
-        model: dvrEntriesModel.helper()
+        model: dvrEntriesModel.helper(root)
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 

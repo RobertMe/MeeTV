@@ -13,7 +13,7 @@ class MeeTvModelHelper : public QSortFilterProxyModel
     Q_PROPERTY(int count READ rowCount NOTIFY countChanged)
 
 public:
-    explicit MeeTvModelHelper(MeeTvModel *model = 0);
+    explicit MeeTvModelHelper(MeeTvModel *model = 0, QObject *parent = 0);
     
     MeeTvModel *model();
 

@@ -1,12 +1,12 @@
 #include "meetveventmodel.h"
 
 MeeTvEventModel::MeeTvEventModel() :
-    QHtspEventModel(new QHtspEventList()), m_helper(0)
+    QHtspEventModel(new QHtspEventList())
 {
 }
 
 MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
-    QHtspEventModel(events), m_helper(0)
+    QHtspEventModel(events)
 {
 }
 
@@ -29,13 +29,10 @@ MeeTvEvent *MeeTvEventModel::getEventByIndex(int index)
     return new MeeTvEvent(*event);
 }
 
-MeeTvModelHelper *MeeTvEventModel::helper()
+MeeTvModelHelper *MeeTvEventModel::helper(QObject *parent)
 {
-    if(!m_helper)
-    {
-        m_helper = new MeeTvModelHelper(this);
-        m_helper->sort(2);
-    }
+    MeeTvModelHelper *helper = new MeeTvModelHelper(this, parent);
+    helper->sort(2);
 
-    return m_helper;
+    return helper;
 }

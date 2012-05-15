@@ -19,10 +19,7 @@ public:
     Q_INVOKABLE MeeTvChannel *get(int index);
     Q_INVOKABLE MeeTvChannel *getChannelById(int id);
     Q_INVOKABLE MeeTvChannel *getChannelByIndex(int i);
-    Q_INVOKABLE MeeTvModelHelper *helper();
-
-private:
-    MeeTvModelHelper *m_helper;
+    Q_INVOKABLE MeeTvModelHelper *helper(QObject *parent = 0);
 
 };
 

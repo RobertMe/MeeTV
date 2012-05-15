@@ -15,7 +15,7 @@ Page {
     property Tag tag
 
     onTagChanged: {
-        channels = tag.channelsModel.helper()
+        channels = tag.channelsModel.helper(root)
         header.text = tag.name
     }
 
@@ -23,7 +23,7 @@ Page {
         id: tagSelection
 
         titleText: qsTr("Select tag")
-        model: tagModel.helper()
+        model: tagModel.helper(root)
         onAccepted: {
             root.tag = tagSelection.model.get(tagSelection.selectedIndex)
         }

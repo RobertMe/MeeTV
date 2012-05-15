@@ -17,16 +17,16 @@ MeeTvEvent *MeeTvEventModel::get(int index)
 
 MeeTvEvent *MeeTvEventModel::getEventById(int id)
 {
-    return new MeeTvEvent(*QHtspEventModel::getEventById(id));
+    return new MeeTvEvent(*QHtspEventModel::getEventById(id), this);
 }
 
 MeeTvEvent *MeeTvEventModel::getEventByIndex(int index)
 {
     QHtspEvent *event = QHtspEventModel::getEventByIndex(index);
     if(!event)
-        return new MeeTvEvent();
+        return new MeeTvEvent(this);
 
-    return new MeeTvEvent(*event);
+    return new MeeTvEvent(*event, this);
 }
 
 MeeTvModelHelper *MeeTvEventModel::helper(QObject *parent)

@@ -12,12 +12,12 @@ MeeTvDvrEntry *MeeTvDvrEntryModel::get(int index)
 
 MeeTvDvrEntry *MeeTvDvrEntryModel::getDvrEntryById(int id)
 {
-    return new MeeTvDvrEntry(*QHtspDvrEntryModel::getDvrEntryById(id));
+    return new MeeTvDvrEntry(*QHtspDvrEntryModel::getDvrEntryById(id), this);
 }
 
 MeeTvDvrEntry *MeeTvDvrEntryModel::getDvrEntryByIndex(int index)
 {
-    return new MeeTvDvrEntry(*QHtspDvrEntryModel::getDvrEntryByIndex(index));
+    return new MeeTvDvrEntry(*QHtspDvrEntryModel::getDvrEntryByIndex(index), this);
 }
 
 MeeTvModelHelper *MeeTvDvrEntryModel::helper(QObject *parent)

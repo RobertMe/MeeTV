@@ -12,12 +12,12 @@ MeeTvTag *MeeTvTagModel::get(int index)
 
 MeeTvTag *MeeTvTagModel::getTagById(qint64 id)
 {
-    return new MeeTvTag(*QHtspTagModel::getTagById(id));
+    return new MeeTvTag(*QHtspTagModel::getTagById(id), this);
 }
 
 MeeTvTag *MeeTvTagModel::getTagByIndex(int index)
 {
-    return new MeeTvTag(*QHtspTagModel::getTagByIndex(index));
+    return new MeeTvTag(*QHtspTagModel::getTagByIndex(index), this);
 }
 
 MeeTvModelHelper *MeeTvTagModel::helper(QObject *parent)

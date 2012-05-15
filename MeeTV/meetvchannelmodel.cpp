@@ -17,12 +17,12 @@ MeeTvChannel *MeeTvChannelModel::get(int index)
 
 MeeTvChannel *MeeTvChannelModel::getChannelById(int id)
 {
-    return new MeeTvChannel(*QHtspChannelModel::getChannelById(id));
+    return new MeeTvChannel(*QHtspChannelModel::getChannelById(id), this);
 }
 
 MeeTvChannel *MeeTvChannelModel::getChannelByIndex(int i)
 {
-    return new MeeTvChannel(*QHtspChannelModel::getChannelByIndex(i));
+    return new MeeTvChannel(*QHtspChannelModel::getChannelByIndex(i), this);
 }
 
 MeeTvModelHelper *MeeTvChannelModel::helper(QObject *parent)

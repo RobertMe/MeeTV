@@ -9,7 +9,7 @@ function viewChannel(channel) {
 }
 
 function viewDvrEntry(dvrEntry) {
-    var item = pageStack.push(Qt.resolvedUrl("ViewDvrEntr.qml"), {"dvrEntry": dvrEntry });
+    var item = pageStack.push(Qt.resolvedUrl("ViewDvrEntry.qml"), {"dvrEntry": dvrEntry });
     dvrEntry.parent = item;
 }
 

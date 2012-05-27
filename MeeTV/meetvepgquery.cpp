@@ -29,7 +29,7 @@ MeeTvChannel *MeeTvEpgQuery::channel()
 MeeTvEventModel *MeeTvEpgQuery::eventsModel()
 {
     if(!m_eventModel)
-        m_eventModel = new MeeTvEventModel(events());
+        m_eventModel = new MeeTvEventModel(events(), this);
 
     return m_eventModel;
 }

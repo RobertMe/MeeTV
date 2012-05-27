@@ -13,15 +13,12 @@ class MeeTvDvrEntryModel : public QHtspDvrEntryModel, public MeeTvModel
 {
     Q_OBJECT
 public:
-    explicit MeeTvDvrEntryModel(QHtspDvrEntryList *dvrEntries);
+    explicit MeeTvDvrEntryModel(QHtspDvrEntryList *dvrEntries, QObject *parent = 0);
     
     Q_INVOKABLE MeeTvDvrEntry *get(int index);
     Q_INVOKABLE MeeTvDvrEntry *getDvrEntryById(int id);
     Q_INVOKABLE MeeTvDvrEntry *getDvrEntryByIndex(int index);
-    Q_INVOKABLE MeeTvModelHelper *helper();
-
-private:
-    MeeTvModelHelper *m_helper;
+    Q_INVOKABLE MeeTvModelHelper *helper(QObject *parent = 0);
 };
 
 #endif // MEETVDVRENTRYMODEL_H

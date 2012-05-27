@@ -1,12 +1,12 @@
 #include "meetvchannelmodel.h"
 
 MeeTvChannelModel::MeeTvChannelModel() :
-    QHtspChannelModel(new QHtspChannelList(this)), m_helper(0)
+    QHtspChannelModel(new QHtspChannelList(this))
 {
 }
 
-MeeTvChannelModel::MeeTvChannelModel(QHtspChannelList *channels) :
-    QHtspChannelModel(channels), m_helper(0)
+MeeTvChannelModel::MeeTvChannelModel(QHtspChannelList *channels, QObject *parent) :
+    QHtspChannelModel(channels, parent)
 {
 }
 
@@ -17,21 +17,18 @@ MeeTvChannel *MeeTvChannelModel::get(int index)
 
 MeeTvChannel *MeeTvChannelModel::getChannelById(int id)
 {
-    return new MeeTvChannel(*QHtspChannelModel::getChannelById(id));
+    return new MeeTvChannel(*QHtspChannelModel::getChannelById(id), this);
 }
 
 MeeTvChannel *MeeTvChannelModel::getChannelByIndex(int i)
 {
-    return new MeeTvChannel(*QHtspChannelModel::getChannelByIndex(i));
+    return new MeeTvChannel(*QHtspChannelModel::getChannelByIndex(i), this);
 }
 
-MeeTvModelHelper *MeeTvChannelModel::helper()
+MeeTvModelHelper *MeeTvChannelModel::helper(QObject *parent)
 {
-    if(!m_helper)
-    {
-        m_helper = new MeeTvModelHelper(this);
-        m_helper->sort(2);
-    }
+    MeeTvModelHelper *helper = new MeeTvModelHelper(this, parent);
+    helper->sort(2);
 
-    return m_helper;
+    return helper;
 }

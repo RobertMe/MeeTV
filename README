@@ -25,7 +25,7 @@ you need to run the following commands:
   $ git clone git://github.com/RobertMe/MeeTV.git
   $ cd MeeTV
   $ git submodule init
-  $ git submodule add
+  $ git submodule update
 
 Installing the prerequisites
 ============================
@@ -51,7 +51,7 @@ Compiling the application
 Open the MeeTV.pro file in the root of the project with QtCreator. When prompted
 to select the targets untick Desktop and tick at least Harmattan, you may also
 tick Qt Simulator if you want to run the app in the simulator. Afterwards make
-sure the run configuration has the remove device set as current device by
+sure the run configuration has the remote device set as current device by
 navigation to Projects in the left toolbar, and selecting Run on the Harmattan
 tab. Then make sure the Device configuration is set to MeeGo Device (or the name
 you entered in the device add wizard). Then make sure the Harmattan target is
@@ -66,8 +66,9 @@ After you've installed the app on your device you should be able to run it.
 There should be a MeeTV application on the application homescreen which starts
 the application. On the first run it will automaticly open the settings screen
 where you'll need to provide the hostname, portnumber and possibly username and
-password to connect to your TVHeadend server. You could just close the settings
-screen and the app will automaticly try to (re)connect.
+password to connect to your TVHeadend server. After you have entered these
+settings you could just close the settings screen and the app will automaticly
+try to (re)connect.
 
 Changing settings after first run
 =================================

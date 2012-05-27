@@ -1,12 +1,12 @@
 #include "meetveventmodel.h"
 
 MeeTvEventModel::MeeTvEventModel() :
-    QHtspEventModel(new QHtspEventList()), m_helper(0)
+    QHtspEventModel(new QHtspEventList())
 {
 }
 
-MeeTvEventModel::MeeTvEventModel(QHtspEventList *events) :
-    QHtspEventModel(events), m_helper(0)
+MeeTvEventModel::MeeTvEventModel(QHtspEventList *events, QObject *parent) :
+    QHtspEventModel(events, parent)
 {
 }
 
@@ -17,25 +17,22 @@ MeeTvEvent *MeeTvEventModel::get(int index)
 
 MeeTvEvent *MeeTvEventModel::getEventById(int id)
 {
-    return new MeeTvEvent(*QHtspEventModel::getEventById(id));
+    return new MeeTvEvent(*QHtspEventModel::getEventById(id), this);
 }
 
 MeeTvEvent *MeeTvEventModel::getEventByIndex(int index)
 {
     QHtspEvent *event = QHtspEventModel::getEventByIndex(index);
     if(!event)
-        return new MeeTvEvent();
+        return new MeeTvEvent(this);
 
-    return new MeeTvEvent(*event);
+    return new MeeTvEvent(*event, this);
 }
 
-MeeTvModelHelper *MeeTvEventModel::helper()
+MeeTvModelHelper *MeeTvEventModel::helper(QObject *parent)
 {
-    if(!m_helper)
-    {
-        m_helper = new MeeTvModelHelper(this);
-        m_helper->sort(2);
-    }
+    MeeTvModelHelper *helper = new MeeTvModelHelper(this, parent);
+    helper->sort(2);
 
-    return m_helper;
+    return helper;
 }

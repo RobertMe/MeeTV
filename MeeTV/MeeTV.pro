@@ -55,8 +55,6 @@ SOURCES += main.cpp \
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
 
-include(QHtsp.pri)
-
 HEADERS += meetv.h \
     meetvepgquery.h \
     meetvhtsp.h \
@@ -91,4 +89,16 @@ INSTALLS += settingsdesktop settingsxml
 
 RESOURCES += \
     res.qrc
+
+CONFIG(release, debug|release) {
+    win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../QHtsp/release/ -lQHtsp
+    else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../QHtsp/debug/ -lQHtsp
+    else:symbian: LIBS += -lQHtsp
+    else:unix: LIBS += -L$$OUT_PWD/../QHtsp/ -lQHtsp
+
+    INCLUDEPATH += $$PWD/../QHtsp
+    DEPENDPATH += $$PWD/../QHtsp
+} else {
+    include(QHtsp.pri)
+}
 

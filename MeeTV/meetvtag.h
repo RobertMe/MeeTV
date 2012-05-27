@@ -11,6 +11,7 @@ class MeeTvTag : public QHtspTag
 {
     Q_OBJECT
     Q_PROPERTY(MeeTvChannelModel *channelsModel READ channelsModel)
+    Q_PROPERTY(QObject *parent READ parent WRITE setParent)
 
 public:
     explicit MeeTvTag(QObject *parent = 0);

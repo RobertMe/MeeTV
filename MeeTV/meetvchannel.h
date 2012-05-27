@@ -12,6 +12,7 @@ class MeeTvChannel : public QHtspChannel
     Q_OBJECT
     Q_PROPERTY(MeeTvEventModel *eventsModel READ eventsModel)
     Q_PROPERTY(MeeTvService *service READ service WRITE setService NOTIFY serviceChanged)
+    Q_PROPERTY(QObject *parent READ parent WRITE setParent)
 
 public:
     explicit MeeTvChannel(QObject *parent = 0);

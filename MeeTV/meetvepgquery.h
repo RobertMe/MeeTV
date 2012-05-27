@@ -14,6 +14,8 @@ class MeeTvEpgQuery : public QHtspEpgQuery
     Q_PROPERTY(MeeTvEventModel *eventsModel READ eventsModel)
     Q_PROPERTY(MeeTvChannel *channel READ channel WRITE setChannel)
     Q_PROPERTY(MeeTvTag *tag READ tag WRITE setTag)
+    Q_PROPERTY(QObject *parent READ parent WRITE setParent)
+
 public:
     explicit MeeTvEpgQuery(QObject *parent = 0);
     MeeTvEpgQuery(const QHtspEpgQuery& epgQuery, QObject *parent = 0);

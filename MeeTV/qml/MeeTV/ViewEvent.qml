@@ -33,28 +33,29 @@ Page {
             anchors.margins: UiConstants.DefaultMargin
         }
 
-        Column {
+        Grid {
+            columns: screen.currentOrientation === Screen.Landscape ? 2 : 1
+
             anchors {
                 right: parent.right
                 verticalCenter: parent.verticalCenter
                 margins: UiConstants.DefaultMargin
             }
-            width: 100
 
             Label {
                 id: start
                 text: Qt.formatTime(event.start)
                 font: UiConstants.FieldLabelFont
-                width: parent.width
-                horizontalAlignment: Text.AlignRight
+                width: 90
+                horizontalAlignment: screen.currentOrientation === Screen.Landscape ? Text.AlignLeft : Text.AlignRight
             }
 
             Label {
                 id: stop
-                text: Qt.formatTime(event.stop)
+                text: (screen.currentOrientation === Screen.Landscape ? "- " : "") + Qt.formatTime(event.stop)
                 font: UiConstants.FieldLabelFont
-                width: parent.width
-                horizontalAlignment: Text.AlignRight
+                width: screen.currentOrientation === Screen.Landscape ? 100 : 90
+                horizontalAlignment: screen.currentOrientation === Screen.Landscape ? Text.AlignLeft : Text.AlignRight
             }
         }
     }

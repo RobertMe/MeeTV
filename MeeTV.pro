@@ -1,5 +1,9 @@
 TEMPLATE = subdirs
-SUBDIRS += QHtsp
+
+CONFIG(release, debug|release) {
+    SUBDIRS += QHtsp
+}
+
 SUBDIRS += MeeTV
 
 OTHER_FILES += \

@@ -85,6 +85,10 @@ settingsdesktop.files = meetv_settings.desktop
 settingsxml.path = /usr/share/duicontrolpanel/uidescriptions
 settingsxml.files = meetv_settings.xml
 
+OTHER_FILES += \
+    meetv_settings.desktop \
+    meetv_settings.xml
+
 INSTALLS += settingsdesktop settingsxml
 
 RESOURCES += \

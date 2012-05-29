@@ -1,17 +1,15 @@
-This package was debianized by unknown <robert@unknown> on
+This package was debianized by Robert Meijers <robert@r-meijers.nl> on
 Sun, 11 Mar 2012 19:55:19 +0100.
 
-It was downloaded from <url://example.com>
+It was downloaded from http://meetv.r-meijers.nl
 
 Upstream Author(s):
 
-    <put author's name and email here>
-    <likewise for another author>
+    Robert Meijers <robert@r-meijers.nl>
 
 Copyright:
 
-    <Copyright (C) YYYY Name OfAuthor>
-    <likewise for another author>
+    Copyright (C) 2012 Robert Meijers
 
 License:
 
@@ -32,7 +30,7 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2012, unknown <robert@unknown> and
+The Debian packaging is (C) 2012, Robert Meijers <robert@r-meijers.nl> and
 is licensed under the GPL, see above.
 
 

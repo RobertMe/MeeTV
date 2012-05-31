@@ -1,3 +1,6 @@
 #!/bin/sh
-/usr/bin/aegis-exec -s -u user /usr/bin/gconftool -s --type=int /apps/ControlPanel/MeeTV/Port 9982
+if [[ -z "$2" ]]
+then
+    /usr/bin/aegis-exec -s -u user /usr/bin/gconftool -s --type=int /apps/ControlPanel/MeeTV/Port 9982
+fi
 exit 0

@@ -71,25 +71,13 @@ Page {
         contentHeight: contentItem.childrenRect.height
         clip: true
 
-        Column {
+        Text {
+            text: event.htmlDescription
+            font: UiConstants.BodyTextFont
             width: parent.width
-            spacing: 10
-
-            Text {
-                text: event.description
-                font: UiConstants.BodyTextFont
-                width: parent.width
-                wrapMode: Text.Wrap
-                color: theme.inverted ? "white" : "black"
-            }
-
-            Text {
-                text: event.longDescription
-                font: UiConstants.BodyTextFont
-                width: parent.width
-                wrapMode: Text.Wrap
-                color: theme.inverted ? "white" : "black"
-            }
+            wrapMode: Text.Wrap
+            color: theme.inverted ? "white" : "black"
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 }

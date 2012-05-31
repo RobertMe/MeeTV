@@ -1,3 +1,6 @@
 #!/bin/sh
-/usr/bin/aegis-exec -s -u user /usr/bin/gconftool --recursive-unset /apps/ControlPanel/MeeTV
+if [[ "$1" != "upgrade" ]]
+then
+    /usr/bin/aegis-exec -s -u user /usr/bin/gconftool --recursive-unset /apps/ControlPanel/MeeTV
+fi
 exit 0

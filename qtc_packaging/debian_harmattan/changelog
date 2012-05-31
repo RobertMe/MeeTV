@@ -1,3 +1,9 @@
+meetv (1.0.1) unstable; urgency=low
+  * only set port when not upgrading
+  * only remove settings when not upgrading
+
+ -- Robert Meijers <robert@r-meijers.nl>  Thu, 31 May 2012 14:28:59 +0200
+
 meetv (1.0.0) unstable; urgency=low
 
   * Initial Release.

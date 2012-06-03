@@ -68,6 +68,19 @@
     </message>
 </context>
 <context>
+    <name>BrowseTags</name>
+    <message>
+        <location filename="../qml/MeeTV/BrowseTags.qml" line="68"/>
+        <source>No tags defined in TVheadend</source>
+        <translation>No tags defined in TVHeadend</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/BrowseTags.qml" line="75"/>
+        <source>Define some tags in TVHeadend first</source>
+        <translation>Define some tags in TVHeadend first</translation>
+    </message>
+</context>
+<context>
     <name>CommonMenu</name>
     <message>
         <location filename="../qml/MeeTV/CommonMenu.qml" line="14"/>

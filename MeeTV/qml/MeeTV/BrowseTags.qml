@@ -17,6 +17,7 @@ Page {
         anchors.bottomMargin: anchors.topMargin
 
         model: tagModel.helper(root)
+        visible: model.count > 0
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
@@ -53,5 +54,28 @@ Page {
 
     ScrollDecorator {
         flickableItem: tags
+    }
+
+    Column {
+        width: parent.width
+        visible: tags.model.count === 0
+        spacing: 10
+
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        Label {
+            text: qsTr("No tags defined in TVheadend")
+            anchors.horizontalCenter: parent.horizontalCenter
+            font: UiConstants.SmallTitleFont
+        }
+
+        Label {
+            width: parent.width
+            text: qsTr("Define some tags in TVHeadend first")
+            wrapMode: Text.Wrap
+            font: UiConstants.BodyTextFont
+            horizontalAlignment: Text.AlignHCenter
+        }
     }
 }

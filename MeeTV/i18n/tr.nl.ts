@@ -56,6 +56,17 @@
     </message>
 </context>
 <context>
+    <name>BrowseTags</name>
+    <message>
+        <source>No tags defined in TVheadend</source>
+        <translation>Geen tags aangemaakt in TVHeadend</translation>
+    </message>
+    <message>
+        <source>Define some tags in TVHeadend first</source>
+        <translation>Maak eerst tags aan in TVHeadend</translation>
+    </message>
+</context>
+<context>
     <name>CommonMenu</name>
     <message>
         <source>About MeeTV</source>

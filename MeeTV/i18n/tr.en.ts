@@ -150,6 +150,14 @@
     </message>
 </context>
 <context>
+    <name>SearchEventResult</name>
+    <message>
+        <location filename="../qml/MeeTV/SearchEventResult.qml" line="26"/>
+        <source>No events found for the given search</source>
+        <translation>No events found for the given search</translation>
+    </message>
+</context>
+<context>
     <name>ViewDvrEntry</name>
     <message>
         <location filename="../qml/MeeTV/ViewDvrEntry.qml" line="31"/>

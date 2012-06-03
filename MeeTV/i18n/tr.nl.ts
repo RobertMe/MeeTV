@@ -123,6 +123,13 @@
     </message>
 </context>
 <context>
+    <name>SearchEventResult</name>
+    <message>
+        <source>No events found for the given search</source>
+        <translation>Geen zoekresultaten voor de zoekopdracht</translation>
+    </message>
+</context>
+<context>
     <name>ViewDvrEntry</name>
     <message>
         <source>Completed</source>

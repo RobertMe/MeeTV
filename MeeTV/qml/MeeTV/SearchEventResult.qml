@@ -18,5 +18,15 @@ Page {
 
         anchors.fill: parent
         showChannel: true
+
+        visible: model.count > 0
+    }
+
+    Label {
+        text: qsTr("No events found for the given search")
+
+        visible: eventsView.model.count === 0
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

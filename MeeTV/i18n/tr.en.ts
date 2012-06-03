@@ -267,6 +267,11 @@
         <source>Scheduled</source>
         <translation>Scheduled</translation>
     </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="82"/>
+        <source>There are no recordings</source>
+        <translation>There are no recordings</translation>
+    </message>
 </context>
 <context>
     <name>main</name>

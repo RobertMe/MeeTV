@@ -221,6 +221,10 @@
         <source>Scheduled</source>
         <translation>Gepland</translation>
     </message>
+    <message>
+        <source>There are no recordings</source>
+        <translation>Er zijn geen opnames</translation>
+    </message>
 </context>
 <context>
     <name>main</name>

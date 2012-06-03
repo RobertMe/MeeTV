@@ -40,6 +40,7 @@ Page {
         }
 
         model: dvrEntriesModel.helper(root)
+        visible: model.count > 0
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
@@ -75,5 +76,13 @@ Page {
 
     ScrollDecorator {
         flickableItem: recordings
+    }
+
+    Label {
+        text: qsTr("There are no recordings")
+        visible: recordings.model.count === 0
+
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

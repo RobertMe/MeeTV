@@ -71,6 +71,8 @@ Page {
         width: parent.width
         clip: true
 
+        visible: model.count > 0
+
         delegate: ListMenuItem {
             height: UiConstants.ListItemHeightDefault
 
@@ -117,6 +119,14 @@ Page {
 
     ScrollDecorator {
         flickableItem: channelsView
+    }
+
+    Label {
+        text: qsTr("No channels with tag %1").arg(tag.name)
+        visible: channelsView.model.count === 0
+
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     Menu {

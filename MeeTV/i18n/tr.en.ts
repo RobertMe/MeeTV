@@ -61,6 +61,11 @@
         <source>All</source>
         <translation>All</translation>
     </message>
+    <message>
+        <location filename="../qml/MeeTV/BrowseChannels.qml" line="124"/>
+        <source>No channels with tag %1</source>
+        <translation>No channels with tag %1</translation>
+    </message>
 </context>
 <context>
     <name>CommonMenu</name>

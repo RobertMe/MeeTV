@@ -50,6 +50,10 @@
         <source>All</source>
         <translation>Alle</translation>
     </message>
+    <message>
+        <source>No channels with tag %1</source>
+        <translation>Geen kanalen met tag %1</translation>
+    </message>
 </context>
 <context>
     <name>CommonMenu</name>

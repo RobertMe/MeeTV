@@ -110,7 +110,7 @@ Page {
             }
 
             canNavigateNext: event !== ""
-            onClicked:  { Core.viewChannel(channelsView.model.get(index)) }
+            onClicked:  { Core.viewChannel(channelsView.model.get(index), channelsView.model, index) }
         }
     }
 

@@ -112,6 +112,17 @@
     </message>
 </context>
 <context>
+    <name>ViewChannel</name>
+    <message>
+        <source>Previous channel</source>
+        <translation>Vorige kanaal</translation>
+    </message>
+    <message>
+        <source>Next channel</source>
+        <translation>Volgende kanaal</translation>
+    </message>
+</context>
+<context>
     <name>ViewDvrEntry</name>
     <message>
         <source>Completed</source>

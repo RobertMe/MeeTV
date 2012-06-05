@@ -2,9 +2,17 @@ function gotoPage(file) {
     return pageStack.push(Qt.resolvedUrl(file));
 }
 
-function viewChannel(channel) {
+function replaceChannel(channel, model, index) {
+    var item = pageStack.replace(Qt.resolvedUrl("ViewChannel.qml"),
+                                 {"channel": channel, "events": channel.eventsModel,
+                                 "channelModel": model, "currentIndex": index});
+    channel.parent = item;
+}
+
+function viewChannel(channel, model, index) {
     var item = pageStack.push(Qt.resolvedUrl("ViewChannel.qml"),
-                   {"channel": channel, "events": channel.eventsModel});
+                   {"channel": channel, "events": channel.eventsModel,
+                                  "channelModel": model, "currentIndex": index});
     channel.parent = item;
 }
 

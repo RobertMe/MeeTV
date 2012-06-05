@@ -6,8 +6,20 @@ import Htsp 1.0
 Page {
     property Channel channel
     property alias events: eventsView.model
+    property ModelHelper channelModel
+    property int currentIndex
 
     tools: CommonToolbar {
+        menu: CommonMenu {
+            MenuItem {
+                text: qsTr("Previous channel")
+                onClicked: Core.replaceChannel(channelModel.get(currentIndex - 1), channelModel, currentIndex - 1)
+            }
+            MenuItem {
+                text: qsTr("Next channel")
+                onClicked: Core.replaceChannel(channelModel.get(currentIndex + 1), channelModel, currentIndex + 1)
+            }
+        }
     }
 
     Rectangle {

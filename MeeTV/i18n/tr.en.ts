@@ -65,7 +65,7 @@
 <context>
     <name>CommonMenu</name>
     <message>
-        <location filename="../qml/MeeTV/CommonMenu.qml" line="8"/>
+        <location filename="../qml/MeeTV/CommonMenu.qml" line="14"/>
         <source>About MeeTV</source>
         <translation>About MeeTV</translation>
     </message>
@@ -108,32 +108,45 @@
 <context>
     <name>SearchEvent</name>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="24"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="119"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="26"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="121"/>
         <source>Channel</source>
         <translation>Channel</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="32"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="88"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="34"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="90"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="52"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="54"/>
         <source>Query</source>
         <translation>Query</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="64"/>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="146"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="66"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="148"/>
         <source>Search</source>
         <translation>Search</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/SearchEvent.qml" line="127"/>
+        <location filename="../qml/MeeTV/SearchEvent.qml" line="129"/>
         <source>Select a tag first</source>
         <translation>Select a tag first</translation>
+    </message>
+</context>
+<context>
+    <name>ViewChannel</name>
+    <message>
+        <location filename="../qml/MeeTV/ViewChannel.qml" line="15"/>
+        <source>Previous channel</source>
+        <translation>Previous channel</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewChannel.qml" line="19"/>
+        <source>Next channel</source>
+        <translation>Next channel</translation>
     </message>
 </context>
 <context>
@@ -202,27 +215,27 @@
 <context>
     <name>ViewRecordings</name>
     <message>
-        <location filename="../qml/MeeTV/ViewRecordings.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="27"/>
         <source>Completed</source>
         <translation>Completed</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewRecordings.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="27"/>
         <source>Invalid</source>
         <translation>Invalid</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewRecordings.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="27"/>
         <source>Missed</source>
         <translation>Missed</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewRecordings.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="27"/>
         <source>Recording</source>
         <translation>Recording</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewRecordings.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewRecordings.qml" line="27"/>
         <source>Scheduled</source>
         <translation>Scheduled</translation>
     </message>

@@ -13,11 +13,13 @@ Page {
         menu: CommonMenu {
             MenuItem {
                 text: qsTr("Previous channel")
-                onClicked: Core.replaceChannel(channelModel.get(currentIndex - 1), channelModel, currentIndex - 1)
+                onClicked: Core.viewChannel(channelModel.get(currentIndex - 1), channelModel, currentIndex - 1, true)
+                enabled: currentIndex > 0
             }
             MenuItem {
                 text: qsTr("Next channel")
-                onClicked: Core.replaceChannel(channelModel.get(currentIndex + 1), channelModel, currentIndex + 1)
+                onClicked: Core.viewChannel(channelModel.get(currentIndex + 1), channelModel, currentIndex + 1, true)
+                enabled: (currentIndex + 1) < channelModel.count
             }
         }
     }

@@ -20,14 +20,14 @@
 #include <QRegExp>
 
 MeeTvEvent::MeeTvEvent(QObject *parent) :
-    QHtspEvent(MeeTvHtsp::instance(), -1, parent)
+    QHtspEvent(MeeTvHtsp::instance(), -1, parent), m_nextEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
 }
 
 MeeTvEvent::MeeTvEvent(const QHtspEvent& event, QObject *parent) :
-    QHtspEvent(event, parent)
+    QHtspEvent(event, parent), m_nextEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
@@ -41,6 +41,19 @@ QString MeeTvEvent::htmlDescription()
     text.replace("\n", "<br/>");
     text.replace(QRegExp("((?:\\S+\\.[a-z]{2,6}/\\S+[a-z/])|(?:www\\.\\S+\\.[a-z]{2,6}))", Qt::CaseInsensitive), "<a href=\"http://\\1\">\\1</a>");
     return text;
+}
+
+MeeTvEvent *MeeTvEvent::nextEvent()
+{
+    if(!m_nextEvent)
+    {
+        QHtspEvent *next = QHtspEvent::nextEvent();
+        if(next)
+            m_nextEvent = new MeeTvEvent(*next, this);
+
+    }
+
+    return m_nextEvent;
 }
 
 QString MeeTvEvent::startDate()

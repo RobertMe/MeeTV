@@ -15,6 +15,13 @@ Page {
             onClicked: eventView.event.record()
             anchors.right: parent.menuIcon.left
         }
+        menu: CommonMenu {
+            MenuItem {
+                text: qsTr("Next event")
+                onClicked: Core.viewEvent(eventView.event.nextEvent)
+                enabled: eventView.event.nextEvent !== null
+            }
+        }
     }
 
     Rectangle {

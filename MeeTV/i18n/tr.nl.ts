@@ -175,6 +175,10 @@
         <source>Record</source>
         <translation type="obsolete">Opnemen</translation>
     </message>
+    <message>
+        <source>Next event</source>
+        <translation>Volgende programma</translation>
+    </message>
 </context>
 <context>
     <name>ViewRecordings</name>

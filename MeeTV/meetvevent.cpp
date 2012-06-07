@@ -20,14 +20,14 @@
 #include <QRegExp>
 
 MeeTvEvent::MeeTvEvent(QObject *parent) :
-    QHtspEvent(MeeTvHtsp::instance(), -1, parent), m_nextEvent(0)
+    QHtspEvent(MeeTvHtsp::instance(), -1, parent), m_nextEvent(0), m_previousEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
 }
 
 MeeTvEvent::MeeTvEvent(const QHtspEvent& event, QObject *parent) :
-    QHtspEvent(event, parent), m_nextEvent(0)
+    QHtspEvent(event, parent), m_nextEvent(0), m_previousEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
@@ -54,6 +54,19 @@ MeeTvEvent *MeeTvEvent::nextEvent()
     }
 
     return m_nextEvent;
+}
+
+MeeTvEvent *MeeTvEvent::previousEvent()
+{
+    if(!m_previousEvent)
+    {
+        QHtspEvent *previous = QHtspEvent::previousEvent();
+        if(previous)
+            m_previousEvent = new MeeTvEvent(*previous, this);
+
+    }
+
+    return m_previousEvent;
 }
 
 QString MeeTvEvent::startDate()

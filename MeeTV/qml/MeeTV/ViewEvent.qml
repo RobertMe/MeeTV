@@ -17,6 +17,11 @@ Page {
         }
         menu: CommonMenu {
             MenuItem {
+                text: qsTr("Previous event")
+                onClicked: Core.viewEvent(eventView.event.previousEvent)
+                enabled: eventView.event.previousEvent !== null
+            }
+            MenuItem {
                 text: qsTr("Next event")
                 onClicked: Core.viewEvent(eventView.event.nextEvent)
                 enabled: eventView.event.nextEvent !== null

@@ -27,7 +27,8 @@ class MeeTvEvent : public QHtspEvent
 {
     Q_OBJECT
     Q_PROPERTY(QString htmlDescription READ htmlDescription NOTIFY htmlDescriptionChanged())
-    Q_PROPERTY(MeeTvEvent *nextEvent READ nextEvent);
+    Q_PROPERTY(MeeTvEvent *nextEvent READ nextEvent)
+    Q_PROPERTY(MeeTvEvent *previousEvent READ previousEvent)
     Q_PROPERTY(QString startDate READ startDate)
     Q_PROPERTY(QObject *parent READ parent WRITE setParent)
 
@@ -37,6 +38,7 @@ public:
     
     QString htmlDescription();
     MeeTvEvent *nextEvent();
+    MeeTvEvent *previousEvent();
     QString startDate();
 
 signals:
@@ -44,6 +46,7 @@ signals:
 
 private:
     MeeTvEvent *m_nextEvent;
+    MeeTvEvent *m_previousEvent;
     
 };
 

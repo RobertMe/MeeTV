@@ -179,6 +179,10 @@
         <source>Next event</source>
         <translation>Volgende programma</translation>
     </message>
+    <message>
+        <source>Previous event</source>
+        <translation>Vorige programma</translation>
+    </message>
 </context>
 <context>
     <name>ViewRecordings</name>

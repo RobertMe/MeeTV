@@ -40,3 +40,8 @@ function searchEvent(parent, queryString, channel, tag)
     var item = pageStack.push(Qt.resolvedUrl("SearchEventResult.qml"), {"events": epgQuery.eventsModel });
     epgQuery.parent = item;
 }
+
+function searchOnImdb(event)
+{
+    Qt.openUrlExternally("http://m.imdb.com/find?q=" + event.title)
+}

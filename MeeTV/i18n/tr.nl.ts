@@ -175,6 +175,10 @@
         <source>Record</source>
         <translation type="obsolete">Opnemen</translation>
     </message>
+    <message>
+        <source>Search on IMDd</source>
+        <translation>Zoek op IMDb</translation>
+    </message>
 </context>
 <context>
     <name>ViewRecordings</name>

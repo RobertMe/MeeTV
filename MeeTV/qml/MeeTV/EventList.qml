@@ -6,6 +6,7 @@ import Htsp 1.0
 Item {
     id: root
 
+    property bool allowEventNavigation: false
     property bool showChannel: false
     property alias model: events.model
 
@@ -71,7 +72,7 @@ Item {
                 visible: root.showChannel
             }
 
-            onClicked: { Core.viewEvent(events.model.get(index)); }
+            onClicked: { Core.viewEvent(events.model.get(index), allowEventNavigation); }
         }
     }
 

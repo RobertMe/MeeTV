@@ -60,5 +60,6 @@ Page {
             margins: UiConstants.DefaultMargin
         }
         width: parent.width
+        allowEventNavigation: true
     }
 }

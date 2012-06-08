@@ -19,9 +19,9 @@ function viewDvrEntry(dvrEntry) {
     dvrEntry.parent = item;
 }
 
-function viewEvent(event, replace) {
+function viewEvent(event, allowNavigate, replace) {
     var page = Qt.resolvedUrl("ViewEvent.qml");
-    var params = {"event": event};
+    var params = {"event": event, "allowNavigate": !!allowNavigate};
     var item;
     if(replace)
         item = pageStack.replace(page, params);

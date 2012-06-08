@@ -18,12 +18,12 @@ Page {
         menu: CommonMenu {
             MenuItem {
                 text: qsTr("Previous event")
-                onClicked: Core.viewEvent(eventView.event.previousEvent)
+                onClicked: Core.viewEvent(eventView.event.previousEvent, true)
                 enabled: eventView.event.previousEvent !== null
             }
             MenuItem {
                 text: qsTr("Next event")
-                onClicked: Core.viewEvent(eventView.event.nextEvent)
+                onClicked: Core.viewEvent(eventView.event.nextEvent, true)
                 enabled: eventView.event.nextEvent !== null
             }
         }

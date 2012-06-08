@@ -6,7 +6,7 @@ function viewChannel(channel, model, index, replace) {
     var page = Qt.resolvedUrl("ViewChannel.qml");
     var params = {"channel": channel, "events": channel.eventsModel,
         "channelModel": model, "currentIndex": index};
-    var item
+    var item;
     if(replace)
         item = pageStack.replace(page, params);
     else
@@ -19,8 +19,14 @@ function viewDvrEntry(dvrEntry) {
     dvrEntry.parent = item;
 }
 
-function viewEvent(event) {
-    var item = pageStack.push(Qt.resolvedUrl("ViewEvent.qml"), {"event": event});
+function viewEvent(event, replace) {
+    var page = Qt.resolvedUrl("ViewEvent.qml");
+    var params = {"event": event};
+    var item;
+    if(replace)
+        item = pageStack.replace(page, params);
+    else
+        item = pageStack.push(page, params);
     event.parent = item;
 }
 

@@ -27,6 +27,7 @@ class MeeTvService;
 class MeeTvChannel : public QHtspChannel
 {
     Q_OBJECT
+    Q_PROPERTY(MeeTvEvent *event READ event)
     Q_PROPERTY(MeeTvEventModel *eventsModel READ eventsModel)
     Q_PROPERTY(MeeTvService *service READ service WRITE setService NOTIFY serviceChanged)
     Q_PROPERTY(QObject *parent READ parent WRITE setParent)
@@ -35,6 +36,7 @@ public:
     explicit MeeTvChannel(QObject *parent = 0);
     MeeTvChannel(const QHtspChannel& channel, QObject *parent = 0);
 
+    MeeTvEvent *event();
     MeeTvEventModel *eventsModel();
     MeeTvService *service();
 
@@ -44,8 +46,12 @@ signals:
     void serviceChanged();
 
 private:
+    MeeTvEvent *m_event;
     MeeTvEventModel *m_eventModel;
     MeeTvService *m_meetvService;
+
+private slots:
+    void _resetEvent();
 
 };
 

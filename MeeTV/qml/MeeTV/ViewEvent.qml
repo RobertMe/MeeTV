@@ -15,6 +15,12 @@ Page {
             onClicked: eventView.event.record()
             anchors.right: parent.menuIcon.left
         }
+        menu: CommonMenu {
+            MenuItem {
+                text: qsTr("Search on IMDd")
+                onClicked: Core.searchOnImdb(event)
+            }
+        }
     }
 
     Rectangle {

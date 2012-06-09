@@ -5,6 +5,7 @@ Item {
     property int leftMargin
     property int rightMargin
     property bool canNavigateNext: true
+    property alias mouseArea: mouseArea
 
     width: parent.width - drilldown.width - 10
 
@@ -35,7 +36,6 @@ Item {
     MouseArea {
         id: mouseArea
         anchors.fill: background
-        onClicked: parent.clicked()
-        enabled: canNavigateNext
+        onClicked: canNavigateNext && parent.clicked()
     }
 }

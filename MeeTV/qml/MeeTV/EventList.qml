@@ -72,6 +72,10 @@ Item {
             }
 
             onClicked: { Core.viewEvent(events.model.get(index)); }
+            mouseArea.onPressAndHold: {
+                eventMenu.event = events.model.get(index);
+                eventMenu.open();
+            }
         }
     }
 
@@ -81,5 +85,18 @@ Item {
 
     SectionScroller {
         listView: events
+    }
+
+    Menu {
+        id: eventMenu
+
+        property Event event
+
+        MenuLayout {
+            MenuItem {
+                text: qsTr("Search on IMDd")
+                onClicked: Core.searchOnImdb(eventMenu.event)
+            }
+        }
     }
 }

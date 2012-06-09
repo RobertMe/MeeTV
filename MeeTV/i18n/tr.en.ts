@@ -144,7 +144,7 @@
         <translation>Previous channel</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewChannel.qml" line="19"/>
+        <location filename="../qml/MeeTV/ViewChannel.qml" line="20"/>
         <source>Next channel</source>
         <translation>Next channel</translation>
     </message>
@@ -210,6 +210,11 @@
     <message>
         <source>Record</source>
         <translation type="obsolete">Record</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="20"/>
+        <source>Search on IMDd</source>
+        <translation>Search on IMDb</translation>
     </message>
 </context>
 <context>

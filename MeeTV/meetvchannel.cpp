@@ -21,13 +21,29 @@
 #include "meetvservice.h"
 
 MeeTvChannel::MeeTvChannel(QObject *parent) :
-    QHtspChannel(MeeTvHtsp::instance(), parent), m_eventModel(0), m_meetvService(0)
+    QHtspChannel(MeeTvHtsp::instance(), parent), m_event(0), m_eventModel(0), m_meetvService(0)
 {
+    connect(this, SIGNAL(eventIdChanged()), this, SLOT(_resetEvent()));
 }
 
 MeeTvChannel::MeeTvChannel(const QHtspChannel& channel, QObject *parent) :
-    QHtspChannel(channel, parent), m_eventModel(0), m_meetvService(0)
+    QHtspChannel(channel, parent), m_event(0), m_eventModel(0), m_meetvService(0)
 {
+    connect(this, SIGNAL(eventIdChanged()), this, SLOT(_resetEvent()));
+}
+
+MeeTvEvent *MeeTvChannel::event()
+{
+    if(!m_event)
+    {
+        QHtspEvent *event = QHtspChannel::event();
+        if(event)
+            m_event = new MeeTvEvent(event);
+        else
+            m_event = 0;
+    }
+
+    return m_event;
 }
 
 MeeTvEventModel *MeeTvChannel::eventsModel()
@@ -70,4 +86,9 @@ void MeeTvChannel::setService(MeeTvService *service)
 
     m_meetvService = service;
     QHtspChannel::setService(service);
+}
+
+void MeeTvChannel::_resetEvent()
+{
+    m_event = 0;
 }

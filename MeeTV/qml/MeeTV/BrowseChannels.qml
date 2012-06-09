@@ -111,10 +111,26 @@ Page {
 
             canNavigateNext: event !== ""
             onClicked:  { Core.viewChannel(channelsView.model.get(index), channelsView.model, index) }
+            mouseArea.onPressAndHold: { channelMenu.channel = channelsView.model.get(index); channelMenu.open(); }
         }
     }
 
     ScrollDecorator {
         flickableItem: channelsView
+    }
+
+    Menu {
+        id: channelMenu
+
+        property Channel channel
+
+        visualParent: pageStack
+
+        MenuLayout {
+            MenuItem {
+                text: qsTr("Search on IMDd")
+                onClicked: Core.searchOnImdb(channelMenu.channel.event)
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@ MeeTvEvent::MeeTvEvent(QObject *parent) :
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
+    connect(this, SIGNAL(nextEventIdChanged()), this, SIGNAL(nextEventChanged()));
 }
 
 MeeTvEvent::MeeTvEvent(const QHtspEvent& event, QObject *parent) :
@@ -62,7 +63,10 @@ MeeTvEvent *MeeTvEvent::previousEvent()
     {
         QHtspEvent *previous = QHtspEvent::previousEvent();
         if(previous)
+        {
             m_previousEvent = new MeeTvEvent(*previous, this);
+            connect(previous, SIGNAL(destroyed()), this, SLOT(_resetPreviousEvent()));
+        }
 
     }
 
@@ -72,4 +76,10 @@ MeeTvEvent *MeeTvEvent::previousEvent()
 QString MeeTvEvent::startDate()
 {
     return start().date().toString();
+}
+
+void MeeTvEvent::_resetPreviousEvent()
+{
+    m_previousEvent = 0;
+    emit previousEventChanged();
 }

@@ -7,6 +7,7 @@ Page {
     id: eventView
 
     property Event event
+    property bool allowNavigate: false
 
     tools: CommonToolbar {
         ToolIcon {
@@ -19,6 +20,26 @@ Page {
             MenuItem {
                 text: qsTr("Search on IMDd")
                 onClicked: Core.searchOnImdb(event)
+            }
+            MenuItem {
+                id: previousEvent
+                text: qsTr("Previous event")
+                onClicked: Core.viewEvent(eventView.event.previousEvent, true, true)
+                enabled: eventView.event.previousEvent !== null
+            }
+            MenuItem {
+                id: nextEvent
+                text: qsTr("Next event")
+                onClicked: Core.viewEvent(eventView.event.nextEvent, true, true)
+                enabled: eventView.event.nextEvent !== null
+            }
+
+            Component.onCompleted: {
+                if(allowNavigate)
+                    return;
+
+                previousEvent.destroy();
+                nextEvent.destroy();
             }
         }
     }

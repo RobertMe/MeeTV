@@ -20,14 +20,15 @@
 #include <QRegExp>
 
 MeeTvEvent::MeeTvEvent(QObject *parent) :
-    QHtspEvent(MeeTvHtsp::instance(), -1, parent)
+    QHtspEvent(MeeTvHtsp::instance(), -1, parent), m_nextEvent(0), m_previousEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
+    connect(this, SIGNAL(nextEventIdChanged()), this, SIGNAL(nextEventChanged()));
 }
 
 MeeTvEvent::MeeTvEvent(const QHtspEvent& event, QObject *parent) :
-    QHtspEvent(event, parent)
+    QHtspEvent(event, parent), m_nextEvent(0), m_previousEvent(0)
 {
     connect(this, SIGNAL(descriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
     connect(this, SIGNAL(longDescriptionChanged()), this, SIGNAL(htmlDescriptionChanged()));
@@ -43,7 +44,42 @@ QString MeeTvEvent::htmlDescription()
     return text;
 }
 
+MeeTvEvent *MeeTvEvent::nextEvent()
+{
+    if(!m_nextEvent)
+    {
+        QHtspEvent *next = QHtspEvent::nextEvent();
+        if(next)
+            m_nextEvent = new MeeTvEvent(*next, this);
+
+    }
+
+    return m_nextEvent;
+}
+
+MeeTvEvent *MeeTvEvent::previousEvent()
+{
+    if(!m_previousEvent)
+    {
+        QHtspEvent *previous = QHtspEvent::previousEvent();
+        if(previous)
+        {
+            m_previousEvent = new MeeTvEvent(*previous, this);
+            connect(previous, SIGNAL(destroyed()), this, SLOT(_resetPreviousEvent()));
+        }
+
+    }
+
+    return m_previousEvent;
+}
+
 QString MeeTvEvent::startDate()
 {
     return start().date().toString();
+}
+
+void MeeTvEvent::_resetPreviousEvent()
+{
+    m_previousEvent = 0;
+    emit previousEventChanged();
 }

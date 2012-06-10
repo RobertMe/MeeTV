@@ -216,6 +216,16 @@
         <source>Search on IMDd</source>
         <translation>Search on IMDb</translation>
     </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="20"/>
+        <source>Previous event</source>
+        <translation>Previous event</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="25"/>
+        <source>Next event</source>
+        <translation>Next event</translation>
+    </message>
 </context>
 <context>
     <name>ViewRecordings</name>

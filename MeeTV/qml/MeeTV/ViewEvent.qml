@@ -55,12 +55,16 @@ Page {
         Label {
             id: title
             text: event.title
+
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
+            anchors.right: timings.left
             anchors.margins: UiConstants.DefaultMargin
         }
 
         Grid {
+            id: timings
+
             columns: screen.currentOrientation === Screen.Landscape ? 2 : 1
 
             anchors {

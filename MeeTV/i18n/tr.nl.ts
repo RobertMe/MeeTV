@@ -54,6 +54,10 @@
         <source>No channels with tag %1</source>
         <translation>Geen kanalen met tag %1</translation>
     </message>
+    <message>
+        <source>Search on IMDd</source>
+        <translation>Zoek op IMDb</translation>
+    </message>
 </context>
 <context>
     <name>BrowseTags</name>
@@ -82,6 +86,13 @@
     <message>
         <source>No</source>
         <translation>Nee</translation>
+    </message>
+</context>
+<context>
+    <name>EventList</name>
+    <message>
+        <source>Search on IMDd</source>
+        <translation>Zoek op IMDb</translation>
     </message>
 </context>
 <context>
@@ -127,6 +138,13 @@
     </message>
 </context>
 <context>
+    <name>SearchEventResult</name>
+    <message>
+        <source>No events found for the given search</source>
+        <translation>Geen zoekresultaten voor de zoekopdracht</translation>
+    </message>
+</context>
+<context>
     <name>ViewChannel</name>
     <message>
         <source>Previous channel</source>
@@ -135,13 +153,6 @@
     <message>
         <source>Next channel</source>
         <translation>Volgende kanaal</translation>
-    </message>
-</context>
-<context>
-    <name>SearchEventResult</name>
-    <message>
-        <source>No events found for the given search</source>
-        <translation>Geen zoekresultaten voor de zoekopdracht</translation>
     </message>
 </context>
 <context>

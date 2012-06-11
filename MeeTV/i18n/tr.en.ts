@@ -62,9 +62,14 @@
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/BrowseChannels.qml" line="124"/>
+        <location filename="../qml/MeeTV/BrowseChannels.qml" line="125"/>
         <source>No channels with tag %1</source>
         <translation>No channels with tag %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/MeeTV/BrowseChannels.qml" line="141"/>
+        <source>Search on IMDd</source>
+        <translation>Search on IMDb</translation>
     </message>
 </context>
 <context>
@@ -99,6 +104,14 @@
         <location filename="../qml/MeeTV/ConfirmationDialog.qml" line="30"/>
         <source>No</source>
         <translation>No</translation>
+    </message>
+</context>
+<context>
+    <name>EventList</name>
+    <message>
+        <location filename="../qml/MeeTV/EventList.qml" line="98"/>
+        <source>Search on IMDd</source>
+        <translation>Search on IMDb</translation>
     </message>
 </context>
 <context>
@@ -155,6 +168,14 @@
     </message>
 </context>
 <context>
+    <name>SearchEventResult</name>
+    <message>
+        <location filename="../qml/MeeTV/SearchEventResult.qml" line="26"/>
+        <source>No events found for the given search</source>
+        <translation>No events found for the given search</translation>
+    </message>
+</context>
+<context>
     <name>ViewChannel</name>
     <message>
         <location filename="../qml/MeeTV/ViewChannel.qml" line="15"/>
@@ -165,14 +186,6 @@
         <location filename="../qml/MeeTV/ViewChannel.qml" line="20"/>
         <source>Next channel</source>
         <translation>Next channel</translation>
-    </message>
-</context>
-<context>
-    <name>SearchEventResult</name>
-    <message>
-        <location filename="../qml/MeeTV/SearchEventResult.qml" line="26"/>
-        <source>No events found for the given search</source>
-        <translation>No events found for the given search</translation>
     </message>
 </context>
 <context>
@@ -238,17 +251,17 @@
         <translation type="obsolete">Record</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewEvent.qml" line="20"/>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="21"/>
         <source>Search on IMDd</source>
         <translation>Search on IMDb</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewEvent.qml" line="20"/>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="26"/>
         <source>Previous event</source>
         <translation>Previous event</translation>
     </message>
     <message>
-        <location filename="../qml/MeeTV/ViewEvent.qml" line="25"/>
+        <location filename="../qml/MeeTV/ViewEvent.qml" line="32"/>
         <source>Next event</source>
         <translation>Next event</translation>
     </message>

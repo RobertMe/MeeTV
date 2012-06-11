@@ -1,3 +1,12 @@
+meetv (1.1.0) unstable; urgency=low
+  * Support navigating backwards and forword between channels
+  * Support navigating backwards and forword between events
+  * Support for searching an event on IMDb
+  * Display a message when there are no tags, channels, recordings, search results
+  * Small fixes
+
+ -- Robert Meijers <robert@r-meijers.nl>  Mon, 11 Jun 2012 21:32:17 +0200
+
 meetv (1.0.1) unstable; urgency=low
   * only set port when not upgrading
   * only remove settings when not upgrading
